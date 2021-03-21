@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('locale', function () { return back(); })->name('locale');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('findo/index', 'findo.index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

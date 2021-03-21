@@ -1,4 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/findo/css/style.css": "/findo/css/style.css",
+    "/findo/css/meanmenu.css": "/findo/css/meanmenu.css",
+    "/findo/css/responsive.css": "/findo/css/responsive.css",
     "/css/app.css": "/css/app.css"
 }
