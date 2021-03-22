@@ -67,7 +67,6 @@
                         @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
                         class="p-1 text-blue-400 transition-colors duration-200 rounded-md bg-blue-50 hover:text-blue-600 hover:bg-blue-100   md:hidden focus:outline-none focus:ring"
                     >
-                        <span class="sr-only">Open main manu</span>
                         <span aria-hidden="true">
                   <svg
                       class="w-8 h-8"
@@ -88,10 +87,9 @@
                     <!-- Right buttons -->
                     <nav aria-label="Secondary" class="space-x-2 mr-3 flex items-center">
                         <!-- Settings button -->
-                        <a href=""
+                        <a href="{{ route('admin.settings') }}"
                             class="p-2 text-blue-400 transition-colors duration-200 rounded-md bg-blue-50 hover:text-blue-600 hover:bg-blue-100   focus:outline-none focus:bg-blue-100 focus:ring-blue-800"
                         >
-                            <span class="sr-only">Open settings panel</span>
                             <svg
                                 class="w-7 h-7"
                                 xmlns="http://www.w3.org/2000/svg"

@@ -25,3 +25,9 @@ Route::view('/donate', 'pages.donate')->name('donate');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
+    Route::get('/settings/{tab?}', function ($tab = null) {
+        return view('admin.settings', compact('tab'));
+    })->name('settings');
+});
