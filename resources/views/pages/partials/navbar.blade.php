@@ -2,7 +2,7 @@
 
     <div class="mobile-nav">
         <a href="{{ url('/') }}" class="logo">
-            <img src="https://templates.hibootstrap.com/findo/default/assets/img/logo-two.png" alt="Logo">
+            <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
         </a>
     </div>
 
@@ -10,7 +10,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="https://templates.hibootstrap.com/findo/default/assets/img/logo.png" alt="Logo">
+                    <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">

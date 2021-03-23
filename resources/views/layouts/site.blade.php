@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" href="{{ asset('findo/css/responsive.css') }}">
 
-    <link rel="icon" type="image/png" href="{{ asset('findo/img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset(setting('general', 'favicon')) }}">
 </head>
 <body>
 

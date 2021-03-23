@@ -6,6 +6,8 @@ use Spatie\LaravelSettings\Settings;
 
 class GeneralSettings extends Settings
 {
+    public string $logo;
+    public string $favicon;
     public string $site_name;
     public string $tagline;
     public string $contact_email;
