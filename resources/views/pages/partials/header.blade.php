@@ -22,23 +22,23 @@
                             <span>{{ __('Follow Us') }}:</span>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ setting('social', 'facebook') }}" target="_blank">
                                 <i class="icofont-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ setting('social', 'twitter') }}" target="_blank">
                                 <i class="icofont-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="icofont-youtube-play"></i>
+                            <a href="{{ setting('social', 'instagram') }}" target="_blank">
+                                <i class="icofont-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="icofont-instagram"></i>
+                            <a href="{{ setting('social', 'youtube') }}" target="_blank">
+                                <i class="icofont-youtube-play"></i>
                             </a>
                         </li>
                     </ul>
@@ -46,8 +46,9 @@
                         <form action="{{ route('locale') }}" method="POST">
                             @csrf
                             <select name="locale" onchange="$(this).parent().submit()">
-                                <option value="en" @if(app()->getLocale() == 'en')) selected @endif>English</option>
-                                <option value="bn" @if(app()->getLocale() == 'bn')) selected @endif>বাংলা</option>
+                                @foreach(['bn' => 'বাংলা', 'en' => 'English'] as $lang => $label)
+                                <option value="{{ $lang }}" @if(app()->getLocale() === $lang)) selected @endif>{{ $label }}</option>
+                                @endforeach
                             </select>
                         </form>
                     </div>

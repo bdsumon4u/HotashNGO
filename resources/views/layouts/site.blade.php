@@ -61,30 +61,29 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-logo">
-                        <a class="logo" href="index.html">
-                            <img src="https://templates.hibootstrap.com/findo/default/assets/img/logo-two.png" alt="Logo">
+                        <a class="logo" href="{{ url('/') }}">
+                            <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
                         </a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero, magni est placeat
-                            neque, repellat maxime a dolore</p>
+                        <p>{{ setting('general', 'tagline') }}</p>
                         <ul>
                             <li>
-                                <a href="#" target="_blank">
+                                <a href="{{ setting('social', 'facebook') }}" target="_blank">
                                     <i class="icofont-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank">
+                                <a href="{{ setting('social', 'twitter') }}" target="_blank">
                                     <i class="icofont-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank">
-                                    <i class="icofont-youtube-play"></i>
+                                <a href="{{ setting('social', 'instagram') }}" target="_blank">
+                                    <i class="icofont-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank">
-                                    <i class="icofont-instagram"></i>
+                                <a href="{{ setting('social', 'youtube') }}" target="_blank">
+                                    <i class="icofont-youtube-play"></i>
                                 </a>
                             </li>
                         </ul>
