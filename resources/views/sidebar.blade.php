@@ -24,10 +24,10 @@
             <!-- Dashboards links -->
             <div>
                 <!-- active & hover classes 'bg-blue-100' -->
-                <a
-                    href="{{ route('dashboard') }}"
+                <H:a
+                    :href="route('dashboard')"
                     class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    :class="{'text-gray-700 bg-blue-200': {{ request()->routeIs('dashboard') ? 'true' : 'false' }}}"
+                    x-bind:class="{'text-gray-700 bg-blue-200': {{ request()->routeIs('dashboard') ? 'true' : 'false' }}}"
                     role="button"
                     aria-haspopup="true"
                 >
@@ -48,7 +48,69 @@
                     </svg>
                   </span>
                     <span class="ml-2 text-sm">{{ __('Dashboard') }}</span>
+                </H:a>
+            </div>
+
+            <div>
+                <!-- active classes 'bg-blue-100' -->
+                <a
+                    href="#"
+                    @click="$event.preventDefault(); open = (open == 'slides' ? null : 'slides')"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
+                    :class="{ 'bg-blue-100': shouldBold('slides') }"
+                    role="button"
+                    aria-haspopup="true"
+                    :aria-expanded="shouldBold('slides') ? 'true' : 'false'"
+                >
+                  <span aria-hidden="true">
+                    <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                      <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                      />
+                    </svg>
+                  </span>
+                    <span class="ml-2 text-sm">{{ __('Slider') }}</span>
+                    <span aria-hidden="true" class="ml-auto">
+                    <!-- active class 'rotate-180' -->
+                    <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open == 'slides' }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </span>
                 </a>
+                <div x-show="open == 'slides'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
+                    <!-- active & hover classes 'text-gray-700' -->
+                    <!-- inActive classes 'text-gray-400' -->
+                    <H:a
+                        :href="route('admin.slides.index')"
+                        role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                    >
+                        All Slides
+                    </H:a>
+                    <H:a
+                        :href="route('admin.slides.create')"
+                        role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                    >
+                        Add New
+                    </H:a>
+                </div>
             </div>
 
             <!-- Components links -->

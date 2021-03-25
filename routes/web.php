@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//collect(File::allFiles(base_path()))->sum->getSize()
 
 Route::post('locale', function () { return back(); })->name('locale');
 
@@ -27,7 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
-    Route::get('/settings/{tab?}', function ($tab = null) {
-        return view('admin.settings', compact('tab'));
-    })->name('settings');
+    Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
+    Route::resources([
+        'slides' => \App\Http\Controllers\Admin\SlideController::class,
+    ]);
 });
