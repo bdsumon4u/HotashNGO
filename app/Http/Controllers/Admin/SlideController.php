@@ -21,7 +21,7 @@ class SlideController extends Controller
     {
         $slides = Image::where('collection', $this->collection)
             ->with('media')
-            ->firstOrFail()
+            ->firstOrCreate(['collection' => $this->collection])
             ->getMedia($this->collection);
         if ($slides->isEmpty()) {
             return redirect()->action([static::class, 'create']);

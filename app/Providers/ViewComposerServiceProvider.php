@@ -28,7 +28,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('pages.partials.banner', function ($view) {
             $slides = Image::where('collection', 'slides')
                 ->with('media')
-                ->firstOrFail()
+                ->firstOrCreate(['collection' => 'slides'])
                 ->getMedia('slides');
             return $view->with(compact('slides'));
         });

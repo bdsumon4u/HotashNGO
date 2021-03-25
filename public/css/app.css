@@ -948,6 +948,12 @@ video {
 	width: 16rem;
 }.w-7 {
 	width: 1.75rem;
+}.w-14 {
+	width: 3.5rem;
+}.w-24 {
+	width: 6rem;
+}.w-36 {
+	width: 9rem;
 }.min-w-0 {
 	min-width: 0px;
 }.min-w-max {
@@ -966,6 +972,10 @@ video {
 	max-width: 28rem;
 }.max-w-6xl {
 	max-width: 72rem;
+}.max-w-lg {
+	max-width: 32rem;
+}.max-w-5xl {
+	max-width: 64rem;
 }.flex-1 {
 	flex: 1 1 0%;
 }.flex-auto {
@@ -1170,6 +1180,9 @@ video {
 }.border-gray-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+}.border-blue-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(59, 130, 246, var(--tw-border-opacity));
 }.bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1239,6 +1252,9 @@ video {
 }.bg-blue-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
+}.bg-red-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
 }.bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }.bg-opacity-90 {
@@ -1473,6 +1489,12 @@ video {
 }.text-blue-400 {
 	--tw-text-opacity: 1;
 	color: rgba(96, 165, 250, var(--tw-text-opacity));
+}.text-blue-500 {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}.text-red-300 {
+	--tw-text-opacity: 1;
+	color: rgba(252, 165, 165, var(--tw-text-opacity));
 }.underline {
 	text-decoration: underline;
 }.antialiased {
@@ -1606,6 +1628,15 @@ video {
 }.hover\:text-blue-600:hover {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
+}.hover\:text-blue-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}.hover\:text-white:hover {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}.hover\:text-blue-700:hover {
+	--tw-text-opacity: 1;
+	color: rgba(29, 78, 216, var(--tw-text-opacity));
 }.focus\:z-10:focus {
 	z-index: 10;
 }.focus\:border-blue-300:focus {
@@ -1809,6 +1840,8 @@ video {
 	}.sm\:text-xl {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
+	}.sm\:flex-row {
+		flex-direction: row;
 	}
 }@media (min-width: 768px) {.md\:static {
 		position: static;

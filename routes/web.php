@@ -33,5 +33,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
     Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
     Route::resources([
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
+        'pages' => \App\Http\Controllers\Admin\PageController::class,
     ]);
 });
+
+if (\Illuminate\Support\Facades\Schema::hasTable('pages')) {
+    Route::get('{page:slug}', function (\App\Models\Page $page) {
+        return view('pages.page', compact('page'));
+    })->name('page.show');
+}
