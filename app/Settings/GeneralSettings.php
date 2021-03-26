@@ -12,6 +12,7 @@ class GeneralSettings extends Settings
     public string $tagline;
     public string $contact_email;
     public string $contact_phone;
+    public string $address;
 
     public static function group(): string
     {

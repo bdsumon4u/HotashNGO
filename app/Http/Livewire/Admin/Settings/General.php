@@ -18,6 +18,7 @@ class General extends Component
     public string $tagline;
     public string $contact_email;
     public string $contact_phone;
+    public string $address;
 
     public $rules = [
         'logo' => 'required|max:255',
@@ -26,6 +27,7 @@ class General extends Component
         'tagline' => 'required|max:255',
         'contact_email' => 'required|max:55',
         'contact_phone' => 'required|max:35',
+        'address' => 'required|max:135',
     ];
 
     public function mount(GeneralSettings $settings): void

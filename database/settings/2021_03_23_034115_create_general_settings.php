@@ -12,5 +12,6 @@ class CreateGeneralSettings extends SettingsMigration
         $this->migrator->add('general.tagline', 'Help People, Make a Happy World.');
         $this->migrator->add('general.contact_email', 'support@cyber32.com');
         $this->migrator->add('general.contact_phone', '+8801xxxxxxxxx');
+        $this->migrator->add('general.address', '89 Boundary Road, Circle-10. Mirpur, Dhaka-1216.');
     }
 }

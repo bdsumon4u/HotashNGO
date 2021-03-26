@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="left">
-                    <ul>
-                        <li>
+                    <ul class="d-flex">
+                        <li class="text-truncate">
                             <i class="icofont-location-pin"></i>
-                            <a href="#">6B, Helvetica street, Jordan</a>
+                            <a style="max-width: 190px;" title="{{ setting('general', 'address') }}" href="javascript:void(0)">{{ setting('general', 'address') }}</a>
                         </li>
                         <li>
                             <i class="icofont-ui-call"></i>
-                            <a href="tel:+0123456987">+0123-456-987</a>
+                            <a href="tel:{{ setting('general', 'contact_phone') }}">{{ setting('general', 'contact_phone') }}</a>
                         </li>
                     </ul>
                 </div>

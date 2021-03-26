@@ -136,23 +136,15 @@
                             <ul>
                                 <li>
                                     <i class="icofont-location-pin"></i>
-                                    <a href="#">6B, Helvetica street, Jordan</a>
+                                    <a href="javascript:void(0)">{{ setting('general', 'address') }}</a>
+                                </li>
+                                <li>
+                                    <i class="icofont-email"></i>
+                                    <a href="mailto:{{ setting('general', 'contact_email') }}">{{ setting('general', 'contact_email') }}</a>
                                 </li>
                                 <li>
                                     <i class="icofont-ui-call"></i>
-                                    <a href="tel:+123456789">+123-456-789</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="contact-inner">
-                            <ul>
-                                <li>
-                                    <i class="icofont-location-pin"></i>
-                                    <a href="#">6A, New street, Spain</a>
-                                </li>
-                                <li>
-                                    <i class="icofont-ui-call"></i>
-                                    <a href="tel:+548658956">+548-658-956</a>
+                                    <a href="tel:{{ setting('general', 'contact_phone') }}">{{ setting('general', 'contact_phone') }}</a>
                                 </li>
                             </ul>
                         </div>
