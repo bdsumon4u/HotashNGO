@@ -25,6 +25,8 @@ Route::view('/events/{event}', 'pages.events.show')->name('events.show');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/donate', 'pages.donate')->name('donate');
 
+Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -35,6 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
     Route::resources([
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
         'pages' => \App\Http\Controllers\Admin\PageController::class,
+        'images' => \App\Http\Controllers\Admin\GalleryController::class,
     ]);
 });
 
