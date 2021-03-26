@@ -49,8 +49,7 @@
 
 @include('pages.partials.header')
 
-@include('pages.partials.navbar')
-
+{!! MenuH::render('Main Menu', 'pages.partials.navbar') !!}
 
 {{ $slot }}
 
@@ -93,7 +92,7 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-causes">
-                        <h3>Urgent causes</h3>
+                        <h3>@lang('Urgent Causes')</h3>
                         <div class="cause-inner">
                             <ul class="align-items-center">
                                 <li>
@@ -124,40 +123,15 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-links">
-                        <h3>Quick links</h3>
-                        <ul>
-                            <li>
-                                <a href="about.html">
-                                    <i class="icofont-simple-right"></i>
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog.html">
-                                    <i class="icofont-simple-right"></i>
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="events.html">
-                                    <i class="icofont-simple-right"></i>
-                                    Events
-                                </a>
-                            </li>
-                            <li>
-                                <a href="donation.html">
-                                    <i class="icofont-simple-right"></i>
-                                    Donation
-                                </a>
-                            </li>
-                        </ul>
+                        <h3>@lang('Quick Links')</h3>
+                        {!! MenuH::render('Quick Links', 'pages.partials.quick-links') !!}
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-contact">
-                        <h3>Contact info</h3>
+                        <h3>@lang('Contact Info')</h3>
                         <div class="contact-inner">
                             <ul>
                                 <li>

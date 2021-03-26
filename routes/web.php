@@ -31,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
     Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
+    Route::view('/menu-builder', 'admin.menu-builder')->name('menu-builder');
     Route::resources([
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
         'pages' => \App\Http\Controllers\Admin\PageController::class,

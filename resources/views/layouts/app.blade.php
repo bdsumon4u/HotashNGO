@@ -171,7 +171,7 @@
             <!-- Main content -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto">
                 <div class="container mx-auto p-1 md:p-3 lg:px-6 lg:py-8">
-                    <div class="overflow-hidden text-gray-500 text-xl lg:border-4 border-gray-300 border-dashed">
+                    <div class="overflow-hidden text-gray-500 text-xl border-gray-300 border-dashed">
                         <!-- Content -->
                         {{ $slot }}
                         <!-- Content -->

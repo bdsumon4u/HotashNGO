@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7667e8be5abeab855815723618d32b6",
+    "content-hash": "898e286e7f134f769eb59837f75b02f7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1566,6 +1566,68 @@
                 "source": "https://github.com/hotashplanet/laravel-blade-h/tree/v1.0"
             },
             "time": "2021-03-11T13:16:06+00:00"
+        },
+        {
+            "name": "hotash/laravel-menu-h",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/hotash/laravel-menu-h",
+                "reference": "82bf4d9c271984cad61e92791a90a5cc4a7f350a"
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "livewire/livewire": "^2.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hotash\\MenuH\\Providers\\MenuHServiceProvider"
+                    ],
+                    "aliases": {
+                        "MenuH": "Hotash\\MenuH\\Facades\\MenuH"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hotash\\MenuH\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sumon Ahmed",
+                    "email": "bdsumon4u@gmail.com"
+                }
+            ],
+            "description": "A Dynamic Menu Builder Package For Laravel.",
+            "homepage": "https://github.com/hotashplanet/laravel-menu-h",
+            "keywords": [
+                "blade-h",
+                "hotash",
+                "laravel-menu-h"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "intervention/image",
@@ -9638,7 +9700,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hotash/laravel-menu-h": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
