@@ -60,7 +60,7 @@
 
         <div class="flex flex-col flex-1 min-h-screen overflow-x-hidden overflow-y-auto">
             <!-- Navbar -->
-            <header class="relative bg-white">
+            <header class="relative bg-white shadow">
                 <div class="flex items-center justify-between p-2 border-b">
                     <!-- Mobile menu button -->
                     <button
@@ -189,9 +189,17 @@
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script>
     const setup = () => {
+        let open = 'Dashboard';
+        let href = window.location.href;
+        document.querySelectorAll('#sidebar a').forEach(function (el, key) {
+            if (el.getAttribute('href') == href) {
+                el.classList.add('bg-gray-700', 'text-white');
+                open = el.parentNode.previousSibling.previousSibling.textContent.trim();
+            }
+        });
         return {
             loading: true,
-            open: false,
+            open: open,
             shouldBold(name) {
                 return this.active === name || this.open === name
             },

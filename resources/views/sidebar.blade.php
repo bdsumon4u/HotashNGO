@@ -5,32 +5,110 @@
     x-transition:leave="transition transform duration-300"
     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-    class="flex-shrink-0 fixed inset-y-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r  md:static"
+    class="flex-shrink-0 fixed inset-y-0 w-64 max-h-screen overflow-hidden transition-all transform bg-gray-800 border-r md:static"
     :class="{'-translate-x-full md:translate-x-0': !isMobileMainMenuOpen}"
 >
     <div class="flex flex-col h-full" :class="{'pt-14': isMobileMainMenuOpen}">
-        <div class="px-3 py-2">
+        <div class="bg-gray-900 px-3 py-2">
             <a href="{{ route('dashboard') }}">
                 <div class="flex flex-row items-center justify-center h-12 w-full">
                     <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
                         <img src="{{ asset('hotash-ngo.png') }}" alt="Logo">
                     </div>
-                    <div class="ml-2 font-bold text-2xl truncate">{{ config('app.name') }}</div>
+                    <div class="text-white ml-2 font-bold text-2xl truncate">{{ config('app.name') }}</div>
                 </div>
             </a>
         </div>
+        @php
+            $sidebar = [
+                'Dashboard' => route('dashboard'),
+                'Slider' => [
+                    'All Slides' => route('admin.slides.index'),
+                    'Add New' => route('admin.slides.create'),
+                ],
+                'Pages' => [
+                    'All Pages' => route('admin.pages.index'),
+                    'Add New' => route('admin.pages.create'),
+                ],
+                'Menus' => route('admin.menu-builder'),
+                'Gallery' => route('admin.images.index'),
+                'Team' => [
+                    'All People' => route('admin.people.index'),
+                    'Add New' => route('admin.people.create'),
+                ],
+                'Testimonials' => [
+                    'View All' => route('admin.testimonials.index'),
+                    'Add New' => route('admin.testimonials.create'),
+                ],
+            ];
+        @endphp
         <!-- Sidebar links -->
-        <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
-            <!-- Dashboards links -->
-            <div>
-                <!-- active & hover classes 'bg-blue-100' -->
-                <H:a
-                    :href="route('dashboard')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    x-bind:class="{'text-gray-700 bg-blue-200': {{ request()->routeIs('dashboard') ? 'true' : 'false' }}}"
-                    role="button"
-                    aria-haspopup="true"
-                >
+        <nav id="sidebar" aria-label="Main" class="flex-1 px-2 py-4 space-y-2 text-gray-300 overflow-y-hidden hover:overflow-y-auto">
+            @foreach($sidebar as $label => $item)
+                <div>
+                @if(is_array($item))<!-- active classes 'bg-blue-100' -->
+                    <a
+                        href="#"
+                        @click="$event.preventDefault(); open = (open == '{{ $label }}' ? null : '{{ $label }}')"
+                        class="flex items-center p-2 transition-colors rounded-md hover:bg-gray-900"
+                        :class="{ 'bg-gray-700': shouldBold('{{ $label }}') }"
+                        role="button"
+                        aria-haspopup="true"
+                        :aria-expanded="shouldBold('{{ $label }}') ? 'true' : 'false'"
+                    >
+                  <span aria-hidden="true">
+                    <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                      <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                      />
+                    </svg>
+                  </span>
+                        <span class="ml-2 text-sm">{{ __($label) }}</span>
+                        <span aria-hidden="true" class="ml-auto">
+                    <!-- active class 'rotate-180' -->
+                    <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open == '{{ $label }}' }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </span>
+                    </a>
+                    <div x-show="open == '{{ $label }}'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
+                        <!-- active & hover classes 'text-gray-700' -->
+                        <!-- inActive classes 'text-gray-400' -->
+                        @foreach($item as $label => $child)
+                        <H:a
+                            :href="$child"
+                            role="menuitem"
+                            class="block p-2 text-sm hover:bg-gray-900 transition-colors duration-200 rounded-md"
+                        >
+                            @lang($label)
+                        </H:a>
+                        @endforeach
+                    </div>
+                @else
+                    <!-- active & hover classes 'bg-blue-100' -->
+                    <H:a
+                        :href="$item"
+                        class="flex items-center p-2 transition-colors rounded-md hover:bg-gray-900"
+                        x-bind:class="{'text-gray-700 bg-gray-700': {{ request()->fullUrlIs($item) ? 'true' : 'false' }}}"
+                        role="button"
+                        aria-haspopup="true"
+                    >
                   <span aria-hidden="true">
                     <svg
                         class="w-5 h-5"
@@ -47,315 +125,11 @@
                       />
                     </svg>
                   </span>
-                    <span class="ml-2 text-sm">{{ __('Dashboard') }}</span>
-                </H:a>
-            </div>
-
-            <div>
-                <!-- active classes 'bg-blue-100' -->
-                <a
-                    href="#"
-                    @click="$event.preventDefault(); open = (open == 'slides' ? null : 'slides')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    :class="{ 'bg-blue-100': shouldBold('slides') }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="shouldBold('slides') ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Slider') }}</span>
-                    <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open == 'slides' }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open == 'slides'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
-                    <!-- active & hover classes 'text-gray-700' -->
-                    <!-- inActive classes 'text-gray-400' -->
-                    <H:a
-                        :href="route('admin.slides.index')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        All Slides
+                        <span class="ml-2 text-sm">{{ __($label) }}</span>
                     </H:a>
-                    <H:a
-                        :href="route('admin.slides.create')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        Add New
-                    </H:a>
+                    @endif
                 </div>
-            </div>
-
-            <div>
-                <!-- active classes 'bg-blue-100' -->
-                <a
-                    href="#"
-                    @click="$event.preventDefault(); open = (open == 'pages' ? null : 'pages')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    :class="{ 'bg-blue-100': shouldBold('pages') }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="shouldBold('pages') ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Pages') }}</span>
-                    <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open == 'pages' }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open == 'pages'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
-                    <!-- active & hover classes 'text-gray-700' -->
-                    <!-- inActive classes 'text-gray-400' -->
-                    <H:a
-                        :href="route('admin.pages.index')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        All Pages
-                    </H:a>
-                    <H:a
-                        :href="route('admin.pages.create')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        Add New
-                    </H:a>
-                </div>
-            </div>
-
-            <div>
-                <!-- active & hover classes 'bg-blue-100' -->
-                <H:a
-                    :href="route('admin.menu-builder')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    x-bind:class="{'text-gray-700 bg-blue-200': {{ request()->routeIs('admin.menu-builder') ? 'true' : 'false' }}}"
-                    role="button"
-                    aria-haspopup="true"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Menus') }}</span>
-                </H:a>
-            </div>
-
-            <div>
-                <!-- active & hover classes 'bg-blue-100' -->
-                <H:a
-                    :href="route('admin.images.index')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    x-bind:class="{'text-gray-700 bg-blue-200': {{ request()->routeIs('admin.images.index') ? 'true' : 'false' }}}"
-                    role="button"
-                    aria-haspopup="true"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Gallery') }}</span>
-                </H:a>
-            </div>
-
-            <div>
-                <!-- active classes 'bg-blue-100' -->
-                <a
-                    href="#"
-                    @click="$event.preventDefault(); open = (open == 'team' ? null : 'team')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    :class="{ 'bg-blue-100': shouldBold('pages') }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="shouldBold('team') ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Team') }}</span>
-                    <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open == 'team' }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open == 'team'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
-                    <!-- active & hover classes 'text-gray-700' -->
-                    <!-- inActive classes 'text-gray-400' -->
-                    <H:a
-                        :href="route('admin.people.index')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        All People
-                    </H:a>
-                    <H:a
-                        :href="route('admin.people.create')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        Add New
-                    </H:a>
-                </div>
-            </div>
-
-            <div>
-                <!-- active classes 'bg-blue-100' -->
-                <a
-                    href="#"
-                    @click="$event.preventDefault(); open = (open == 'testimonials' ? null : 'testimonials')"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-blue-100"
-                    :class="{ 'bg-blue-100': shouldBold('pages') }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="shouldBold('testimonials') ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </span>
-                    <span class="ml-2 text-sm">{{ __('Testimonials') }}</span>
-                    <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open == 'testimonials' }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open == 'testimonials'" class="mt-2 space-y-2 px-7" role="menu" arial-label="Slides">
-                    <!-- active & hover classes 'text-gray-700' -->
-                    <!-- inActive classes 'text-gray-400' -->
-                    <H:a
-                        :href="route('admin.testimonials.index')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        View All
-                    </H:a>
-                    <H:a
-                        :href="route('admin.testimonials.create')"
-                        role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
-                    >
-                        Add New
-                    </H:a>
-                </div>
-            </div>
+            @endforeach
 
             <!-- Components links -->
             <div>
@@ -406,49 +180,49 @@
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Alerts
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Buttons
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Cards
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Dropdowns
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Forms
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Lists
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Modals
                     </a>
@@ -504,35 +278,35 @@
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md"
                     >
                         Blank
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Profile
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Pricing
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Kanban
                     </a>
                     <a
                         href="#"
                         role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md"
                     >
                         Feed
                     </a>
