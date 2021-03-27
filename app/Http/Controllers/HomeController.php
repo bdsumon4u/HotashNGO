@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    private string $collection = 'people';
-
     /**
      * Handle the incoming request.
      *
@@ -18,13 +16,21 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $people = Image::with('media')
-            ->firstOrCreate(['collection' => $this->collection])
+            ->firstOrCreate(['collection' => 'people'])
             ->media()
-            ->where('collection_name', $this->collection)
+            ->where('collection_name', 'people')
             ->inRandomOrder()
             ->take(3)
             ->get();
 
-        return view('pages.home', compact('people'));
+        $testimonials = Image::with('media')
+            ->firstOrCreate(['collection' => 'testimonials'])
+            ->media()
+            ->where('collection_name', 'testimonials')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('pages.home', compact('people', 'testimonials'));
     }
 }

@@ -28,6 +28,7 @@ Route::view('/donate', 'pages.donate')->name('donate');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
+Route::get('/testimonials', \App\Http\Controllers\TestimonialController::class)->name('testimonials');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -40,7 +41,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
         'pages' => \App\Http\Controllers\Admin\PageController::class,
         'images' => \App\Http\Controllers\Admin\GalleryController::class,
-        'people' => \App\Http\Controllers\Admin\PersonController::class,
+        'people' => \App\Http\Controllers\Admin\TestimonialController::class,
+        'testimonials' => \App\Http\Controllers\Admin\TestimonialController::class,
     ]);
 });
 
