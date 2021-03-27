@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('locale', function () { return back(); })->name('locale');
 
-Route::view('/', 'pages.home')->name('home');
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
+
 Route::view('/about-us', 'pages.about-us')->name('about-us');
 Route::view('/events', 'pages.events.index')->name('events.index');
 Route::view('/events/{event}', 'pages.events.show')->name('events.show');
@@ -26,6 +27,7 @@ Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/donate', 'pages.donate')->name('donate');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
+Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -38,6 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
         'pages' => \App\Http\Controllers\Admin\PageController::class,
         'images' => \App\Http\Controllers\Admin\GalleryController::class,
+        'people' => \App\Http\Controllers\Admin\PersonController::class,
     ]);
 });
 
