@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,12 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        return view('pages.home', compact('people', 'testimonials'));
+        $news = News::with('media', 'translations')
+            ->inRandomOrder()
+            ->latest('id')
+            ->take(3)
+            ->get();
+
+        return view('pages.home', compact('people', 'testimonials', 'news'));
     }
 }

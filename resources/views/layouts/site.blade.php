@@ -92,31 +92,21 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-item">
                     <div class="footer-causes">
-                        <h3>@lang('Urgent Causes')</h3>
+                        <h3>@lang('Recent News')</h3>
+                        @foreach(recent_news(2) as $news)
                         <div class="cause-inner">
                             <ul class="align-items-center">
                                 <li>
-                                    <img src="https://templates.hibootstrap.com/findo/default/assets/img/footer-thumb1.jpg" alt="Cause">
+                                    <img src="{{ $news->getFirstMediaUrl('thumbnail') }}" alt="Cause">
                                 </li>
                                 <li>
                                     <h3>
-                                        <a href="donation-details.html">Donate for melina the little child</a>
+                                        <a href="{{ route('news.show', $news) }}">{{ $news->title }}</a>
                                     </h3>
                                 </li>
                             </ul>
                         </div>
-                        <div class="cause-inner">
-                            <ul class="align-items-center">
-                                <li>
-                                    <img src="https://templates.hibootstrap.com/findo/default/assets/img/footer-thumb2.jpg" alt="Cause">
-                                </li>
-                                <li>
-                                    <h3>
-                                        <a href="donation-details.html">Relief for Australia cyclone effected</a>
-                                    </h3>
-                                </li>
-                            </ul>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

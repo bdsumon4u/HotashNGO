@@ -26,6 +26,9 @@ Route::view('/events/{event}', 'pages.events.show')->name('events.show');
 Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/donate', 'pages.donate')->name('donate');
 
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news:slug}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
+
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
 Route::get('/testimonials', \App\Http\Controllers\TestimonialController::class)->name('testimonials');
@@ -43,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
         'images' => \App\Http\Controllers\Admin\GalleryController::class,
         'people' => \App\Http\Controllers\Admin\TestimonialController::class,
         'testimonials' => \App\Http\Controllers\Admin\TestimonialController::class,
+        'news' => \App\Http\Controllers\Admin\NewsController::class,
     ]);
 });
 

@@ -194,7 +194,8 @@
         document.querySelectorAll('#sidebar a').forEach(function (el, key) {
             if (el.getAttribute('href') == href) {
                 el.classList.add('bg-gray-700', 'text-white');
-                open = el.parentNode.previousSibling.previousSibling.textContent.trim();
+                let a = el.parentNode.previousSibling.previousSibling;
+                open = a ? a.textContent.trim() : null;
             }
         });
         return {

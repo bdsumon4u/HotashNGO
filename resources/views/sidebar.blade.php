@@ -30,6 +30,10 @@
                     'All Pages' => route('admin.pages.index'),
                     'Add New' => route('admin.pages.create'),
                 ],
+                'News' => [
+                    'All News' => route('admin.news.index'),
+                    'Add New' => route('admin.news.create'),
+                ],
                 'Menus' => route('admin.menu-builder'),
                 'Gallery' => route('admin.images.index'),
                 'Team' => [

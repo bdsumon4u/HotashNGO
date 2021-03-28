@@ -15,7 +15,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::with('translations')->get();
+        $pages = Page::translatedIn(app()->getLocale())->get();
         return view('admin.pages.index', compact('pages'));
     }
 
@@ -52,7 +52,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        return view('admin.pages.editor', compact('page'));
+        return view('admin.pages.editor');
     }
 
     /**

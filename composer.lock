@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "898e286e7f134f769eb59837f75b02f7",
+    "content-hash": "c43fcf4287f1dc7f976fc810cfb7028b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1503,6 +1503,62 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "hotash/laravel-auto-compose",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bdsumon4u/laravel-auto-compose.git",
+                "reference": "83b7ef1cda30be466281edf4dc6a7fd25dc3d790"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bdsumon4u/laravel-auto-compose/zipball/83b7ef1cda30be466281edf4dc6a7fd25dc3d790",
+                "reference": "83b7ef1cda30be466281edf4dc6a7fd25dc3d790",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/routing": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
+                "php": ">=7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hotash\\AutoCompose\\AutoComposeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hotash\\AutoCompose\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sumon Ahmed",
+                    "email": "bdsumon4u@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP Package To Automatically Compose Route Parameters To Appropriate View In Laravel.",
+            "homepage": "https://github.com/bdsumon4u/laravel-auto-compose",
+            "keywords": [
+                "hotash",
+                "laravel-auto-compose"
+            ],
+            "support": {
+                "issues": "https://github.com/bdsumon4u/laravel-auto-compose/issues",
+                "source": "https://github.com/bdsumon4u/laravel-auto-compose/tree/1.0.1"
+            },
+            "time": "2021-02-14T05:57:30+00:00"
         },
         {
             "name": "hotash/laravel-blade-h",
