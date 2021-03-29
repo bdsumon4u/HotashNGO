@@ -34,6 +34,10 @@
                     'All News' => route('admin.news.index'),
                     'Add New' => route('admin.news.create'),
                 ],
+                'Events' => [
+                    'All Events' => route('admin.events.index'),
+                    'Add New' => route('admin.events.create'),
+                ],
                 'Menus' => route('admin.menu-builder'),
                 'Gallery' => route('admin.images.index'),
                 'Team' => [

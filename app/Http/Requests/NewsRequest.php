@@ -10,7 +10,7 @@ class NewsRequest extends FormRequest
         'thumbnail' => 'required|image',
         'en.title' => 'required|max:255',
         'en.content' => 'required',
-        'slug' => 'required|max:255|unique:pages',
+        'slug' => 'required|max:255|unique:news',
         'bn.title' => 'required|max:255',
         'bn.content' => 'required',
     ];

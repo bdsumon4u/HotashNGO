@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __($news->exists ? 'Edit News' : 'New News') }}
+            {{ __($event->exists ? 'Edit Event' : 'New Event') }}
         </h2>
     </x-slot>
 
@@ -17,7 +17,7 @@
                     </button>
                 </nav>
             </div>
-            <H:form :model="$news" :action="$news->exists ? route('admin.news.update', $news) : route('admin.news.store')" :method="$news->exists ? 'PATCH' : 'POST'" multipart>
+            <H:form :model="$event" :action="$event->exists ? route('admin.events.update', $event) : route('admin.events.store')" :method="$event->exists ? 'PATCH' : 'POST'" multipart>
                 <div class="relative flex flex-col flex-grow mt-5">
                     <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                         <H:label class="text-sm font-semibold" name="thumbnail" />
@@ -51,13 +51,63 @@
                     </div>
                 </div>
 
+                <div class="flex flex-wrap md:-mx-2">
+                    <div class="md:px-2 w-full md:w-1/2">
+                        <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
+                            <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
+                                <H:label class="text-sm font-bold" name="organizer" />
+                            </h2>
+                            <H:input name="organizer" wire:model.defer="organizer" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            <H:error class="text-red-500" name="organizer" />
+                        </div>
+                    </div>
+                    <div class="md:px-2 w-full md:w-1/2">
+                        <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
+                            <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
+                                <H:label class="text-sm font-bold" name="location" />
+                            </h2>
+                            <H:input name="location" wire:model.defer="location" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            <H:error class="text-red-500" name="location" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap md:-mx-2">
+                    <div class="md:px-2 w-full md:w-1/2">
+                        <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
+                            <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
+                                <H:label class="text-sm font-bold" name="starts_at[date]" />
+                            </h2>
+                            <div class="flex">
+                                <H:input type="date" name="starts_at[date]" wire:model.defer="starts_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <H:input type="time" name="starts_at[time]" wire:model.defer="starts_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            </div>
+                            <H:error class="text-red-500" name="starts_at[date]" />
+                            <H:error class="text-red-500" name="starts_at[time]" />
+                        </div>
+                    </div>
+                    <div class="md:px-2 w-full md:w-1/2">
+                        <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
+                            <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
+                                <H:label class="text-sm font-bold" name="finish_at[date]" />
+                            </h2>
+                            <div class="flex">
+                                <H:input type="date" name="finish_at[date]" wire:model.defer="finish_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <H:input type="time" name="finish_at[time]" wire:model.defer="finish_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            </div>
+                            <H:error class="text-red-500" name="finish_at[date]" />
+                            <H:error class="text-red-500" name="finish_at[time]" />
+                        </div>
+                    </div>
+                </div>
+
                 @foreach(config('translatable.locales', []) as $lang)
                 <div x-show="lang === '{{ $lang }}'" class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                             <H:label class="text-sm font-bold" name="{{ $lang }}[title]" />
                         </h2>
-                        <H:input name="{{ $lang }}[title]" :value="$news->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <H:input name="{{ $lang }}[title]" :value="$event->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                         <H:error class="text-red-500" name="{{ $lang }}[title]" />
                     </div>
                 </div>
@@ -77,7 +127,7 @@
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                             <H:label class="text-sm font-bold" name="{{ $lang }}[content]" />
                         </h2>
-                        <H:textarea tinymce name="{{ $lang }}[content]" :value="$news->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <H:textarea tinymce name="{{ $lang }}[content]" :value="$event->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                         <H:error class="text-red-500" name="{{ $lang }}[content]" />
                     </div>
                 </div>

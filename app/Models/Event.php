@@ -9,14 +9,19 @@ use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class News extends Model implements HasMedia
+class Event extends Model implements HasMedia
 {
     use HasFactory;
     use Translatable;
     use InteractsWithMedia;
 
-    protected $fillable = ['slug'];
+    protected $fillable = ['slug', 'organizer', 'location', 'starts_at', 'finish_at'];
     public $translatedAttributes = ['title', 'content'];
+
+    protected $casts = [
+        'starts_at' => 'datetime',
+        'finish_at' => 'datetime',
+    ];
 
     public function getExcerptAttribute()
     {

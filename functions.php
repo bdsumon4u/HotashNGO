@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use App\Models\News;
 
 if (!function_exists('setting')) {
@@ -21,6 +22,15 @@ if (!function_exists('recent_news')) {
             ->latest('id')
             ->take($count)
             ->inRandomOrder()
+            ->get();
+    }
+}
+
+if (!function_exists('recent_events')) {
+    function recent_events(int $count) {
+        return Event::with('media', 'translations')
+            ->latest('id')
+            ->take($count)
             ->get();
     }
 }

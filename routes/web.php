@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//collect(File::allFiles(base_path()))->sum->getSize()
+//dd(cache()->remember('storage', 60, function () {
+//    return collect(File::allFiles(base_path()))->sum->getSize() / (10 * 10000000);
+//}));
 
 Route::post('locale', function () { return back(); })->name('locale');
 
@@ -28,6 +30,9 @@ Route::view('/donate', 'pages.donate')->name('donate');
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news:slug}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
+
+Route::get('/events', [\App\Http\Controllers\EventController::class, 'index'])->name('events.index');
+Route::get('/events/{event:slug}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
@@ -47,6 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
         'people' => \App\Http\Controllers\Admin\TestimonialController::class,
         'testimonials' => \App\Http\Controllers\Admin\TestimonialController::class,
         'news' => \App\Http\Controllers\Admin\NewsController::class,
+        'events' => \App\Http\Controllers\Admin\EventController::class,
     ]);
 });
 

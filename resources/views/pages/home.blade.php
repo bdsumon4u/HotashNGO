@@ -272,88 +272,39 @@
     </section>
 
 
+    @if ($events = recent_events(4))
     <section class="event-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
                 <span class="sub-title">Our events</span>
-                <h2>Upcoming events near you</h2>
+                <h2>Upcoming/recent events</h2>
             </div>
             <div class="row align-items-center">
+                @include('pages.partials.event', ['event' => $events[0]])
                 <div class="col-lg-6">
-                    <div class="event-item">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/event/event3.jpg" alt="Event">
-                        <div class="inner">
-                            <h4>10 <span>Jan</span></h4>
-                            <h3>
-                                <a href="event-details.html">Relief giving - Providing relief</a>
-                            </h3>
-                            <ul>
-                                <li>
-                                    <i class="icofont-stopwatch"></i>
-                                    <span>3.00pm - 4.00pm</span>
-                                </li>
-                                <li>
-                                    <i class="icofont-location-pin"></i>
-                                    <span>USA</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+                    @foreach($events->skip(1) as $event)
                     <div class="event-item-right">
-                        <h4>06 <span>Jan</span></h4>
+                        <h4>{{ $events[0]->starts_at->day }} <span>{{ $events[0]->starts_at->format('M') }}</span></h4>
                         <h3>
-                            <a href="event-details.html">Challenge is right for you</a>
+                            <a href="{{ route('events.show', $events[0]) }}">{{ $events[0]->title }}</a>
                         </h3>
                         <ul>
                             <li>
                                 <i class="icofont-stopwatch"></i>
-                                <span>10.00am - 11.00am</span>
+                                <span>{{ $events[0]->starts_at->format('H:i A') }}</span>
                             </li>
                             <li>
                                 <i class="icofont-location-pin"></i>
-                                <span>UK</span>
+                                <span>{{ $events[0]->location }}</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="event-item-right">
-                        <h4>07 <span>Jan</span></h4>
-                        <h3>
-                            <a href="event-details.html">Fundraising is going</a>
-                        </h3>
-                        <ul>
-                            <li>
-                                <i class="icofont-stopwatch"></i>
-                                <span>11.00am - 12.00pm</span>
-                            </li>
-                            <li>
-                                <i class="icofont-location-pin"></i>
-                                <span>France</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="event-item-right">
-                        <h4>08 <span>Jan</span></h4>
-                        <h3>
-                            <a href="event-details.html">Bowling for a cause</a>
-                        </h3>
-                        <ul>
-                            <li>
-                                <i class="icofont-stopwatch"></i>
-                                <span>1.00pm - 1.30pm</span>
-                            </li>
-                            <li>
-                                <i class="icofont-location-pin"></i>
-                                <span>Spain</span>
-                            </li>
-                        </ul>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
-
+    @endif
 
     <div class="counter-area pt-100 pb-70">
         <div class="container">
