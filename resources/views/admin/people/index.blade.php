@@ -42,7 +42,7 @@
                                     <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
                                         {!! $svg[$name] !!}
                                     </svg>
-                                    <a href="{{ $person->getCustomProperty($name) }}" class="px-2 text-sm">{{ $person->getCustomProperty($name) }}</a>
+                                    <a target="_blank" href="{{ $person->getCustomProperty($name) }}" class="px-2 text-sm">{{ $person->getCustomProperty($name) }}</a>
                                 </div>
                             @endforeach
                         </div>
