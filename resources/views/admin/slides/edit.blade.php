@@ -64,9 +64,4 @@
             </x-jet-button>
         </H:form>
     </div>
-    @once
-        @push('scripts')
-            <script src="https://cdn.filesizejs.com/filesize.min.js"></script>
-        @endpush
-    @endonce
 </x-app-layout>

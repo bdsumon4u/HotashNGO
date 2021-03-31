@@ -61,3 +61,7 @@ if (\Illuminate\Support\Facades\Schema::hasTable('pages')) {
         return view('pages.page', compact('page'));
     })->name('page.show');
 }
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
