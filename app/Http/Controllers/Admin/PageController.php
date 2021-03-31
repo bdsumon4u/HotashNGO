@@ -41,6 +41,8 @@ class PageController extends Controller
     {
         Page::create($request->validationData());
 
+        $this->banner('New Page is Created.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -66,6 +68,8 @@ class PageController extends Controller
     {
         $page->update($request->validationData());
 
+        $this->banner('The Page is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -78,6 +82,8 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
+
+        $this->banner('The Page is Deleted.');
 
         return redirect()->action([static::class, 'index']);
     }

@@ -61,6 +61,8 @@ class PersonController extends Controller
 
         $this->personMaker($data);
 
+        $this->banner('New Person is Added.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -107,6 +109,8 @@ class PersonController extends Controller
             $person->save();
         }
 
+        $this->banner('The Person is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -119,6 +123,8 @@ class PersonController extends Controller
     public function destroy(Media $person)
     {
         $person->delete();
+
+        $this->banner('The Person is Deleted.');
 
         return back();
     }

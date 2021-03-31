@@ -46,6 +46,8 @@ class GalleryController extends Controller
             $this->galleryMaker($image);
         }
 
+        $this->banner('New Image(s) Added.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -82,6 +84,8 @@ class GalleryController extends Controller
     public function destroy(Media $image)
     {
         $image->delete();
+
+        $this->banner('The Image is Deleted.');
 
         return back();
     }

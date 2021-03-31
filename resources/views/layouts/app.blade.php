@@ -44,6 +44,7 @@
     @stack('styles')
 </head>
 <body class="font-sans antialiased">
+<x-jet-banner />
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
     <!--  -->
     <div class="flex h-screen antialiased text-gray-900 bg-gray-100 ">

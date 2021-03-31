@@ -56,6 +56,8 @@ class SlideController extends Controller
 
         $this->slideMaker($data);
 
+        $this->banner('New Slide is Added.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -94,6 +96,8 @@ class SlideController extends Controller
             $slide->save();
         }
 
+        $this->banner('The Slide is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -106,6 +110,9 @@ class SlideController extends Controller
     public function destroy(Media $slide)
     {
         $slide->delete();
+
+        $this->banner('The Slide is Deleted.');
+
         return redirect()->action([static::class, 'index']);
     }
 

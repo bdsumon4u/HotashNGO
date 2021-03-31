@@ -45,6 +45,8 @@ class NewsController extends Controller
             ->addMedia($request->thumbnail)
             ->toMediaCollection('thumbnail');
 
+        $this->banner('New News is Created.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -75,6 +77,8 @@ class NewsController extends Controller
                 ->toMediaCollection('thumbnail');
         }
 
+        $this->banner('The News is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -87,6 +91,8 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         $news->delete();
+
+        $this->banner('The News is Deleted.');
 
         return redirect()->action([static::class, 'index']);
     }

@@ -59,6 +59,8 @@ class TestimonialController extends Controller
 
         $this->testimonialMaker($data);
 
+        $this->banner('New Testimonial is Created.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -101,6 +103,8 @@ class TestimonialController extends Controller
             $testimonial->save();
         }
 
+        $this->banner('The Testimonial is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -113,6 +117,8 @@ class TestimonialController extends Controller
     public function destroy(Media $testimonial)
     {
         $testimonial->delete();
+
+        $this->banner('The Testimonial is Deleted.');
 
         return back();
     }

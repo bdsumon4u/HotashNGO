@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <span class="font-bold">{{ __('events') }}</span>
+        <span class="font-bold">{{ __('Events') }}</span>
     </x-slot>
     <div class="overflow-hidden shadow-md sm:rounded-md">
         <div class="flex flex-wrap py-3 lg:px-5 lg:py-7">

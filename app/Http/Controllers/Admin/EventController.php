@@ -44,6 +44,9 @@ class EventController extends Controller
         Event::create($request->validationData())
             ->addMedia($request->thumbnail)
             ->toMediaCollection('thumbnail');
+
+        $this->banner('New Event is Created.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -74,6 +77,8 @@ class EventController extends Controller
                 ->toMediaCollection('thumbnail');
         }
 
+        $this->banner('The Event is Updated.');
+
         return redirect()->action([static::class, 'index']);
     }
 
@@ -86,6 +91,8 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $event->delete();
+
+        $this->banner('The Event is Deleted.');
 
         return redirect()->action([static::class, 'index']);
     }
