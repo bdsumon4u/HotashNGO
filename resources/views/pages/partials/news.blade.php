@@ -2,7 +2,7 @@
     <div class="blog-item">
         <div class="top">
             <a href="{{ route('news.show', $news) }}">
-                <img src="{{ $news->getFirstMediaUrl('thumbnail') }}" alt="Blog">
+                <img src="{{ $news->getFirstMediaUrl('news', '430x250') }}" alt="Blog">
             </a>
         </div>
         <div class="bottom">

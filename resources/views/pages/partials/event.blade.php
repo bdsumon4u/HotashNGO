@@ -1,6 +1,6 @@
 <div class="col-lg-6">
     <div class="event-item">
-        <img src="{{ $event->getFirstMediaUrl('thumbnail') }}" alt="Event">
+        <img src="{{ $event->getFirstMediaUrl('events', '510x300') }}" alt="Event">
         <div class="inner">
             <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
             <h3>

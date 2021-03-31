@@ -5,7 +5,7 @@
                 <div class="col-lg-8">
                     <div class="details-item">
                         <div class="details-img">
-                            <img src="{{ $event->getFirstMediaUrl('thumbnail') }}" alt="Details">
+                            <img src="{{ $event->getFirstMediaUrl('events', '860x500') }}" alt="Details">
                             <h2>{{ $event->title }}</h2>
                             <div>{!! $event->content !!}</div>
                         </div>

@@ -8,6 +8,8 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    private string $collection = 'events';
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +45,7 @@ class EventController extends Controller
     {
         Event::create($request->validationData())
             ->addMedia($request->thumbnail)
-            ->toMediaCollection('thumbnail');
+            ->toMediaCollection($this->collection);
 
         $this->banner('New Event is Created.');
 
@@ -72,9 +74,9 @@ class EventController extends Controller
     {
         $event->update($request->validationData());
         if ($request->hasFile('thumbnail')) {
-            $event->clearMediaCollection('thumbnail');
+            $event->clearMediaCollection($this->collection);
             $event->addMedia($request->thumbnail)
-                ->toMediaCollection('thumbnail');
+                ->toMediaCollection($this->collection);
         }
 
         $this->banner('The Event is Updated.');

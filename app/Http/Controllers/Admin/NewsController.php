@@ -8,6 +8,8 @@ use App\Models\News;
 
 class NewsController extends Controller
 {
+    private string $collection = 'news';
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +45,7 @@ class NewsController extends Controller
     {
         News::create($request->validationData())
             ->addMedia($request->thumbnail)
-            ->toMediaCollection('thumbnail');
+            ->toMediaCollection($this->collection);
 
         $this->banner('New News is Created.');
 
@@ -72,9 +74,9 @@ class NewsController extends Controller
     {
         $news->update($request->validationData());
         if ($request->hasFile('thumbnail')) {
-            $news->clearMediaCollection('thumbnail');
+            $news->clearMediaCollection($this->collection);
             $news->addMedia($request->thumbnail)
-                ->toMediaCollection('thumbnail');
+                ->toMediaCollection($this->collection);
         }
 
         $this->banner('The News is Updated.');

@@ -5,7 +5,7 @@
                 <div class="col-lg-8">
                     <div class="details-item">
                         <div class="details-img">
-                            <img src="{{ $news->getFirstMediaUrl('thumbnail') }}" alt="Details">
+                            <img src="{{ $news->getFirstMediaUrl('news', '860x500') }}" alt="Details">
                             <ul>
                                 <li>
                                     <i class="icofont-calendar"></i>

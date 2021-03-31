@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-lg-4">
     <div class="team-item">
         <div class="top">
-            <img src="{{ $person->getFullUrl() }}" alt="{{ $person->getCustomProperty('name') }}">
+            <img src="{{ $person->getFullUrl('510x450') }}" alt="{{ $person->getCustomProperty('name') }}">
             <ul>
                 <li>
                     <a href="{{ $person->getCustomProperty('facebook') }}" target="_blank">

@@ -1,7 +1,7 @@
 <div class="row align-items-center">
     <div class="col-lg-6">
         <div class="testimonial-img">
-            <img src="{{ $testimonial->getFullUrl() }}" alt="{{ $testimonial->getCustomProperty('name') }}">
+            <img src="{{ $testimonial->getFullUrl('510x300') }}" alt="{{ $testimonial->getCustomProperty('name') }}">
             <h3>Micheal Shon</h3>
             <span>Director</span>
         </div>

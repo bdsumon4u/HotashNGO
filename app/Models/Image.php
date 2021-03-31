@@ -18,12 +18,20 @@ class Image extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaConversion('1920x800')
-            ->fit('stretch', 1920, 800)
+        $this->convert('slides', 1920, 800);
+        # Gallery #
+        $this->convert('people', 510, 450);
+        $this->convert('testimonials', 510, 300);
+    }
+
+    private function convert(string $collection, int $width, int $height): \Spatie\MediaLibrary\Conversions\Conversion
+    {
+        return $this->addMediaConversion($width.'x'.$height)
+            ->fit('stretch', $width, $height)
             ->format('jpg')
             ->optimize()
             ->quality(70)
-            ->performOnCollections('slides')
+            ->performOnCollections($collection)
             ->nonQueued(); //for shared hosts
     }
 }
