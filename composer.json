@@ -16,6 +16,7 @@
         "hotash/laravel-auto-compose": "^1.0",
         "hotash/laravel-blade-h": "^1.0",
         "hotash/laravel-menu-h": "dev-master",
+        "hotash/laravel-translation": "dev-master",
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^2.2",
         "laravel/sanctum": "^2.6",

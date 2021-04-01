@@ -48,6 +48,7 @@
                     'View All' => route('admin.testimonials.index'),
                     'Add New' => route('admin.testimonials.create'),
                 ],
+                'Languages' => route('languages.index'),
             ];
         @endphp
         <!-- Sidebar links -->
