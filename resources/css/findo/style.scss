@@ -4350,3 +4350,89 @@ ul {
     -webkit-animation: 3s pre-rotate infinite alternate;
     animation: 3s pre-rotate infinite alternate;
 }
+
+
+/**
+ * Page Content
+ */
+
+.page-content {
+    table {
+        --bs-table-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+        caption-side:bottom;
+        border-collapse:collapse;
+
+        > thead {
+            vertical-align: bottom
+        }
+
+        > tbody {
+            vertical-align: inherit
+        }
+
+        > :not(caption) {
+            > * {
+                border-width:1px 0;
+                > * {
+                    border-width:0 1px;
+
+                    padding: .5rem .5rem;
+                    background-color: var(--bs-table-bg);
+                    border-bottom-width: 1px;
+                    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+                }
+            }
+        }
+    }
+
+    table > :not(:last-child) > :last-child > * {
+        border-bottom-color: currentColor
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch
+    }
+
+    @media (max-width: 575.98px) {
+        .table-responsive-sm {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+    }
+    @media (max-width: 767.98px) {
+        .table-responsive-md {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+    }
+    @media (max-width: 991.98px) {
+        .table-responsive-lg {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+    }
+    @media (max-width: 1199.98px) {
+        .table-responsive-xl {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+    }
+    @media (max-width: 1399.98px) {
+        .table-responsive-xxl {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch
+        }
+    }
+}
