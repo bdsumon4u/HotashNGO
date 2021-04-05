@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SlideRequest;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -37,22 +38,20 @@ class SlideController extends Controller
      */
     public function create()
     {
-        return view('admin.slides.create');
+        return view('admin.slides.editor', [
+            'slide' => new Media,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param SlideRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SlideRequest $request)
     {
-        $data = $request->validate([
-            'image' => 'required|image',
-            'title' => 'nullable|string|max:255',
-            'text' => 'nullable|string|max:255',
-        ]);
+        $data = $request->validationData();
 
         $this->slideMaker($data);
 
@@ -69,23 +68,20 @@ class SlideController extends Controller
      */
     public function edit(Media $slide)
     {
-        return view('admin.slides.edit', compact('slide'));
+        return view('admin.slides.editor', compact('slide'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param SlideRequest $request
      * @param Media $slide
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function update(Request $request, Media $slide)
+    public function update(SlideRequest $request, Media $slide)
     {
-        $data = $request->validate([
-            'image' => 'nullable|image',
-            'title' => 'nullable|string|max:255',
-            'text' => 'nullable|string|max:255',
-        ]);
+        $data = $request->validationData();
 
         if ($request->hasFile('image')) {
             $this->slideMaker($data);
@@ -93,6 +89,10 @@ class SlideController extends Controller
         } else {
             $slide->setCustomProperty('title', $data['title']);
             $slide->setCustomProperty('text', $data['text']);
+            $slide->setCustomProperty('button1_text', $data['button1_text']);
+            $slide->setCustomProperty('button1_link', $data['button1_link']);
+            $slide->setCustomProperty('button2_text', $data['button2_text']);
+            $slide->setCustomProperty('button2_link', $data['button2_link']);
             $slide->save();
         }
 
@@ -129,6 +129,10 @@ class SlideController extends Controller
             ->withCustomProperties([
                 'title' => $data['title'],
                 'text' => $data['text'],
+                'button1_text' => $data['button1_text'],
+                'button1_link' => $data['button1_link'],
+                'button2_text' => $data['button2_text'],
+                'button2_link' => $data['button2_link'],
             ])
             ->toMediaCollection($this->collection);
     }
