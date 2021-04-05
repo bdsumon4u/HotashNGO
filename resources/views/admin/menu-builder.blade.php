@@ -1,6 +1,6 @@
 <x-app-layout>
     @push('styles')
-        <H:asset path="vendor/menu-h/css/menu-h.css" />
+        <x:asset path="vendor/menu-h/css/menu-h.css" />
     @endpush
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -13,8 +13,8 @@
     </div>
         @push('scripts')
             <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-            <H:asset path="vendor/menu-h/js/scripts.js" />
-            <H:asset path="vendor/menu-h/js/scripts2.js" />
+            <x:asset path="vendor/menu-h/js/scripts.js" />
+            <x:asset path="vendor/menu-h/js/scripts2.js" />
             <script>
                 var menus = {
                     "oneThemeLocationNoMenus" : "",
@@ -29,6 +29,6 @@
                     "subMenuFocus" : "%1$s. Menu of subelement %2$d of %3$s."
                 };
             </script>
-            <H:asset path="vendor/menu-h/js/menu-h.js" />
+            <x:asset path="vendor/menu-h/js/menu-h.js" />
         @endpush
 </x-app-layout>

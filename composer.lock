@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82de6e2a0e65aabcb4e3f0461d8aa525",
+    "content-hash": "c6609aabcb5f72867959daca877fbe9e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1331,7 +1331,7 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.166.0",
+            "version": "v0.167.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
@@ -1366,7 +1366,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.166.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.167.0"
             },
             "time": "2021-03-22T11:26:04+00:00"
         },
@@ -1784,16 +1784,16 @@
         },
         {
             "name": "hotash/laravel-blade-h",
-            "version": "v1.0",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hotashplanet/laravel-blade-h.git",
-                "reference": "51c0e01a45d77f1b7ed031571130ab730a818d56"
+                "reference": "cccc46e31d61b2e9a1d9a24ba5db7198e5dd8a8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hotashplanet/laravel-blade-h/zipball/51c0e01a45d77f1b7ed031571130ab730a818d56",
-                "reference": "51c0e01a45d77f1b7ed031571130ab730a818d56",
+                "url": "https://api.github.com/repos/hotashplanet/laravel-blade-h/zipball/cccc46e31d61b2e9a1d9a24ba5db7198e5dd8a8b",
+                "reference": "cccc46e31d61b2e9a1d9a24ba5db7198e5dd8a8b",
                 "shasum": ""
             },
             "require": {
@@ -1841,9 +1841,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hotashplanet/laravel-blade-h/issues",
-                "source": "https://github.com/hotashplanet/laravel-blade-h/tree/v1.0"
+                "source": "https://github.com/hotashplanet/laravel-blade-h/tree/v1.1"
             },
-            "time": "2021-03-11T13:16:06+00:00"
+            "time": "2021-04-05T11:07:25+00:00"
         },
         {
             "name": "hotash/laravel-menu-h",
@@ -3034,16 +3034,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "b0cb782674673a67ddfd5910d2fcb5308bb32857"
+                "reference": "2495387841a3eb03ac62b2c984ccd2574303285b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/b0cb782674673a67ddfd5910d2fcb5308bb32857",
-                "reference": "b0cb782674673a67ddfd5910d2fcb5308bb32857",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/2495387841a3eb03ac62b2c984ccd2574303285b",
+                "reference": "2495387841a3eb03ac62b2c984ccd2574303285b",
                 "shasum": ""
             },
             "require": {
@@ -3094,7 +3094,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.4.1"
+                "source": "https://github.com/livewire/livewire/tree/v2.4.2"
             },
             "funding": [
                 {
@@ -3102,7 +3102,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-22T14:03:36+00:00"
+            "time": "2021-04-04T15:46:50+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -5132,16 +5132,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.5.0",
+            "version": "9.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "89d1d2e5b4b53137819cc18a166f43edaeaf7e52"
+                "reference": "4c3e8ec7523ddc9360b5ecb58e90c7f0ceb35d8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/89d1d2e5b4b53137819cc18a166f43edaeaf7e52",
-                "reference": "89d1d2e5b4b53137819cc18a166f43edaeaf7e52",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/4c3e8ec7523ddc9360b5ecb58e90c7f0ceb35d8f",
+                "reference": "4c3e8ec7523ddc9360b5ecb58e90c7f0ceb35d8f",
                 "shasum": ""
             },
             "require": {
@@ -5220,7 +5220,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.5.0"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.5.1"
             },
             "funding": [
                 {
@@ -5232,7 +5232,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-29T21:40:29+00:00"
+            "time": "2021-04-05T08:14:07+00:00"
         },
         {
             "name": "spatie/laravel-settings",

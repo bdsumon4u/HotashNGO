@@ -1,4 +1,4 @@
-<H:form wire:submit.prevent="submit" method="POST">
+<x:form wire:submit.prevent="submit" method="POST">
     <div class="flex flex-wrap md:-mx-2">
         @foreach(['facebook', 'twitter', 'instagram', 'youtube'] as $name)
             <div class="md:px-2 w-full md:w-1/2">
@@ -10,7 +10,7 @@
                         </svg>
                     </span>
                     </div>
-                    <H:input :name="$name" :wire:model.defer="$name" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 h-10 rounded rounded-l-none px-3 relative focus:border-blue focus:shadow" />
+                    <x:input :name="$name" :wire:model.defer="$name" type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 h-10 rounded rounded-l-none px-3 relative focus:border-blue focus:shadow" />
                 </div>
             </div>
         @endforeach
@@ -19,4 +19,4 @@
     <x-jet-button wire:loading.attr="disabled" class="mt-6 py-3">
         Submit
     </x-jet-button>
-</H:form>
+</x:form>

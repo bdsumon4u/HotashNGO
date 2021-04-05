@@ -46,10 +46,15 @@
     </div>
 </div>
 
-
 @include('pages.partials.header')
 
 {!! MenuH::render('Main Menu', 'pages.partials.navbar') !!}
+
+@if($message = session('success'))
+<div class="container" style="margin-top: 5rem;">
+    <div class="alert alert-success">{{ $message }}</div>
+</div>
+@endif
 
 {{ $slot }}
 
@@ -155,15 +160,14 @@
 </div>
 
 
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/jquery.min.js"></script>
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/popper.min.js"></script>
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/bootstrap.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/form-validator.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/contact-form-script.js"></script>
-
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/jquery.ajaxchimp.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script src="https://templates.hibootstrap.com/findo/default/assets/js/jquery.meanmenu.js"></script>
 
@@ -180,6 +184,6 @@
 
 <script src="https://templates.hibootstrap.com/findo/default/assets/js/jquery.nice-select.min.js"></script>
 
-<script src="https://templates.hibootstrap.com/findo/default/assets/js/custom.js"></script>
+<script src="{{ asset('findo/js/custom.js') }}"></script>
 </body>
 </html>

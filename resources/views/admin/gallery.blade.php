@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
     <div class="overflow-hidden shadow-md sm:rounded-md">
-        <H:form :action="route('admin.images.store')" method="POST" multipart>
+        <x:form :action="route('admin.images.store')" method="POST" multipart>
             <div class="relative flex flex-col flex-grow mt-5">
                 <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <H:label class="text-sm font-semibold" name="image">Gallery Images</H:label>
+                    <x:label class="text-sm font-semibold" name="image">Gallery Images</x:label>
                 </h2>
                 <div x-data="{ files: null }" id="image" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
                     <input multiple type="file" name="image[]"
@@ -40,7 +40,7 @@
             <x-jet-button class="mt-6 py-3">
                 Upload
             </x-jet-button>
-        </H:form>
+        </x:form>
         <div class="flex flex-wrap py-3 lg:px-5 lg:py-7">
             @foreach($images as $image)
                 <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 overflow-hidden rounded border shadow p-3">
@@ -51,11 +51,11 @@
                         </div>
                         <div class="p-3">
                             <div class="mb-2 flex flex-wrap m-auto">
-{{--                                <H:a class="rounded px-2 py-1 m-1 text-xs border-b-4 border-l-2 shadow-lg bg-blue-700 border-blue-800" :href="route('admin.images.edit', $image)">--}}
+{{--                                <x:a class="rounded px-2 py-1 m-1 text-xs border-b-4 border-l-2 shadow-lg bg-blue-700 border-blue-800" :href="route('admin.images.edit', $image)">--}}
 {{--                                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white fill-current text-center">--}}
 {{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>--}}
 {{--                                    </svg>--}}
-{{--                                </H:a>--}}
+{{--                                </x:a>--}}
                                 <form method="post" action="{{ route('admin.images.destroy', $image) }}">
                                     @csrf
                                     @method('DELETE')

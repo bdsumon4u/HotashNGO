@@ -17,15 +17,15 @@
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-2 px-4 text-left whitespace-nowrap">{{ $page->id }}</td>
                         <td class="py-2 px-4 text-left">
-                            <H:a target="_blank" :href="route('page.show', $page->slug)" class="text-blue-500 underline hover:text-blue-700">{{ $page->title }}</H:a>
+                            <x:a target="_blank" :href="route('page.show', $page->slug)" class="text-blue-500 underline hover:text-blue-700">{{ $page->title }}</x:a>
                         </td>
                         <td class="py-2 px-4 text-center">
                             <div class="flex flex-wrap m-auto">
-                                <H:a class="rounded px-2 py-1 m-1 text-xs border-b-4 border-l-2 shadow-lg bg-blue-700 border-blue-800" :href="route('admin.pages.edit', $page)">
+                                <x:a class="rounded px-2 py-1 m-1 text-xs border-b-4 border-l-2 shadow-lg bg-blue-700 border-blue-800" :href="route('admin.pages.edit', $page)">
                                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white fill-current text-center">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
                                     </svg>
-                                </H:a>
+                                </x:a>
                                 <form method="post" action="{{ route('admin.pages.destroy', $page) }}">
                                     @csrf
                                     @method('DELETE')

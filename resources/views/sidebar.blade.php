@@ -100,18 +100,18 @@
                         <!-- active & hover classes 'text-gray-700' -->
                         <!-- inActive classes 'text-gray-400' -->
                         @foreach($item as $label => $child)
-                        <H:a
+                        <x:a
                             :href="$child"
                             role="menuitem"
                             class="block p-2 text-sm hover:bg-gray-900 transition-colors duration-200 rounded-md"
                         >
                             @lang($label)
-                        </H:a>
+                        </x:a>
                         @endforeach
                     </div>
                 @else
                     <!-- active & hover classes 'bg-blue-100' -->
-                    <H:a
+                    <x:a
                         :href="$item"
                         class="flex items-center p-2 transition-colors rounded-md hover:bg-gray-900"
                         x-bind:class="{'text-gray-700 bg-gray-700': {{ request()->fullUrlIs($item) ? 'true' : 'false' }}}"
@@ -135,7 +135,7 @@
                     </svg>
                   </span>
                         <span class="ml-2 text-sm">{{ __($label) }}</span>
-                    </H:a>
+                    </x:a>
                     @endif
                 </div>
             @endforeach

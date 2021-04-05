@@ -17,10 +17,10 @@
                     </button>
                 </nav>
             </div>
-            <H:form :model="$event" :action="$event->exists ? route('admin.events.update', $event) : route('admin.events.store')" :method="$event->exists ? 'PATCH' : 'POST'" multipart>
+            <x:form :model="$event" :action="$event->exists ? route('admin.events.update', $event) : route('admin.events.store')" :method="$event->exists ? 'PATCH' : 'POST'" multipart>
                 <div class="relative flex flex-col flex-grow mt-5">
                     <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                        <H:label class="text-sm font-semibold" name="thumbnail" />
+                        <x:label class="text-sm font-semibold" name="thumbnail" />
                     </h2>
                     <div x-data="{ files: null }" id="thumbnail" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
                         <input type="file" name="thumbnail"
@@ -55,19 +55,19 @@
                     <div class="md:px-2 w-full md:w-1/2">
                         <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                             <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                                <H:label class="text-sm font-bold" name="organizer" />
+                                <x:label class="text-sm font-bold" name="organizer" />
                             </h2>
-                            <H:input name="organizer" wire:model.defer="organizer" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                            <H:error class="text-red-500" name="organizer" />
+                            <x:input name="organizer" wire:model.defer="organizer" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            <x:error class="text-red-500" name="organizer" />
                         </div>
                     </div>
                     <div class="md:px-2 w-full md:w-1/2">
                         <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                             <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                                <H:label class="text-sm font-bold" name="location" />
+                                <x:label class="text-sm font-bold" name="location" />
                             </h2>
-                            <H:input name="location" wire:model.defer="location" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                            <H:error class="text-red-500" name="location" />
+                            <x:input name="location" wire:model.defer="location" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                            <x:error class="text-red-500" name="location" />
                         </div>
                     </div>
                 </div>
@@ -76,27 +76,27 @@
                     <div class="md:px-2 w-full md:w-1/2">
                         <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                             <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                                <H:label class="text-sm font-bold" name="starts_at[date]" />
+                                <x:label class="text-sm font-bold" name="starts_at[date]" />
                             </h2>
                             <div class="flex">
-                                <H:input type="date" name="starts_at[date]" wire:model.defer="starts_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                                <H:input type="time" name="starts_at[time]" wire:model.defer="starts_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input type="date" name="starts_at[date]" wire:model.defer="starts_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input type="time" name="starts_at[time]" wire:model.defer="starts_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                             </div>
-                            <H:error class="text-red-500" name="starts_at[date]" />
-                            <H:error class="text-red-500" name="starts_at[time]" />
+                            <x:error class="text-red-500" name="starts_at[date]" />
+                            <x:error class="text-red-500" name="starts_at[time]" />
                         </div>
                     </div>
                     <div class="md:px-2 w-full md:w-1/2">
                         <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                             <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                                <H:label class="text-sm font-bold" name="finish_at[date]" />
+                                <x:label class="text-sm font-bold" name="finish_at[date]" />
                             </h2>
                             <div class="flex">
-                                <H:input type="date" name="finish_at[date]" wire:model.defer="finish_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                                <H:input type="time" name="finish_at[time]" wire:model.defer="finish_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input type="date" name="finish_at[date]" wire:model.defer="finish_at.date" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input type="time" name="finish_at[time]" wire:model.defer="finish_at.time" class="small-caps block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                             </div>
-                            <H:error class="text-red-500" name="finish_at[date]" />
-                            <H:error class="text-red-500" name="finish_at[time]" />
+                            <x:error class="text-red-500" name="finish_at[date]" />
+                            <x:error class="text-red-500" name="finish_at[time]" />
                         </div>
                     </div>
                 </div>
@@ -105,30 +105,30 @@
                 <div x-show="lang === '{{ $lang }}'" class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="{{ $lang }}[title]" />
+                            <x:label class="text-sm font-bold" name="{{ $lang }}[title]" />
                         </h2>
-                        <H:input name="{{ $lang }}[title]" :value="$event->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="{{ $lang }}[title]" />
+                        <x:input name="{{ $lang }}[title]" :value="$event->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="{{ $lang }}[title]" />
                     </div>
                 </div>
                 @endforeach
                 <div class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="slug" />
+                            <x:label class="text-sm font-bold" name="slug" />
                         </h2>
-                        <H:input name="slug" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="slug" />
+                        <x:input name="slug" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="slug" />
                     </div>
                 </div>
                 @foreach(config('translatable.locales', []) as $lang)
                 <div x-show="lang === '{{ $lang }}'" class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="{{ $lang }}[content]" />
+                            <x:label class="text-sm font-bold" name="{{ $lang }}[content]" />
                         </h2>
-                        <H:textarea tinymce name="{{ $lang }}[content]" :value="$event->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="{{ $lang }}[content]" />
+                        <x:textarea tinymce name="{{ $lang }}[content]" :value="$event->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="{{ $lang }}[content]" />
                     </div>
                 </div>
                 @endforeach
@@ -136,7 +136,7 @@
                 <x-jet-button class="block w-full mt-6 py-3">
                     Submit
                 </x-jet-button>
-            </H:form>
+            </x:form>
         </div>
     </div>
 </x-app-layout>

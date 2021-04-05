@@ -6,10 +6,10 @@
     </x-slot>
 
     <div class="max-w-3xl mx-auto my-5 bg-white p-3 shadow">
-        <H:form :action="route('admin.slides.update', $slide)" method="PATCH" multipart>
+        <x:form :action="route('admin.slides.update', $slide)" method="PATCH" multipart>
             <div class="relative flex flex-col flex-grow mt-5">
                 <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <H:label class="text-sm font-semibold" name="image" />
+                    <x:label class="text-sm font-semibold" name="image" />
                 </h2>
                 <div x-data="{ files: null }" id="image" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
                     <input type="file" name="image"
@@ -43,25 +43,25 @@
             <div class="flex flex-wrap">
                 <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                     <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                        <H:label class="text-sm font-bold" name="title" />
+                        <x:label class="text-sm font-bold" name="title" />
                     </h2>
-                    <H:input name="title" wire:model.defer="title" :value="$slide->getCustomProperty('title')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                    <H:error class="text-red-500" name="title" />
+                    <x:input name="title" wire:model.defer="title" :value="$slide->getCustomProperty('title')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                    <x:error class="text-red-500" name="title" />
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                     <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                        <H:label class="text-sm font-bold" name="text" />
+                        <x:label class="text-sm font-bold" name="text" />
                     </h2>
-                    <H:input name="text" wire:model.defer="text" :value="$slide->getCustomProperty('text')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                    <H:error class="text-red-500" name="text" />
+                    <x:input name="text" wire:model.defer="text" :value="$slide->getCustomProperty('text')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                    <x:error class="text-red-500" name="text" />
                 </div>
             </div>
 
             <x-jet-button class="block w-full mt-6 py-3">
                 Submit
             </x-jet-button>
-        </H:form>
+        </x:form>
     </div>
 </x-app-layout>

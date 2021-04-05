@@ -201,10 +201,6 @@ button:focus {
 .btn:focus {
   box-shadow: none;
 }
-ul {
-  margin: 0;
-  padding: 0;
-}
 .container {
   max-width: 1170px;
 }
@@ -2340,7 +2336,7 @@ ul {
   padding-left: 15px;
   font-size: 15px;
   border: 0;
-  background-color: #f9f9f9;
+  background-color: #f6f6f6;
 }
 .widget-area .search .form-control:focus {
   border: 0;
@@ -2884,7 +2880,7 @@ ul {
 .contact-area #contactForm .form-group .form-control {
   height: 50px;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #f6f6f6;
   padding-left: 40px;
   font-size: 15px;
   border: 0;

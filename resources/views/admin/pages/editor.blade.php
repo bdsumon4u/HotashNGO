@@ -17,35 +17,35 @@
                     </button>
                 </nav>
             </div>
-            <H:form :model="$page" :action="$page->exists ? route('admin.pages.update', $page) : route('admin.pages.store')" :method="$page->exists ? 'PATCH' : 'POST'" multipart>
+            <x:form :model="$page" :action="$page->exists ? route('admin.pages.update', $page) : route('admin.pages.store')" :method="$page->exists ? 'PATCH' : 'POST'" multipart>
                 @foreach(config('translatable.locales', []) as $lang)
                 <div x-show="lang === '{{ $lang }}'" class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="{{ $lang }}[title]" />
+                            <x:label class="text-sm font-bold" name="{{ $lang }}[title]" />
                         </h2>
-                        <H:input name="{{ $lang }}[title]" :value="$page->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="{{ $lang }}[title]" />
+                        <x:input name="{{ $lang }}[title]" :value="$page->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="{{ $lang }}[title]" />
                     </div>
                 </div>
                 @endforeach
                 <div class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="slug" />
+                            <x:label class="text-sm font-bold" name="slug" />
                         </h2>
-                        <H:input name="slug" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="slug" />
+                        <x:input name="slug" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="slug" />
                     </div>
                 </div>
                 @foreach(config('translatable.locales', []) as $lang)
                 <div x-show="lang === '{{ $lang }}'" class="flex flex-wrap">
                     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                            <H:label class="text-sm font-bold" name="{{ $lang }}[content]" />
+                            <x:label class="text-sm font-bold" name="{{ $lang }}[content]" />
                         </h2>
-                        <H:textarea tinymce name="{{ $lang }}[content]" :value="$page->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
-                        <H:error class="text-red-500" name="{{ $lang }}[content]" />
+                        <x:textarea tinymce name="{{ $lang }}[content]" :value="$page->{'content:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:error class="text-red-500" name="{{ $lang }}[content]" />
                     </div>
                 </div>
                 @endforeach
@@ -53,7 +53,7 @@
                 <x-jet-button class="block w-full mt-6 py-3">
                     Submit
                 </x-jet-button>
-            </H:form>
+            </x:form>
         </div>
     </div>
 </x-app-layout>

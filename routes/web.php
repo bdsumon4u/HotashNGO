@@ -25,8 +25,9 @@ Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 Route::view('/about-us', 'pages.about-us')->name('about-us');
 Route::view('/events', 'pages.events.index')->name('events.index');
 Route::view('/events/{event}', 'pages.events.show')->name('events.show');
-Route::view('/contact-us', 'pages.contact-us')->name('contact-us');
 Route::view('/donate', 'pages.donate')->name('donate');
+
+Route::match(['get', 'post'], 'contact-us', \App\Http\Controllers\ContactController::class)->name('contact-us');
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news:slug}', [\App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
