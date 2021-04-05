@@ -10,7 +10,7 @@
                 <div class="w-full sm:w-1/2 xl:w-1/4 overflow-hidden rounded p-2">
                     <div class="m-2 bg-white shadow border">
                         <img alt="avatar" class="w-full h-56 object-cover object-center"
-                             src="{{ $testimonial->getFullUrl() }}">
+                             src="{{ $testimonial->getFullUrl('510x300') }}">
                         <div class="flex flex-wrap items-center justify-between px-3 py-1 bg-gray-900">
                             <H:a class="rounded px-2 py-1 m-1 text-xs border-b-4 border-l-2 shadow-lg bg-blue-700 border-blue-800" :href="route('admin.testimonials.edit', $testimonial)">
                                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white fill-current text-center">

@@ -10,7 +10,7 @@
                 <div class="w-full sm:w-1/2 xl:w-1/3 overflow-hidden rounded border shadow p-3">
                     <div class="bg-white">
                         <div class="relative">
-                            <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $slide->getFullUrl() }}')"></div>
+                            <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $slide->getFullUrl('1920x800') }}')"></div>
                             <div style="background-color: rgba(0,0,0,0.6)" class="absolute top-0 mt-2 ml-3 px-2 py-1 rounded text-sm text-white">{{ $loop->index + 1 }}</div>
                         </div>
                         <div class="p-3">
