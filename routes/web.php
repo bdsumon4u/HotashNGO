@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//dd(cache()->remember('storage', 60, function () {
-//    return collect(File::allFiles(base_path()))->sum->getSize() / (10 * 10000000);
-//}));
 
 Route::post('locale', function () { return back(); })->name('locale');
 
@@ -43,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
     Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
     Route::view('/menu-builder', 'admin.menu-builder')->name('menu-builder');
     Route::resources([
@@ -55,6 +50,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified'],
         'news' => \App\Http\Controllers\Admin\NewsController::class,
         'events' => \App\Http\Controllers\Admin\EventController::class,
     ]);
+
+    Route::post('cache-refresh', \App\Http\Controllers\CacheController::class)->name('cache-refresh');
 });
 
 if (\Illuminate\Support\Facades\Schema::hasTable('pages')) {

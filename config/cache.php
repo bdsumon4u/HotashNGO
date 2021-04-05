@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 
 return [
 
+    'size' => env('CACHE_SIZE', 10),
+
     /*
     |--------------------------------------------------------------------------
     | Default Cache Store
