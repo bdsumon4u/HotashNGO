@@ -16,14 +16,6 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $people = Image::with('media')
-            ->firstOrCreate(['collection' => 'people'])
-            ->media()
-            ->where('collection_name', 'people')
-            ->inRandomOrder()
-            ->take(3)
-            ->get();
-
         $testimonials = Image::with('media')
             ->firstOrCreate(['collection' => 'testimonials'])
             ->media()
@@ -38,6 +30,6 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        return view('pages.home', compact('people', 'testimonials', 'news'));
+        return view('pages.home', compact('testimonials', 'news'));
     }
 }

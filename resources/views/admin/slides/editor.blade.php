@@ -67,7 +67,7 @@
                             <x:input name="button1.text" wire:model.defer="button1.text" :value="$slide->getCustomProperty('button1_text')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                         </div>
                         <div class="flex flex-wrap col-span-2">
-                            <x:label class="text-sm font-bold" name="link1.link" />
+                            <x:label class="text-sm font-bold" name="button1.link" />
                             <x:input name="button1.link" wire:model.defer="button1.link" :value="$slide->getCustomProperty('button1_link')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                         </div>
                     </div>

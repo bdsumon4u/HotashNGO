@@ -9,6 +9,7 @@ return [
     'settings' => [
         \App\Settings\GeneralSettings::class,
         \App\Settings\SocialSettings::class,
+        \App\Settings\AboutSettings::class,
     ],
 
     /*

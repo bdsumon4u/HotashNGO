@@ -7,7 +7,7 @@ use Livewire\Component;
 class Index extends Component
 {
     /** @var string[] */
-    public $tabs = ['general', 'social', 'others'];
+    public $tabs = ['general', 'social', 'about', 'others'];
 
     /** @var string|null */
     public $tab;
