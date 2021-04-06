@@ -128,8 +128,3 @@
         Submit
     </x-jet-button>
 </x:form>
-@once
-    @push('scripts')
-        <script src="https://cdn.filesizejs.com/filesize.min.js"></script>
-    @endpush
-@endonce

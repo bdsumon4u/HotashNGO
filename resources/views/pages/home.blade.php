@@ -3,7 +3,6 @@
 
     @include('pages.partials.about')
 
-
     <div class="benefit-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
@@ -90,8 +89,9 @@
                     <div class="counter-item">
                         <i class="flaticon-index"></i>
                         <h3>
-                            <span class="odometer" data-count="30">00</span>
-                            <span class="target">M</span>
+                            @php($data = explode(' ', setting('odometer', 'fund_amount')))
+                            <span class="odometer" data-count="{{ data_get($data, 0, 0) }}">00</span>
+                            <span class="target">{{ data_get($data, 1, '') }}</span>
                         </h3>
                         <p>Total fund raised</p>
                     </div>
@@ -100,8 +100,7 @@
                     <div class="counter-item">
                         <i class="flaticon-event"></i>
                         <h3>
-                            <span class="odometer" data-count="250">00</span>
-                            <span class="target">+</span>
+                            <span class="odometer" data-count="{{ setting('odometer', 'event_count') }}">00</span>
                         </h3>
                         <p>Successful events</p>
                     </div>
@@ -110,8 +109,7 @@
                     <div class="counter-item">
                         <i class="flaticon-charity"></i>
                         <h3>
-                            <span class="odometer" data-count="550">00</span>
-                            <span class="target">+</span>
+                            <span class="odometer" data-count="{{ setting('odometer', 'volunteer_count') }}">00</span>
                         </h3>
                         <p>Worldwide volunteers</p>
                     </div>
@@ -120,8 +118,7 @@
                     <div class="counter-item">
                         <i class="flaticon-helping-hand"></i>
                         <h3>
-                            <span class="odometer" data-count="500">00</span>
-                            <span class="target">+</span>
+                            <span class="odometer" data-count="{{ setting('odometer', 'donor_count') }}">00</span>
                         </h3>
                         <p>Our donner</p>
                     </div>
@@ -130,99 +127,6 @@
         </div>
     </div>
 
-
-    <section class="work-area pt-100 pb-70">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="work-content">
-                        <div class="section-title">
-                            <span class="sub-title">How we work</span>
-                            <h2>We exist for non-profits, social enterprises, community groups</h2>
-                        </div>
-                        <ul>
-                            <li>
-                                <h3><span>01</span>Raise money from different sources</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse animi
-                                    temporibus iusto at dolorum</p>
-                            </li>
-                            <li>
-                                <h3><span>02</span>Giving relief in rural area all over the world</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse animi
-                                    temporibus iusto at dolorum</p>
-                            </li>
-                            <li>
-                                <h3><span>03</span>Gather all the money and giving relief in need</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse animi
-                                    temporibus iusto at dolorum</p>
-                            </li>
-                            <li>
-                                <h3><span>04</span>Go to the country that really needs help</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, pariatur esse animi
-                                    temporibus iusto at dolorum</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="work-img">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/work/work1.jpg" alt="Work">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/work/work2.jpg" alt="Work">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="gallery-area two pt-100 pb-70">
-        <div class="container-fluid">
-            <div class="section-title">
-                <span class="sub-title">Our gallery</span>
-                <h2>Discover the best things we do</h2>
-                <p>We exist for non-profits, social enterprises, community groups, activists,lorem politicians and
-                    individual citizens that are making.</p>
-            </div>
-            <div class="gallery-slider owl-theme owl-carousel">
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery1.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery1.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery2.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery2.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery3.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery3.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery4.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery4.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery5.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery5.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <a href="{{ asset('findo/img/gallery/gallery6.jpg') }}" data-lightbox="roadtrip">
-                        <img src="https://templates.hibootstrap.com/findo/default/assets/img/gallery/gallery6.jpg" alt="Gallery">
-                        <i class="icofont-eye"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     @include('pages.partials.volunteer')
 
