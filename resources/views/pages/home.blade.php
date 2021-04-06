@@ -6,42 +6,37 @@
     <div class="benefit-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">Core features</span>
-                <h2>Our goals and missions</h2>
-                <p>We exist for non-profits, social enterprises, community groups, activists,lorem politicians and
-                    individual citizens that are making.</p>
+                <span class="sub-title">@lang(setting('mission', 'section_name'))</span>
+                <h2>@lang(setting('mission', 'section_title'))</h2>
+                <div>{{ setting('mission', 'description') }}</div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item">
                         <i class="flaticon-house"></i>
-                        <h3>Build home</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                            magnam earum</p>
+                        <h3>@lang(setting('mission', 'home_title'))</h3>
+                        <div>{{ setting('mission', 'home_details') }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item two">
                         <i class="flaticon-hospital"></i>
-                        <h3>Medical facilities</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                            magnam earum</p>
+                        <h3>@lang(setting('mission', 'medical_title'))</h3>
+                        <div>{{ setting('mission', 'medical_details') }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item three">
                         <i class="flaticon-fast-food"></i>
-                        <h3>Food & water</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                            magnam earum</p>
+                        <h3>@lang(setting('mission', 'food_title'))</h3>
+                        <div>{{ setting('mission', 'food_details') }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item four">
                         <i class="flaticon-graduation-cap"></i>
-                        <h3>Education facilities</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi ab quam
-                            magnam earum</p>
+                        <h3>@lang(setting('mission', 'education_title'))</h3>
+                        <div>{{ setting('mission', 'education_details') }}</div>
                     </div>
                 </div>
             </div>
