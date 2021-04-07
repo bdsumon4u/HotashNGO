@@ -18,10 +18,7 @@ Route::post('locale', function () { return back(); })->name('locale');
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
 Route::view('/about-us', 'pages.about-us')->name('about-us');
-Route::view('/events', 'pages.events.index')->name('events.index');
-Route::view('/events/{event}', 'pages.events.show')->name('events.show');
 Route::view('/donate', 'pages.donate')->name('donate');
-
 Route::match(['get', 'post'], 'contact-us', \App\Http\Controllers\ContactController::class)->name('contact-us');
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
@@ -29,6 +26,8 @@ Route::get('/news/{news:slug}', [\App\Http\Controllers\NewsController::class, 's
 
 Route::get('/events', [\App\Http\Controllers\EventController::class, 'index'])->name('events.index');
 Route::get('/events/{event:slug}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
+
+Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');

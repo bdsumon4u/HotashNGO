@@ -14,8 +14,8 @@
                 <div class="col-lg-4">
                     <div class="widget-area">
                         <div class="search widget-item">
-                            <form>
-                                <input type="text" class="form-control" placeholder="Search...">
+                            <form action="{{ route('search') }}">
+                                <input type="text" name="q" class="form-control" placeholder="Search...">
                                 <button type="submit" class="btn">
                                     <i class="icofont-search-1"></i>
                                 </button>

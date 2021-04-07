@@ -58,8 +58,8 @@
                             <div class="centered">
                                 <div id="search-box">
                                     <i id="close-btn" class="icofont-close"></i>
-                                    <form>
-                                        <input type="text" class="form-control" placeholder="{{ __('Search') }}..."/>
+                                    <form action="{{ route('search') }}">
+                                        <input type="text" name="q" class="form-control" placeholder="{{ __('Search') }}..."/>
                                         <button type="submit" class="btn">{{ __('Search') }}</button>
                                     </form>
                                 </div>
