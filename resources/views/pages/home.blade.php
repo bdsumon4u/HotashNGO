@@ -44,37 +44,37 @@
     </div>
 
     @if ($events = recent_events(4))
-    <section class="event-area pt-100 pb-70">
-        <div class="container">
-            <div class="section-title">
-                <span class="sub-title">Our events</span>
-                <h2>Upcoming/recent events</h2>
-            </div>
-            <div class="row align-items-center">
-                @include('pages.partials.event', ['event' => $events[0]])
-                <div class="col-lg-6">
-                    @foreach($events->skip(1) as $event)
-                    <div class="event-item-right">
-                        <h4>{{ $events[0]->starts_at->day }} <span>{{ $events[0]->starts_at->format('M') }}</span></h4>
-                        <h3>
-                            <a href="{{ route('events.show', $events[0]) }}">{{ $events[0]->title }}</a>
-                        </h3>
-                        <ul>
-                            <li>
-                                <i class="icofont-stopwatch"></i>
-                                <span>{{ $events[0]->starts_at->format('H:i A') }}</span>
-                            </li>
-                            <li>
-                                <i class="icofont-location-pin"></i>
-                                <span>{{ $events[0]->location }}</span>
-                            </li>
-                        </ul>
+        <section class="event-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">Our events</span>
+                    <h2>Upcoming/recent events</h2>
+                </div>
+                <div class="row align-items-center">
+                    @include('pages.partials.event', ['event' => $events[0]])
+                    <div class="col-lg-6">
+                        @foreach($events->skip(1) as $event)
+                            <div class="event-item-right">
+                                <h4>{{ $events[0]->starts_at->day }} <span>{{ $events[0]->starts_at->format('M') }}</span></h4>
+                                <h3>
+                                    <a href="{{ route('events.show', $events[0]) }}">{{ $events[0]->title }}</a>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <i class="icofont-stopwatch"></i>
+                                        <span>{{ $events[0]->starts_at->format('H:i A') }}</span>
+                                    </li>
+                                    <li>
+                                        <i class="icofont-location-pin"></i>
+                                        <span>{{ $events[0]->location }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     <div class="counter-area pt-100 pb-70">
@@ -122,14 +122,14 @@
         </div>
     </div>
 
-
     @include('pages.partials.volunteer')
 
     <section class="testimonial-area ptb-100">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">Testimonials</span>
-                <h2>Review from our clients</h2>
+                <span class="sub-title">@lang(setting('section', 'testimonial_name'))</span>
+                <h2>@lang(setting('section', 'testimonial_title'))</h2>
+                <div>{{ setting('section', 'testimonial_description') }}</div>
             </div>
             <div class="testimonial-slider owl-theme owl-carousel">
                 @each('pages.partials.testimonial', $testimonials, 'testimonial')
@@ -141,10 +141,9 @@
     <section class="blog-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">Latest news & blog</span>
-                <h2>Latest charity blog</h2>
-                <p>We exist for non-profits, social enterprises, community groups, activists,lorem politicians and
-                    individual citizens that are making.</p>
+                <span class="sub-title">@lang(setting('section', 'news_name'))</span>
+                <h2>@lang(setting('section', 'news_title'))</h2>
+                <div>{{ setting('section', 'news_description') }}</div>
             </div>
             <div class="row">
                 @each('pages.partials.news', $news, 'news')

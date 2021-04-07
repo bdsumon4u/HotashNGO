@@ -11,6 +11,7 @@ return [
         \App\Settings\SocialSettings::class,
         \App\Settings\AboutSettings::class,
         \App\Settings\MissionSettings::class,
+        \App\Settings\SectionSettings::class,
         \App\Settings\OdometerSettings::class,
     ],
 
