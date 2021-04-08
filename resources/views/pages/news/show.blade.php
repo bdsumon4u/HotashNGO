@@ -75,7 +75,7 @@
                             <div class="post-inner">
                                 <ul class="align-items-center">
                                     <li>
-                                        <img src="{{ $news->getFirstMediaUrl('thumbnail') }}" alt="Details">
+                                        <img src="{{ $news->getFirstMediaUrl('news', '430x250') }}" alt="Details">
                                     </li>
                                     <li>
                                         <h4>
