@@ -3,6 +3,7 @@
 use App\Models\Event;
 use App\Models\Image;
 use App\Models\News;
+use App\Models\Project;
 
 if (!function_exists('setting')) {
     function setting(string $group, string $name, $default = null) {
@@ -30,6 +31,15 @@ if (!function_exists('recent_news')) {
 if (!function_exists('recent_events')) {
     function recent_events(int $count) {
         return Event::with('media', 'translations')
+            ->latest('id')
+            ->take($count)
+            ->get();
+    }
+}
+
+if (!function_exists('recent_projects')) {
+    function recent_projects(int $count) {
+        return Project::with('media', 'translations')
             ->latest('id')
             ->take($count)
             ->get();

@@ -27,6 +27,9 @@ Route::get('/news/{news:slug}', [\App\Http\Controllers\NewsController::class, 's
 Route::get('/events', [\App\Http\Controllers\EventController::class, 'index'])->name('events.index');
 Route::get('/events/{event:slug}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
 
+Route::get('/projects', [\App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project:slug}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');
+
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
@@ -48,6 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'veri
         'testimonials' => \App\Http\Controllers\Admin\TestimonialController::class,
         'news' => \App\Http\Controllers\Admin\NewsController::class,
         'events' => \App\Http\Controllers\Admin\EventController::class,
+        'projects' => \App\Http\Controllers\Admin\ProjectController::class,
     ]);
 
     Route::post('cache-refresh', \App\Http\Controllers\CacheController::class)->name('cache-refresh');
