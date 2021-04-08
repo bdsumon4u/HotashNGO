@@ -13,7 +13,7 @@
                                 </li>
                             </ul>
                             <h2>{{ $news->title }}</h2>
-                            <div>{!! $news->content !!}</div>
+                            <div class="page-content">{!! $news->content !!}</div>
                         </div>
                         <div class="details-share">
                             <div class="row">

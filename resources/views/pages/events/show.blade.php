@@ -7,7 +7,7 @@
                         <div class="details-img">
                             <img src="{{ $event->getFirstMediaUrl('events', '860x500') }}" alt="Details">
                             <h2>{{ $event->title }}</h2>
-                            <div>{!! $event->content !!}</div>
+                            <div class="page-content">{!! $event->content !!}</div>
                         </div>
                     </div>
                 </div>
