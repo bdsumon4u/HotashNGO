@@ -6,7 +6,7 @@
                     <div class="details-item">
                         <div class="details-img">
                             <img src="{{ $project->getFirstMediaUrl('projects', '860x500') }}" alt="Details">
-                            <ul class="p-0">
+                            <ul>
                                 <li>
                                     <div class="badge text-primary">{{ ucwords(str_replace('-', ' ', $project->category)) }}</div>
                                 </li>

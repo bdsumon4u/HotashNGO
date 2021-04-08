@@ -201,6 +201,10 @@ button:focus {
 .btn:focus {
   box-shadow: none;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
 .container {
   max-width: 1170px;
 }
@@ -3353,6 +3357,9 @@ button:focus {
 /**
  * Page Content
  */
+.page-content ul {
+  padding: revert;
+}
 .page-content table {
   --bs-table-bg: transparent;
   --bs-table-striped-color: #212529;

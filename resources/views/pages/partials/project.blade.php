@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="bottom">
-            <ul class="p-0">
+            <ul>
                 <li>
                     <div class="badge text-primary">{{ ucwords(str_replace('-', ' ', $project->category)) }}</div>
                 </li>
