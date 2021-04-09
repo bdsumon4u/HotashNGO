@@ -33,4 +33,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: 'cd ~/public_html && chmod +x server_deploy.sh && ./server_deploy.sh'
