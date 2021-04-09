@@ -50,29 +50,31 @@
                     <span class="sub-title">Our events</span>
                     <h2>Upcoming/recent events</h2>
                 </div>
+                @if($events->isNotEmpty())
                 <div class="row align-items-center">
                     @include('pages.partials.event', ['event' => $events[0]])
                     <div class="col-lg-6">
                         @foreach($events->skip(1) as $event)
                             <div class="event-item-right">
-                                <h4>{{ $events[0]->starts_at->day }} <span>{{ $events[0]->starts_at->format('M') }}</span></h4>
+                                <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
                                 <h3>
-                                    <a href="{{ route('events.show', $events[0]) }}">{{ $events[0]->title }}</a>
+                                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
                                 </h3>
                                 <ul>
                                     <li>
                                         <i class="icofont-stopwatch"></i>
-                                        <span>{{ $events[0]->starts_at->format('H:i A') }}</span>
+                                        <span>{{ $event->starts_at->format('H:i A') }}</span>
                                     </li>
                                     <li>
                                         <i class="icofont-location-pin"></i>
-                                        <span>{{ $events[0]->location }}</span>
+                                        <span>{{ $event->location }}</span>
                                     </li>
                                 </ul>
                             </div>
                         @endforeach
                     </div>
                 </div>
+                @endif
             </div>
         </section>
     @endif
