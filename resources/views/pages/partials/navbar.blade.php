@@ -2,7 +2,7 @@
 
     <div class="mobile-nav">
         <a href="{{ url('/') }}" class="logo">
-            <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
+            <img src="{{ asset(setting('general', 'logo')) }}" style="height: 3.125rem; width: 10.625rem;" alt="Logo">
         </a>
     </div>
 
@@ -10,7 +10,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
+                    <img src="{{ asset(setting('general', 'logo')) }}" style="height: 3.125rem; width: 10.625rem;" alt="Logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">

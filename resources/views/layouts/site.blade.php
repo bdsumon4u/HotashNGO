@@ -66,7 +66,7 @@
                 <div class="footer-item">
                     <div class="footer-logo">
                         <a class="logo" href="{{ url('/') }}">
-                            <img src="{{ asset(setting('general', 'logo')) }}" alt="Logo">
+                            <img src="{{ asset(setting('general', 'logo')) }}" style="height: 3.125rem; width: 10.625rem;" alt="Logo">
                         </a>
                         <p>{{ setting('general', 'tagline') }}</p>
                         <ul>
