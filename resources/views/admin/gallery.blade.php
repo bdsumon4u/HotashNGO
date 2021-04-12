@@ -47,7 +47,7 @@
                     <div class="bg-white">
                         <div class="relative">
                             <a target="_blank" href="{{ $image->getFullUrl() }}">
-                                <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl() }}')">
+                                <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl('416x234') }}')">
                                 </div>
                             </a>
                             <div style="background-color: rgba(0,0,0,0.6)" class="absolute top-0 mt-2 ml-3 px-2 py-1 rounded text-sm text-white">{{ $loop->index + 1 }}</div>

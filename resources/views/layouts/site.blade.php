@@ -104,7 +104,7 @@
                         <div class="cause-inner">
                             <ul class="align-items-center">
                                 <li>
-                                    <img src="{{ $news->getFirstMediaUrl('thumbnail') }}" alt="Cause">
+                                    <img src="{{ $news->getFirstMediaUrl('news', '430x250') }}" alt="Cause">
                                 </li>
                                 <li>
                                     <h3>

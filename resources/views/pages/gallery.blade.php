@@ -9,7 +9,7 @@
                 <div class="col-sm-6 col-lg-4">
                     <div class="gallery-item">
                         <a href="{{ $image->getFullUrl() }}" @if($image->type === 'image') data-lightbox="roadtrip" @else data-toggle="modal" data-target="#video-{{ $image->id }}" @endif>
-                            <img src="{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl() }}" alt="Gallery">
+                            <img src="{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl('416x234') }}" alt="Gallery">
                             <i class="icofont-eye"></i>
                         </a>
                     </div>
