@@ -19,7 +19,7 @@ class Image extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->convert('slides', 1920, 800);
-        # Gallery #
+        $this->convert('gallery', 416, 234);
         $this->convert('people', 510, 450);
         $this->convert('testimonials', 510, 300);
     }

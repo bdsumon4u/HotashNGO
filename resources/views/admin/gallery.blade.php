@@ -8,10 +8,10 @@
         <x:form :action="route('admin.images.store')" method="POST" multipart>
             <div class="relative flex flex-col flex-grow mt-5">
                 <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <x:label class="text-sm font-semibold" name="image">Gallery Images</x:label>
+                    <x:label class="text-sm font-semibold" name="media">Media</x:label>
                 </h2>
-                <div x-data="{ files: null }" id="image" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
-                    <input multiple type="file" name="image[]"
+                <div x-data="{ files: null }" id="media" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
+                    <input multiple type="file" name="media[]"
                            class="absolute inset-0 z-50 m-0 p-0 w-full h-full outline-none opacity-0"
                            x-on:change="files = $event.target.files; console.log($event.target.files);"
                            x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')" x-on:drop="$el.classList.remove('active')"
@@ -46,7 +46,10 @@
                 <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 overflow-hidden rounded border shadow p-3">
                     <div class="bg-white">
                         <div class="relative">
-                            <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $image->getFullUrl() }}')"></div>
+                            <a target="_blank" href="{{ $image->getFullUrl() }}">
+                                <div class="h-48 bg-cover bg-no-repeat bg-center" style="background-image: url('{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl() }}')">
+                                </div>
+                            </a>
                             <div style="background-color: rgba(0,0,0,0.6)" class="absolute top-0 mt-2 ml-3 px-2 py-1 rounded text-sm text-white">{{ $loop->index + 1 }}</div>
                         </div>
                         <div class="p-3">

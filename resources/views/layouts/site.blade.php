@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{ asset('findo/css/responsive.css') }}">
 
     <link rel="icon" type="image/png" href="{{ asset(setting('general', 'favicon')) }}">
+
+    @stack('styles')
 </head>
 <body>
 
@@ -185,5 +187,7 @@
 <script src="https://templates.hibootstrap.com/findo/default/assets/js/jquery.nice-select.min.js"></script>
 
 <script src="{{ asset('findo/js/custom.js') }}"></script>
+
+@stack('scripts')
 </body>
 </html>

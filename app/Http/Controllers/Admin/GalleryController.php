@@ -38,12 +38,12 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'image' => 'required|array',
-            'image.*' => 'required|image',
+            'media' => 'required|array',
+            'media.*' => 'required|file|mimes:mp4,mov,avi,ogv,jpeg,jpg,png,webm,m4a|max:10000',
         ]);
 
-        foreach ($data['image'] as $image) {
-            $this->galleryMaker($image);
+        foreach ($data['media'] as $file) {
+            $this->galleryMaker($file);
         }
 
         $this->banner('New Image(s) Added.');
@@ -95,15 +95,11 @@ class GalleryController extends Controller
         return Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
     }
 
-    private function galleryMaker($image)
+    private function galleryMaker($file)
     {
         return Image::firstOrCreate(['collection' => $this->collection])
-            ->addMedia($image)
-            ->usingFileName($this->getFileName($image))
-            ->withCustomProperties([
-                'title' => $image,
-                'text' => $image,
-            ])
+            ->addMedia($file)
+            ->usingFileName($this->getFileName($file))
             ->toMediaCollection($this->collection);
     }
 }

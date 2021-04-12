@@ -35,6 +35,7 @@ Route::get('/projects/{project:slug}', [\App\Http\Controllers\ProjectController:
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
+Route::get('/video-stream/{media}', \App\Http\Controllers\VideoStreamController::class)->name('video-stream');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
 Route::get('/speeches', [\App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
 Route::get('/speeches/{speech}', [\App\Http\Controllers\TestimonialController::class, 'show'])->name('testimonials.show');
@@ -50,12 +51,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'veri
     Route::resources([
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
         'pages' => \App\Http\Controllers\Admin\PageController::class,
-        'images' => \App\Http\Controllers\Admin\GalleryController::class,
         'people' => \App\Http\Controllers\Admin\PersonController::class,
         'news' => \App\Http\Controllers\Admin\NewsController::class,
         'events' => \App\Http\Controllers\Admin\EventController::class,
         'projects' => \App\Http\Controllers\Admin\ProjectController::class,
     ]);
+    Route::resource('media', \App\Http\Controllers\Admin\GalleryController::class)
+        ->parameter('media', 'image')->names('images');
     Route::resource('speeches', \App\Http\Controllers\Admin\TestimonialController::class)
         ->parameter('speech', 'testimonial')->names('testimonials');
 
