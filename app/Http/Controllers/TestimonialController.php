@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class TestimonialController extends Controller
 {
     private string $collection = 'testimonials';
 
     /**
-     * Handle the incoming request.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function index()
     {
         $testimonials = Image::with('media')
             ->firstOrCreate(['collection' => $this->collection])
@@ -24,6 +24,17 @@ class TestimonialController extends Controller
             ->latest('id')
             ->paginate(6);
 
-        return view('pages.testimonials', compact('testimonials'));
+        return view('pages.testimonials.index', compact('testimonials'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Media $speech
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Media $speech)
+    {
+        return view('pages.testimonials.show', ['testimonial' => $speech]);
     }
 }

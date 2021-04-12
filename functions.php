@@ -4,6 +4,7 @@ use App\Models\Event;
 use App\Models\Image;
 use App\Models\News;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 if (!function_exists('setting')) {
     function setting(string $group, string $name, $default = null) {
@@ -55,5 +56,11 @@ if (!function_exists('random_volunteers')) {
             ->inRandomOrder()
             ->take($count)
             ->get();
+    }
+}
+
+if (!function_exists('get_excerpt')) {
+    function get_excerpt($source, $len = 100) {
+        return  Str::substr(strip_tags($source), 0, $len);
     }
 }

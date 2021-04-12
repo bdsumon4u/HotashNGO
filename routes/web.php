@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder;
+use UniSharp\LaravelFilemanager\Middlewares\MultiUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,12 +36,14 @@ Route::get('/search', \App\Http\Controllers\SearchController::class)->name('sear
 
 Route::get('/gallery', \App\Http\Controllers\GalleryController::class)->name('gallery');
 Route::get('/team', \App\Http\Controllers\TeamController::class)->name('team');
-Route::get('/testimonials', \App\Http\Controllers\TestimonialController::class)->name('testimonials');
+Route::get('/speeches', [\App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
+Route::get('/speeches/{speech}', [\App\Http\Controllers\TestimonialController::class, 'show'])->name('testimonials.show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+\Illuminate\Support\Facades\Route::model('speech', \Spatie\MediaLibrary\MediaCollections\Models\Media::class);
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
     Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
     Route::view('/menu-builder', 'admin.menu-builder')->name('menu-builder');
@@ -48,11 +52,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'veri
         'pages' => \App\Http\Controllers\Admin\PageController::class,
         'images' => \App\Http\Controllers\Admin\GalleryController::class,
         'people' => \App\Http\Controllers\Admin\PersonController::class,
-        'testimonials' => \App\Http\Controllers\Admin\TestimonialController::class,
         'news' => \App\Http\Controllers\Admin\NewsController::class,
         'events' => \App\Http\Controllers\Admin\EventController::class,
         'projects' => \App\Http\Controllers\Admin\ProjectController::class,
     ]);
+    Route::resource('speeches', \App\Http\Controllers\Admin\TestimonialController::class)
+        ->parameter('speech', 'testimonial')->names('testimonials');
 
     Route::post('cache-refresh', \App\Http\Controllers\CacheController::class)->name('cache-refresh');
 });
@@ -63,6 +68,47 @@ if (\Illuminate\Support\Facades\Schema::hasTable('pages')) {
     })->name('page.show');
 }
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
+Route::group(['prefix' => 'laravel-filemanager', 'as' => 'unisharp.lfm.', 'middleware' => ['web', 'auth', CreateDefaultFolder::class, MultiUser::class]], function () {
+
+    // display main layout
+    Route::get('/', [\UniSharp\LaravelFilemanager\Controllers\LfmController::class, 'show'])->name('show');
+
+    // display integration error messages
+    Route::get('/errors', [\UniSharp\LaravelFilemanager\Controllers\LfmController::class, 'getErrors'])->name('getErrors');
+
+    // upload
+    Route::any('/upload', [\UniSharp\LaravelFilemanager\Controllers\UploadController::class, 'upload'])->name('upload');
+
+    // list images & files
+    Route::get('/jsonitems', [\UniSharp\LaravelFilemanager\Controllers\ItemsController::class, 'getItems'])->name('getItems');
+
+    Route::get('/move', [\UniSharp\LaravelFilemanager\Controllers\ItemsController::class, 'move'])->name('move');
+
+    Route::get('/domove', [\UniSharp\LaravelFilemanager\Controllers\ItemsController::class, 'domove'])->name('domove');
+
+    // folders
+    Route::get('/newfolder', [\UniSharp\LaravelFilemanager\Controllers\FolderController::class, 'getAddfolder'])->name('getAddfolder');
+
+    // list folders
+    Route::get('/folders', [\UniSharp\LaravelFilemanager\Controllers\FolderController::class, 'getFolders'])->name('getFolders');
+
+    // crop
+    Route::get('/crop', [\UniSharp\LaravelFilemanager\Controllers\CropController::class, 'getCrop'])->name('getCrop');
+    Route::get('/cropimage', [\UniSharp\LaravelFilemanager\Controllers\CropController::class, 'getCropimage'])->name('getCropimage');
+    Route::get('/cropnewimage', [\UniSharp\LaravelFilemanager\Controllers\CropController::class, 'getNewCropimage'])->name('getCropnewimage');
+
+    // rename
+    Route::get('/rename', [\UniSharp\LaravelFilemanager\Controllers\RenameController::class, 'getRename'])->name('getRename');
+
+    // scale/resize
+    Route::get('/resize', [\UniSharp\LaravelFilemanager\Controllers\ResizeController::class, 'getResize'])->name('getResize');
+    Route::get('/doresize', [\UniSharp\LaravelFilemanager\Controllers\ResizeController::class, 'performResize'])->name('performResize');
+
+    // download
+    Route::get('/download', [\UniSharp\LaravelFilemanager\Controllers\DownloadController::class, 'getDownload'])->name('getDownload');
+
+    // delete
+    Route::get('/delete', [\UniSharp\LaravelFilemanager\Controllers\DeleteController::class, 'getDelete'])->name('getDelete');
+
+    Route::get('/demo', [\UniSharp\LaravelFilemanager\Controllers\DemoController::class, 'index']);
 });

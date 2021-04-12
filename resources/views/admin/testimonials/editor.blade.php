@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __($testimonial->exists ? 'Add New Testimonial' : 'Edit Testimonial') }}
+            {{ __($testimonial->exists ? 'Edit Speech' : 'Add New Speech') }}
         </h2>
     </x-slot>
 
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div x-data="{ temp: 5, orig: 5 }" class="flex justify-center cursor-pointer text-4xl mt-4" @click="orig = temp">
+            <div x-data="{ temp: {{ $testimonial->getCustomProperty('rating', 5) }}, orig: {{ $testimonial->getCustomProperty('rating', 5) }} }" class="hidden flex justify-center cursor-pointer text-4xl mt-4" @click="orig = temp">
                 <input name="rating" type="number" :value="orig" class="hidden"/>
 
                 <template x-if="orig != 0">
@@ -80,9 +80,9 @@
 
             <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                 <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <x:label class="text-sm font-bold" name="review" />
+                    <x:label class="text-sm font-bold" name="review" text="Speech" />
                 </h2>
-                <x:textarea rows="4" name="review" wire:model.defer="review" :value="$testimonial->getCustomProperty('review')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                <x:textarea tinymce name="review" wire:model.defer="review" :value="$testimonial->getCustomProperty('review')" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                 <x:error class="text-red-500" name="review" />
             </div>
 

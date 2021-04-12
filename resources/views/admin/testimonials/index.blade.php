@@ -29,7 +29,7 @@
                         </div>
                         <div class="py-4 px-6">
                             <h1 class="text-xl font-semibold text-gray-800">{{ $testimonial->getCustomProperty('name') }} [<small>{{ $testimonial->getCustomProperty('designation') }}</small>]</h1>
-                            <div class="text-sm">{!! $testimonial->getCustomProperty('review') !!}</div>
+                            <div class="text-sm">{!! get_excerpt($testimonial->getCustomProperty('review')) !!}</div>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
         <div class="md:px-2 w-full md:w-1/3">
             <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                 <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <x:label class="text-sm font-bold" name="testimonial_name" />
+                    <x:label class="text-sm font-bold" name="speech_name" />
                 </h2>
                 <x:input name="testimonial_name" wire:model.defer="testimonial_name" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                 <x:error class="text-red-500" name="testimonial_name" />
@@ -40,7 +40,7 @@
         <div class="md:px-2 w-full md:w-2/3">
             <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
                 <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-                    <x:label class="text-sm font-bold" name="testimonial_title" />
+                    <x:label class="text-sm font-bold" name="speech_title" />
                 </h2>
                 <x:input name="testimonial_title" wire:model.defer="testimonial_title" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                 <x:error class="text-red-500" name="testimonial_title" />
@@ -49,7 +49,7 @@
     </div>
     <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-            <x:label class="text-sm font-bold" name="testimonial_description" />
+            <x:label class="text-sm font-bold" name="speech_description" />
         </h2>
         <x:textarea rows="4" name="testimonial_description" wire:model.defer="testimonial_description" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
         <x:error class="text-red-500" name="testimonial_description" />
