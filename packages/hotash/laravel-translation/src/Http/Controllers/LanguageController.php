@@ -17,7 +17,7 @@ class LanguageController extends Controller
         $this->translation = $translation;
     }
 
-    public function index(Request $request, )
+    public function index(Request $request)
     {
         $this->translation->saveMissingTranslations(false);
         $languages = $this->translation->allLanguages();

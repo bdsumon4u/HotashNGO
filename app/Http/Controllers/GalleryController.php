@@ -20,7 +20,7 @@ class GalleryController extends Controller
             ->media()
             ->where('collection_name', $this->collection)
             ->latest('id')
-            ->paginate(15);
+            ->paginate(12);
 
         return view('pages.gallery', compact('images'));
     }
