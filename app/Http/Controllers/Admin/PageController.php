@@ -15,7 +15,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::translatedIn(app()->getLocale())->get();
+        $pages = Page::with('translations')
+            ->translatedIn(app()->getLocale())
+            ->get();
         return view('admin.pages.index', compact('pages'));
     }
 
