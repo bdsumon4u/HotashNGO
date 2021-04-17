@@ -10,6 +10,8 @@ class Section extends Component
 {
     use InteractsWithBanner;
 
+    public string $tab;
+
     public string $team_name;
     public string $team_title;
     public string $team_description;

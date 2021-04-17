@@ -46,6 +46,7 @@
                     'items' => [
                         'All News' => route('admin.news.index'),
                         'Add New' => route('admin.news.create'),
+                        'Edit Section' => route('admin.sections', 'news'),
                     ],
                 ],
                 'Events' => [
@@ -75,6 +76,7 @@
                     'items' => [
                         'All People' => route('admin.people.index'),
                         'Add New' => route('admin.people.create'),
+                        'Edit Section' => route('admin.sections', 'team')
                     ],
                 ],
                 'Speeches' => [
@@ -82,6 +84,7 @@
                     'items' => [
                         'View All' => route('admin.testimonials.index'),
                         'Add New' => route('admin.testimonials.create'),
+                        'Edit Section' => route('admin.sections', 'speech'),
                     ],
                 ],
                 'Languages' => [

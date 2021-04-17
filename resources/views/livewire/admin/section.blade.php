@@ -6,6 +6,8 @@
             </h3>
             @if(view()->exists('livewire.admin.settings.'.$tab))
                 @livewire('admin.settings.'.$tab)
+            @else
+                @livewire('admin.settings.section', compact('tab'))
             @endif
         </div>
     </div>
