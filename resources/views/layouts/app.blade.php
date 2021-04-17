@@ -51,7 +51,7 @@
         <!-- Loading screen -->
         <div
             x-ref="loading"
-            class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-opacity-90 bg-blue-800"
+            class="hidden fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-opacity-90 bg-blue-800"
         >
             Loading.....
         </div>
@@ -61,7 +61,7 @@
 
         <div class="flex flex-col flex-1 min-h-screen overflow-x-hidden overflow-y-auto">
             <!-- Navbar -->
-            <header class="relative bg-white shadow">
+            <header class="relative z-30 bg-white shadow">
                 <div class="flex items-center justify-between p-2 border-b">
                     <!-- Mobile menu button -->
                     <button

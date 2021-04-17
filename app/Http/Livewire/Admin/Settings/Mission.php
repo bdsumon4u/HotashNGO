@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Admin\Settings;
 
 use App\Settings\MissionSettings;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 
 class Mission extends Component
 {
+    use InteractsWithBanner;
+
     public string $section_name;
     public string $section_title;
     public string $description;
@@ -47,5 +50,7 @@ class Mission extends Component
     {
         $settings->fill($this->validate());
         $settings->save();
+
+        $this->banner('Successfully Saved The Data.');
     }
 }

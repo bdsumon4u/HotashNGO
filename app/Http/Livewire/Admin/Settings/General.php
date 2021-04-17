@@ -5,12 +5,14 @@ namespace App\Http\Livewire\Admin\Settings;
 use App\Settings\GeneralSettings;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class General extends Component
 {
     use WithFileUploads;
+    use InteractsWithBanner;
 
     public $logo;
     public $favicon;
@@ -55,6 +57,8 @@ class General extends Component
             $this->removeOldFile('logo', $oldFiles['logo']);
             $this->removeOldFile('favicon', $oldFiles['favicon']);
         }
+
+        $this->banner('Successfully Saved The Data.');
     }
 
     protected function uploadFile($name): string

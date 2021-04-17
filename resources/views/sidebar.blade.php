@@ -5,12 +5,12 @@
     x-transition:leave="transition transform duration-300"
     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-    class="flex-shrink-0 fixed inset-y-0 w-64 max-h-screen overflow-hidden transition-all transform bg-gray-800 border-r md:static"
+    class="flex-shrink-0 fixed z-30 inset-y-0 w-64 max-h-screen overflow-hidden transition-all transform bg-gray-800 border-r md:static"
     :class="{'-translate-x-full md:translate-x-0': !isMobileMainMenuOpen}"
 >
     <div class="flex flex-col h-full" :class="{'pt-14': isMobileMainMenuOpen}">
         <div class="bg-gray-900 px-3 py-2">
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('home') }}" targetsections>
                 <div class="flex flex-row items-center justify-center h-12 w-full">
                     <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
                         <img src="{{ asset('hotash-ngo.png') }}" alt="Logo">
@@ -25,11 +25,13 @@
                     'icon' => '<path d="M6 19h12V9.157l-6-5.454-6 5.454V19zm13 2H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zM7.5 13h2a2.5 2.5 0 1 0 5 0h2a4.5 4.5 0 1 1-9 0z"/>',
                     'item' => route('dashboard'),
                 ],
-                'Slider' => [
+                'Home Items' => [
                     'icon' => '<path d="M13 21v2h-2v-2H3a1 1 0 0 1-1-1V6h20v14a1 1 0 0 1-1 1h-8zm-9-2h16V8H4v11zm9-9h5v2h-5v-2zm0 4h5v2h-5v-2zm-4-4v3h3a3 3 0 1 1-3-3zM2 3h20v2H2V3z"/>',
                     'items' => [
-                        'All Slides' => route('admin.slides.index'),
-                        'Add New' => route('admin.slides.create'),
+                        'Slider' => route('admin.slides.index'),
+                        'About' =>  route('admin.sections', 'about'),
+                        'Mission' =>  route('admin.sections', 'mission'),
+                        'Odometer' =>  route('admin.sections', 'odometer'),
                     ],
                 ],
                 'Pages' => [

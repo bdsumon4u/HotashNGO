@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Admin\Settings;
 
 use App\Settings\SectionSettings;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 
 class Section extends Component
 {
+    use InteractsWithBanner;
+
     public string $team_name;
     public string $team_title;
     public string $team_description;
@@ -45,5 +48,7 @@ class Section extends Component
     {
         $settings->fill($this->validate());
         $settings->save();
+
+        $this->banner('Successfully Saved The Data.');
     }
 }

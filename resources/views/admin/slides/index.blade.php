@@ -5,6 +5,9 @@
         </h2>
     </x-slot>
     <div class="overflow-hidden shadow-md sm:rounded-md">
+        <div class="flex flex-wrap py-3 lg:px-5 lg:py-2 justify-end">
+            <x:a :href="route('admin.slides.create')" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition">@lang('Add New')</x:a>
+        </div>
         <div class="flex flex-wrap py-3 lg:px-5 lg:py-7">
             @foreach($slides as $slide)
                 <div class="w-full sm:w-1/2 xl:w-1/3 overflow-hidden rounded border shadow p-3">

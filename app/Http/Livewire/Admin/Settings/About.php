@@ -5,12 +5,14 @@ namespace App\Http\Livewire\Admin\Settings;
 use App\Settings\AboutSettings;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class About extends Component
 {
     use WithFileUploads;
+    use InteractsWithBanner;
 
     public $image;
     public string $section_name;
@@ -47,6 +49,8 @@ class About extends Component
         if ($settings->save()) {
             $this->removeOldFile('image', $oldImage);
         }
+
+        $this->banner('Successfully Saved The Data.');
     }
 
     protected function uploadFile($name): string

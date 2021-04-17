@@ -2,10 +2,10 @@
     <div class="flex flex-wrap md:-mx-2">
         <div class="md:px-2 w-full md:w-1/2">
             <div class="relative flex flex-col flex-grow mt-5">
-                <h2 class="z-10 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
+                <h2 class="z-20 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                     <x:label class="text-sm font-bold" name="image" />
                 </h2>
-                <div x-data="{ files: null }" id="image" class="block w-full pt-5 pb-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
+                <div x-data="{ files: null }" id="image" class="block w-full pt-5 pb-2 px-3 relative z-10 bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
                     <input type="file" wire:model.defer="image"
                            class="absolute inset-0 z-50 m-0 p-0 w-full h-full outline-none opacity-0"
                            x-on:change="files = $event.target.files; console.log($event.target.files);"
@@ -55,7 +55,7 @@
     </div>
 
     <div class="flex flex-wrap md:-mx-2">
-        <div class="pt-7 pb-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
+        <div class="pt-7 pb-2 mx:px-2 px-4 bg-white border shadow-md relative rounded-md w-full mt-5">
             <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                 <x:label class="text-sm font-bold" name="description" />
             </h2>

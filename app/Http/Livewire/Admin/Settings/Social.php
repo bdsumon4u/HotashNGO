@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Admin\Settings;
 
 use App\Settings\SocialSettings;
+use Laravel\Jetstream\InteractsWithBanner;
 use Livewire\Component;
 
 class Social extends Component
 {
+    use InteractsWithBanner;
+
     public string $facebook;
     public string $twitter;
     public string $instagram;
@@ -40,5 +43,7 @@ class Social extends Component
     {
         $settings->fill($this->validate());
         $settings->save();
+
+        $this->banner('Successfully Saved The Data.');
     }
 }
