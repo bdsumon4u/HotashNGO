@@ -16,8 +16,14 @@ class SearchController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $news = News::whereTranslationLike('title', '%'.$request->q.'%')->paginate(8);
-        $events = Event::whereTranslationLike('title', '%'.$request->q.'%')->paginate(8);
+        $news = News::with('media', 'translations')
+            ->whereTranslationLike('title', '%'.$request->q.'%')
+            ->translatedIn(app()->getLocale())
+            ->paginate(8);
+        $events = Event::with('media', 'translations')
+            ->whereTranslationLike('title', '%'.$request->q.'%')
+            ->translatedIn(app()->getLocale())
+            ->paginate(8);
 
         return view('pages.search', compact('news', 'events'));
     }
