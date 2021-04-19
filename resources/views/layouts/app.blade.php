@@ -51,9 +51,9 @@
         <!-- Loading screen -->
         <div
             x-ref="loading"
-            class="hidden fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-opacity-90 bg-blue-800"
+            class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-opacity-70 bg-gray-700"
         >
-            Loading.....
+            <div class="spinner"></div>
         </div>
 
         <!-- Sidebar -->
