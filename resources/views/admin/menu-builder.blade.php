@@ -1,6 +1,7 @@
 <x-app-layout>
     @push('styles')
         <x:asset path="vendor/menu-h/css/menu-h.css" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     @endpush
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

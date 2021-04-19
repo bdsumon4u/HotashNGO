@@ -356,10 +356,10 @@
 }
 #hwpwrap .accordion-section-title:after, #hwpwrap .control-section .accordion-section-title:after, #hwpwrap .nav-menus-php .item-edit:before, #hwpwrap .widget-top a.widget-action:after {
     right: 0;
-    content: "\f0dd";
+    content: "\ea78";
     border: none;
     background: 0 0;
-    font: 400 20px/1 FontAwesome;
+    font: 400 20px/1 remixicon;
     speak: none;
     display: block;
     padding: 0;
@@ -392,7 +392,7 @@
     top: -2px;
 }
 #hwpwrap #customize-info.open .accordion-section-title:after, #hwpwrap .control-section.open .accordion-section-title:after, #hwpwrap .nav-menus-php .menu-item-edit-active .item-edit:before, #hwpwrap .widget.open .widget-top a.widget-action:after {
-    content: '\f0de';
+    content: '\ea4e';
 }
 #hwpwrap .ui-draggable-handle, #hwpwrap .ui-sortable-handle {
     -ms-touch-action: none;
@@ -410,9 +410,6 @@
 }
 #hwpwrap .accordion-section-content {
     display: none;
-    padding: 10px 20px 15px;
-    overflow: hidden;
-    background: #fff;
 }
 #hwpwrap .accordion-section-title {
     margin: 0;
@@ -504,11 +501,11 @@
         background: none !important;
     }
 }
-@-ms-viewport {
+/*@-ms-viewport {*/
 #hwpwrap {
     width: device-width;
 }
-}
+/*}*/
 @media screen and (max-width: 782px) {
     #hwpwrap html.wp-toolbar {
         padding-top: 46px;
@@ -740,10 +737,6 @@
 }
 #hwpwrap .wp-admin input[type=file] {
     padding: 3px 0;
-}
-#hwpwrap label {
-    cursor: pointer;
-    font-weight: initial;
 }
 #hwpwrap input, #hwpwrap select {
     margin: 1px;
@@ -1373,6 +1366,8 @@
     padding: 10px;
     overflow: hidden;
     background: #fbfbfb;
+    display: flex;
+    align-items: center;
 }
 #hwpwrap .manage-menus select {
     float: left;
@@ -1381,7 +1376,6 @@
 }
 #hwpwrap .manage-menus .selected-menu {
     float: left;
-    margin: 5px 6px 0 0;
 }
 #hwpwrap .manage-menus .submit-btn {
     float: left;
@@ -1519,9 +1513,6 @@
 }
 #hwpwrap .customlinkdiv .howto input {
     width: 180px;
-}
-#hwpwrap .customlinkdiv p {
-    margin-top: 0;
 }
 #hwpwrap #nav-menu-theme-locations .howto select {
     width: 100%;
@@ -1904,9 +1895,6 @@
 }
 #hwpwrap .description-wide {
     width: 390px;
-}
-#hwpwrap .menu-item-actions {
-    padding-top: 15px;
 }
 #hwpwrap #cancel-save {
     cursor: pointer;
