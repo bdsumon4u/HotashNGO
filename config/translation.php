@@ -25,7 +25,6 @@ return [
     'route_group_config' => [
         'middleware' => ['web', 'auth:sanctum'],
         'namespace' => 'JoeDixon\\Translation\\Http\\Controllers',
-        'prefix' => 'admin/languages',
         'as' => 'languages.',
     ],
 

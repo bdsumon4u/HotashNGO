@@ -21099,6 +21099,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./packages/hotash/laravel-translation/resources/assets/css/main.css":
+/*!***************************************************************************!*\
+  !*** ./packages/hotash/laravel-translation/resources/assets/css/main.css ***!
+  \***************************************************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nSyntaxError\n\n(65:5) /var/www/html/packages/hotash/laravel-translation/resources/assets/css/main.css The `bg-grey-lighter` class does not exist. If `bg-grey-lighter` is a custom class, make sure it is defined within a `@layer` directive.\n\n \u001b[90m 63 | \u001b[39m\n \u001b[90m 64 | \u001b[39mbody \u001b[33m{\u001b[39m\n\u001b[1m\u001b[31m>\u001b[39m\u001b[22m\u001b[90m 65 | \u001b[39m    \u001b[36m@apply\u001b[39m bg-grey-lighter text-grey-darkest\n \u001b[90m    | \u001b[39m    \u001b[1m\u001b[31m^\u001b[39m\u001b[22m\n \u001b[90m 66 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 67 | \u001b[39m\n\n    at processResult (/var/www/html/node_modules/webpack/lib/NormalModule.js:674:19)\n    at /var/www/html/node_modules/webpack/lib/NormalModule.js:768:5\n    at /var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/var/www/html/node_modules/postcss-loader/dist/index.js:102:7)");
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -21458,7 +21468,8 @@ process.umask = function() { return 0; };
 /******/ 	__webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./resources/css/app.scss")))
 /******/ 	__webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./resources/css/findo/meanmenu.scss")))
 /******/ 	__webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./resources/css/findo/style.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./resources/css/findo/responsive.scss")))
+/******/ 	__webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./resources/css/findo/responsive.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["findo/css/style","findo/css/meanmenu","findo/css/responsive","css/app"], () => (__webpack_require__("./packages/hotash/laravel-translation/resources/assets/css/main.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

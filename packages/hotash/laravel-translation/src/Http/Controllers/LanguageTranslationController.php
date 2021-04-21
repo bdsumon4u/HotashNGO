@@ -48,6 +48,9 @@ class LanguageTranslationController extends Controller
 
     public function create(Request $request, $language)
     {
+        if ($language !== 'en') {
+            return redirect()->action([static::class, 'create'], 'en');
+        }
         return view('translation::languages.translations.create', compact('language'));
     }
 
@@ -61,7 +64,7 @@ class LanguageTranslationController extends Controller
         }
 
         return redirect()
-            ->route('languages.translations.index', $language)
+            ->action([LanguageController::class, 'index'])
             ->with('success', __('translation::translation.translation_added'));
     }
 

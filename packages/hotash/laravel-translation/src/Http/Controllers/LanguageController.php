@@ -19,7 +19,10 @@ class LanguageController extends Controller
 
     public function index(Request $request)
     {
+        app()->setLocale('en');
         $this->translation->saveMissingTranslations(false);
+        return redirect()->action([LanguageTranslationController::class, 'index'], ['bn', 'group' => 'single']);
+
         $languages = $this->translation->allLanguages();
 
         return view('translation::languages.index', compact('languages'));
