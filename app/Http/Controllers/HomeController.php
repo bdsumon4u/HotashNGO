@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $testimonials = Image::with('media')
+        $testimonials = Media::with('media')
             ->firstOrCreate(['collection' => 'testimonials'])
             ->media()
             ->where('collection_name', 'testimonials')

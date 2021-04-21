@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\Media;
 
-class GalleryController extends Controller
+class MediaController extends Controller
 {
     private string $collection = 'gallery';
 
@@ -15,13 +15,13 @@ class GalleryController extends Controller
      */
     public function __invoke()
     {
-        $images = Image::with('media')
+        $media = Media::with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->media()
-            ->where('collection_name', $this->collection)
+            ->where('collection_name', request('type'))
             ->latest('id')
             ->paginate(12);
 
-        return view('pages.gallery', compact('images'));
+        return view('pages.media', compact('media'));
     }
 }

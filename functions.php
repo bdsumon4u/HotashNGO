@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Event;
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\News;
 use App\Models\Project;
 use Illuminate\Support\Str;
@@ -49,7 +49,7 @@ if (!function_exists('recent_projects')) {
 
 if (!function_exists('random_volunteers')) {
     function random_volunteers(int $count = 3) {
-        return Image::with('media')
+        return Media::with('media')
             ->firstOrCreate(['collection' => 'people'])
             ->media()
             ->where('collection_name', 'people')

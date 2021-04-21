@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
 class TestimonialController extends Controller
 {
@@ -17,7 +17,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Image::with('media')
+        $testimonials = Media::with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->media()
             ->where('collection_name', $this->collection)
@@ -30,10 +30,10 @@ class TestimonialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Media $speech
+     * @param SpatieMedia $speech
      * @return \Illuminate\Http\Response
      */
-    public function show(Media $speech)
+    public function show(SpatieMedia $speech)
     {
         return view('pages.testimonials.show', ['testimonial' => $speech]);
     }

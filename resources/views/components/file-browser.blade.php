@@ -1,10 +1,12 @@
-@props(['name', 'src' => '', 'message' => ''])
+@props(['name', 'label' => '', 'multiple' => false, 'src' => '', 'message' => ''])
 <div class="relative flex flex-col flex-grow mt-5">
     <h2 class="z-20 flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
-        <x:label class="text-sm font-bold" :name="$name" />
+        <x:label class="text-sm font-bold" :name="$name">
+            {{ $label ?? '' }}
+        </x:label>
     </h2>
     <div x-data="{ files: null }" id="logo" class="block w-full pt-5 pb-2 px-3 relative z-10 bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
-        <x:input type="file" :name="$name" :wire:model.defer="$name"
+        <x:input type="file" :name="$name" :wire:model.defer="$name" :multiple="$multiple"
                class="absolute inset-0 z-50 m-0 p-0 w-full h-full outline-none opacity-0"
                x-on:change="files = $event.target.files; console.log($event.target.files);"
                x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')" x-on:drop="$el.classList.remove('active')"

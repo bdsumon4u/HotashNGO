@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,7 +26,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('pages.partials.banner', function ($view) {
-            $slides = Image::where('collection', 'slides')
+            $slides = Media::where('collection', 'slides')
                 ->with('media')
                 ->firstOrCreate(['collection' => 'slides'])
                 ->getMedia('slides');

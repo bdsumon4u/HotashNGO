@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SlideRequest;
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
 class SlideController extends Controller
 {
@@ -20,7 +20,7 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $slides = Image::where('collection', $this->collection)
+        $slides = Media::where('collection', $this->collection)
             ->with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->getMedia($this->collection);
@@ -39,7 +39,7 @@ class SlideController extends Controller
     public function create()
     {
         return view('admin.slides.editor', [
-            'slide' => new Media,
+            'slide' => new SpatieMedia,
         ]);
     }
 
@@ -63,10 +63,10 @@ class SlideController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Media $slide
+     * @param SpatieMedia $slide
      * @return \Illuminate\Http\Response
      */
-    public function edit(Media $slide)
+    public function edit(SpatieMedia $slide)
     {
         return view('admin.slides.editor', compact('slide'));
     }
@@ -75,11 +75,11 @@ class SlideController extends Controller
      * Update the specified resource in storage.
      *
      * @param SlideRequest $request
-     * @param Media $slide
+     * @param SpatieMedia $slide
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function update(SlideRequest $request, Media $slide)
+    public function update(SlideRequest $request, SpatieMedia $slide)
     {
         $data = $request->validationData();
 
@@ -104,10 +104,10 @@ class SlideController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Media $slide
+     * @param SpatieMedia $slide
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Media $slide)
+    public function destroy(SpatieMedia $slide)
     {
         $slide->delete();
 
@@ -123,7 +123,7 @@ class SlideController extends Controller
 
     private function slideMaker(array $data)
     {
-        return Image::firstOrCreate(['collection' => $this->collection])
+        return Media::firstOrCreate(['collection' => $this->collection])
             ->addMedia($data['image'])
             ->usingFileName($this->getFileName($data['image']))
             ->withCustomProperties([

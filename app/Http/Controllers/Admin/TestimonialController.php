@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
 class TestimonialController extends Controller
 {
@@ -19,7 +19,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Image::with('media')
+        $testimonials = Media::with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->media()
             ->where('collection_name', $this->collection)
@@ -79,10 +79,10 @@ class TestimonialController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param Media $testimonial
+     * @param SpatieMedia $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Media $testimonial)
+    public function update(Request $request, SpatieMedia $testimonial)
     {
         $data = $request->validate([
             'image' => 'nullable|image',
@@ -111,10 +111,10 @@ class TestimonialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Media $testimonial
+     * @param SpatieMedia $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Media $testimonial)
+    public function destroy(SpatieMedia $testimonial)
     {
         $testimonial->delete();
 
@@ -130,7 +130,7 @@ class TestimonialController extends Controller
 
     private function testimonialMaker(array $data)
     {
-        return Image::firstOrCreate(['collection' => $this->collection])
+        return Media::firstOrCreate(['collection' => $this->collection])
             ->addMedia($data['image'])
             ->usingFileName($this->getFileName($data['image']))
             ->withCustomProperties([

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -17,7 +17,7 @@ class TeamController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $people = Image::with('media')
+        $people = Media::with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->media()
             ->where('collection_name', $this->collection)

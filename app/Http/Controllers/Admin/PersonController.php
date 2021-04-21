@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
 class PersonController extends Controller
 {
@@ -19,7 +19,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $people = Image::with('media')
+        $people = Media::with('media')
             ->firstOrCreate(['collection' => $this->collection])
             ->media()
             ->where('collection_name', $this->collection)
@@ -69,10 +69,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Media $person
+     * @param SpatieMedia $person
      * @return \Illuminate\Http\Response
      */
-    public function edit(Media $person)
+    public function edit(SpatieMedia $person)
     {
         return view('admin.people.editor', compact('person'));
     }
@@ -81,10 +81,10 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param Media $person
+     * @param SpatieMedia $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Media $person)
+    public function update(Request $request, SpatieMedia $person)
     {
         $data = $request->validate([
             'image' => 'nullable|image',
@@ -117,10 +117,10 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Media $person
+     * @param SpatieMedia $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Media $person)
+    public function destroy(SpatieMedia $person)
     {
         $person->delete();
 
@@ -136,7 +136,7 @@ class PersonController extends Controller
 
     private function personMaker(array $data)
     {
-        return Image::firstOrCreate(['collection' => $this->collection])
+        return Media::firstOrCreate(['collection' => $this->collection])
             ->addMedia($data['image'])
             ->usingFileName($this->getFileName($data['image']))
             ->withCustomProperties([

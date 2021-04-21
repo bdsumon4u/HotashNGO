@@ -5,17 +5,17 @@
         <div class="gallery-area ptb-100">
         <div class="container">
             <div class="row">
-                @foreach($images as $image)
+                @foreach($media as $medium)
                 <div class="col-sm-6 col-lg-4">
                     <div class="gallery-item">
-                        <a href="{{ $image->getFullUrl() }}" @if($image->type === 'image') data-lightbox="roadtrip" @else data-toggle="modal" data-target="#video-{{ $image->id }}" @endif>
-                            <img src="{{ $image->type === 'video' ? asset('storage/video_player_placeholder.gif') : $image->getFullUrl('416x234') }}" alt="Gallery">
-                            <i class="icofont-eye"></i>
+                        <a href="{{ $medium->getFullUrl() }}" @if($medium->type === 'image') data-lightbox="roadtrip" @else data-toggle="modal" data-target="#video-{{ $medium->id }}" @endif>
+                            <img src="{{ $medium->type === 'video' ? asset($medium->getCustomProperty('video-thumb')) : $medium->getFullUrl('416x234') }}" alt="Gallery">
+                            <i class="icofont-{{ $medium->type === 'image' ? 'eye' : 'play' }}"></i>
                         </a>
                     </div>
-                    @if($image->type === 'video')
+                    @if($medium->type === 'video')
                     <!-- The Modal -->
-                    <div class="modal" id="video-{{ $image->id }}">
+                    <div class="modal" id="video-{{ $medium->id }}">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
 
@@ -26,7 +26,7 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <video class="w-100" controls src="{{ route('video-stream', $image) }}"></video>
+                                    <video class="w-100" controls src="{{ route('video-stream', $medium) }}"></video>
                                 </div>
 
                                 <!-- Modal footer -->
@@ -42,7 +42,7 @@
                 @endforeach
             </div>
             <div class="pagination-area">
-                {{ $images->links('pages.partials.pagination') }}
+                {{ $media->links('pages.partials.pagination') }}
             </div>
         </div>
     </div>

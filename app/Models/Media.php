@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
-class Image extends Model implements HasMedia
+class Media extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
@@ -16,10 +16,13 @@ class Image extends Model implements HasMedia
         'collection',
     ];
 
-    public function registerMediaConversions(Media $media = null): void
+    protected $table = 'media_files';
+
+    public function registerMediaConversions(SpatieMedia $media = null): void
     {
         $this->convert('slides', 1920, 800);
-        $this->convert('gallery', 416, 234);
+        $this->convert('image', 416, 234);
+        $this->convert('video-thumb', 416, 234);
         $this->convert('people', 510, 450);
         $this->convert('testimonials', 510, 300);
     }
