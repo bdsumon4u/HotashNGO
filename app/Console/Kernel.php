@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('backup:run')->twiceDaily();
+        $schedule->command('backup:clean')->daily();
         $schedule->command('app:size')->daily();
         $schedule->command('cache:size')->daily();
     }
