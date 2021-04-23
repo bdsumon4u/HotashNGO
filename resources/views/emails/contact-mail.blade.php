@@ -1,7 +1,7 @@
 @component('mail::message')
 # {{ $data['subject'] }}
 
-{!! $data['message'] !!}
+{!! nl2br($data['message']) !!}
 
 From,<br>
 Name: {{ $data['name'] }}<br>

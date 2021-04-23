@@ -20,16 +20,20 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('app:size', function () {
+    info('Running app:size');
     $app_mb = config('app.size', 5000);
     $save = $app_mb * 20 / 100;
     $save = $save < 500 ? 500 : $save;
 
     $app_size =  collect(File::allFiles(base_path()))->sum->getSize() / (($app_mb - $save) * 10000);
     cache()->put('app_size', round($app_size), 25 * 60 * 60);
+    info('Completed app:size');
 })->purpose('Application size as percentage.');
 
 Artisan::command('cache:size', function () {
+    info('Running cache:size');
     $cache_mb = config('cache.size', 10);
     $cache_size = collect(File::allFiles(storage_path('framework')))->sum->getSize() / ($cache_mb * 10000);
     cache()->put('cache_size', round($cache_size), 25 * 60 * 60);
+    info('Completed cache:size');
 })->purpose('Cache size as percentage.');

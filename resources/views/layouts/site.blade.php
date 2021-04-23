@@ -52,9 +52,9 @@
 
 {!! MenuH::render('Main Menu', 'pages.partials.navbar') !!}
 
-@if($message = session('success'))
+@if($message = session('flash.banner'))
 <div class="container" style="margin-top: 5rem;">
-    <div class="alert alert-success">{{ $message }}</div>
+    <div class="alert alert-{{ session('flash.bannerStyle') }}">{{ $message }}</div>
 </div>
 @endif
 

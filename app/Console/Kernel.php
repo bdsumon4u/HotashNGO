@@ -25,10 +25,22 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('backup:run')->twiceDaily();
-        $schedule->command('backup:clean')->daily();
-        $schedule->command('app:size')->daily();
-        $schedule->command('cache:size')->daily();
+
+        $schedule->command('backup:run')
+            ->twiceDaily()
+            ->runInBackground();
+
+        $schedule->command('backup:clean')
+            ->daily()
+            ->runInBackground();
+
+        $schedule->command('app:size')
+            ->daily()
+            ->runInBackground();
+
+        $schedule->command('cache:size')
+            ->daily()
+            ->runInBackground();
     }
 
     /**

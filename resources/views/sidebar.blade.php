@@ -10,7 +10,7 @@
 >
     <div class="flex flex-col h-full" :class="{'pt-14': isMobileMainMenuOpen}">
         <div class="bg-gray-900 px-3 py-2">
-            <a href="{{ route('home') }}" targetsections>
+            <a href="{{ route('home') }}" target="_blank">
                 <div class="flex flex-row items-center justify-center h-12 w-full">
                     <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
                         <img src="{{ asset('hotash-ngo.png') }}" alt="Logo">
@@ -178,6 +178,12 @@
 
         <!-- Sidebar footer -->
         <div class="flex-shrink-0 px-2 py-4 space-y-2">
+            @if(defined('LARAVEL_START'))
+                <div class="text-white text-center font-bold">
+                    Load Time: {{ round((microtime(true) - LARAVEL_START) * 1000, 2) }}ms
+                </div>
+            @endif
+            @if(config('telescope.enabled'))
             <a
                 href="{{ url('/telescope') }}"
                 class="flex items-center justify-center w-full px-4 py-2 text-sm text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-700 focus:ring-offset-1 focus:ring-offset-white"
@@ -200,6 +206,7 @@
                 </span>
                 <span>Telescope</span>
             </a>
+            @endif
         </div>
     </div>
 </aside>
