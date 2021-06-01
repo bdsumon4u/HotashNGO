@@ -37,7 +37,7 @@ class PersonController extends Controller
     public function create()
     {
         return view('admin.people.editor', [
-            'person' => new Media,
+            'person' => optional(),
         ]);
     }
 
