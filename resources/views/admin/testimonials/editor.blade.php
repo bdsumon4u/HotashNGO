@@ -6,6 +6,11 @@
     </x-slot>
 
     <div class="max-w-3xl mx-auto my-5 bg-white p-3 shadow">
+        <ul class="text-red-500">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
         <x:form :action="$testimonial->exists ? route('admin.testimonials.update', $testimonial) : route('admin.testimonials.store')" :method="$testimonial->exists ? 'PATCH' : 'POST'" multipart>
             <x-file-browser name="image">
                 <small>You can replace image, <strong>If you want</strong></small>

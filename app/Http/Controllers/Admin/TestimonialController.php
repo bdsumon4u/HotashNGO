@@ -37,7 +37,7 @@ class TestimonialController extends Controller
     public function create()
     {
         return view('admin.testimonials.editor', [
-            'testimonial' => new Media,
+            'testimonial' => optional(),
         ]);
     }
 
@@ -49,13 +49,7 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'image' => 'required|image',
-            'name' => 'required|string|max:35',
-            'designation' => 'required|string|max:35',
-            'rating' => 'required|integer',
-            'review' => 'nullable|string',
-        ]);
+        $data = $this->validatedData($request);
 
         $this->testimonialMaker($data);
 
@@ -84,12 +78,8 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, SpatieMedia $testimonial)
     {
-        $data = $request->validate([
+        $data = $this->validatedData($request, [
             'image' => 'nullable|image',
-            'name' => 'required|string|max:35',
-            'designation' => 'required|string|max:35',
-            'rating' => 'required|integer',
-            'review' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -140,5 +130,18 @@ class TestimonialController extends Controller
                 'review' => $data['review'],
             ])
             ->toMediaCollection($this->collection);
+    }
+
+    private function validatedData(Request $request, array $merge = []): array
+    {
+        $data = $request->validate(array_merge([
+            'image' => 'required|image',
+            'name' => 'required|string|max:35',
+            'designation' => 'required|string|max:35',
+            'rating' => 'nullable|integer',
+            'review' => 'nullable|string',
+        ], $merge));
+        $data['rating'] = $data['rating'] ?: 5;
+        return $data;
     }
 }
