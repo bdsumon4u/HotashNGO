@@ -14,6 +14,7 @@ class LanguageController extends Controller
 
     public function __construct(Translation $translation)
     {
+        app()->setLocale('en');
         $this->translation = $translation;
     }
 
@@ -30,11 +31,13 @@ class LanguageController extends Controller
 
     public function create()
     {
+        app()->setLocale('en');
         return view('translation::languages.create');
     }
 
     public function store(LanguageRequest $request)
     {
+        app()->setLocale('en');
         $this->translation->addLanguage($request->locale, $request->name);
 
         return redirect()

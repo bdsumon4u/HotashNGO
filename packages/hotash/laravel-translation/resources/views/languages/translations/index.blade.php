@@ -27,6 +27,7 @@
                             <th class="w-1/5 uppercase font-thin">{{ __('translation::translation.key') }}</th>
                             <th class="uppercase font-thin">{{ config('app.locale') }}</th>
                             <th class="uppercase font-thin">{{ $language }}</th>
+                            <th class="uppercase font-thin" width="120">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -48,6 +49,13 @@
                                                     translation-key="{{ $key }}"
                                                     route="{{ config('translation.ui_url') }}">
                                                 </translation-input>
+                                            </td>
+                                            <td style="text-align: center">
+                                                <form action="{{ route('languages.translations.remove') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="key" value="{{ $key }}">
+                                                    <button type="submit" style="color: red;">x</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endif

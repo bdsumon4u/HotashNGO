@@ -3,7 +3,9 @@
 namespace JoeDixon\Translation\Drivers;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Symfony\Component\Finder\SplFileInfo;
 
 abstract class Translation
 {
@@ -97,5 +99,16 @@ abstract class Translation
                 return $keys->isNotEmpty();
             });
         });
+    }
+
+    public function deleteTranslation($key)
+    {
+        collect(File::files(resource_path('lang')))
+            ->each(function (SplFileInfo $file) use ($key) {
+                $filePath = resource_path('lang/'.$file->getFilename());
+                $jsonData = json_decode(file_get_contents($filePath));
+                unset($jsonData->$key);
+                file_put_contents($filePath, json_encode($jsonData));
+            });
     }
 }

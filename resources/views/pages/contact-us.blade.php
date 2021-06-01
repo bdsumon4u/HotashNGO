@@ -5,21 +5,21 @@
                 <div class="col-sm-6 col-lg-4">
                     <div class="contact-info">
                         <i class="icofont-location-pin"></i>
-                        <span>Location:</span>
+                        <span>@lang('Location'):</span>
                         {{ setting('general', 'address') }}
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="contact-info">
                         <i class="icofont-ui-call"></i>
-                        <span>Phone:</span>
+                        <span>@lang('Phone'):</span>
                         <a href="tel:{{ setting('general', 'contact_phone') }}">{{ setting('general', 'contact_phone') }}</a>
                     </div>
                 </div>
                 <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
                     <div class="contact-info">
                         <i class="icofont-ui-email"></i>
-                        <span>Email:</span>
+                        <span>@lang('Email'):</span>
                         <a href="tel:{{ setting('general', 'contact_email') }}">{{ setting('general', 'contact_email') }}</a>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
     <div class="contact-area pb-70">
         <div class="container">
             <x:form :action="route('contact-us')" method="POST" id="contactForm" novalidate="true">
-                <h2>Let's talk...!</h2>
-                <p>Mail us directly, we'll reply you as soon as possible.</p>
+                <h2>@lang('Let\'s talk...!')</h2>
+                <p>@lang('Mail us directly, we\'ll reply you as soon as possible.')</p>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-lg-12">
                         <button type="submit" class="btn common-btn disabled" style="pointer-events: all; cursor: pointer;">
-                            Send Message
+                            @lang('Send Message')
                         </button>
                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                         <div class="clearfix"></div>

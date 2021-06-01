@@ -47,8 +47,8 @@
         <section class="event-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <span class="sub-title">Our events</span>
-                    <h2>Upcoming/recent events</h2>
+                    <span class="sub-title">@lang('Our events')</span>
+                    <h2>@lang('Upcoming/recent events')</h2>
                 </div>
                 @if($events->isNotEmpty())
                 <div class="row align-items-center">
@@ -99,7 +99,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'event_count') }}">00</span>
                         </h3>
-                        <p>Successful events</p>
+                        <p>@lang('Successful events')</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
@@ -108,7 +108,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'volunteer_count') }}">00</span>
                         </h3>
-                        <p>Worldwide volunteers</p>
+                        <p>@lang('Worldwide volunteers')</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
@@ -117,7 +117,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'donor_count') }}">00</span>
                         </h3>
-                        <p>Our donner</p>
+                        <p>@lang('Our donner')</p>
                     </div>
                 </div>
             </div>

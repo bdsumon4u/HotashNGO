@@ -1,3 +1,3 @@
 <x-site-layout>
-    Donate
+    @lang('Donate')
 </x-site-layout>

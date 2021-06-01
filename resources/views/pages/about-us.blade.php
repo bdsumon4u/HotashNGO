@@ -17,37 +17,37 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-title">
-                        <span class="sub-title">Core features</span>
-                        <h2>Mission to make a smile</h2>
-                        <p>We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.</p>
+                        <span class="sub-title">@lang('Core features')</span>
+                        <h2>@lang('Mission to make a smile')</h2>
+                        <p>@lang('We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.')</p>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-6">
                             <div class="benefit-item">
                                 <i class="flaticon-house"></i>
-                                <h3>Build home</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi</p>
+                                <h3>@lang('Build home')</h3>
+                                <p>@lang('Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi')</p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-sm-6">
                             <div class="benefit-item two">
                                 <i class="flaticon-hospital"></i>
-                                <h3>Medical facilities</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi</p>
+                                <h3>@lang('Medical facilities')</h3>
+                                <p>@lang('Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi')</p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-sm-6">
                             <div class="benefit-item three">
                                 <i class="flaticon-fast-food"></i>
-                                <h3>Food &amp; water</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi</p>
+                                <h3>@lang('Food &amp; water')</h3>
+                                <p>@lang('Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi')</p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-sm-6">
                             <div class="benefit-item four">
                                 <i class="flaticon-graduation-cap"></i>
-                                <h3>Education facilities</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi</p>
+                                <h3>@lang('Education facilities')</h3>
+                                <p>@lang('Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique illum excepturi')</p>
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,7 @@ Route::group(config('translation.route_group_config', []), function ($router) {
         $router->get('/{language}/translations', 'LanguageTranslationController@index')->name('translations.index');
         $router->get('/{language}/translations/create', 'LanguageTranslationController@create')->name('translations.create');
         $router->post('/{language}/translations', 'LanguageTranslationController@store')->name('translations.store');
+        $router->post('/remove', 'LanguageTranslationController@remove')->name('translations.remove');
     });
     $router->post('/languages/{language}', 'LanguageTranslationController@update')->name('translations.update');
 });

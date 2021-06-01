@@ -15,11 +15,13 @@ class LanguageTranslationController extends Controller
 
     public function __construct(Translation $translation)
     {
+        app()->setLocale('en');
         $this->translation = $translation;
     }
 
     public function index(Request $request, $language)
     {
+        app()->setLocale('en');
         // dd($this->translation->getSingleTranslationsFor('en'));
         if ($request->has('language') && $request->get('language') !== $language) {
             return redirect()
@@ -48,18 +50,20 @@ class LanguageTranslationController extends Controller
 
     public function create(Request $request, $language)
     {
-        if ($language !== 'en') {
-            return redirect()->action([static::class, 'create'], 'en');
-        }
+        app()->setLocale('en');
         return view('translation::languages.translations.create', compact('language'));
     }
 
     public function store(TranslationRequest $request, $language)
     {
+        app()->setLocale('en');
         if ($request->filled('group')) {
             $namespace = $request->has('namespace') && $request->get('namespace') ? "{$request->get('namespace')}::" : '';
             $this->translation->addGroupTranslation($language, "{$namespace}{$request->get('group')}", $request->get('key'), $request->get('value') ?: '');
         } else {
+            if ($language !== 'en') {
+                $this->translation->addSingleTranslation('en', 'single', $request->get('key'), $request->get('key') ?: '');
+            }
             $this->translation->addSingleTranslation($language, 'single', $request->get('key'), $request->get('value') ?: '');
         }
 
@@ -70,6 +74,7 @@ class LanguageTranslationController extends Controller
 
     public function update(Request $request, $language)
     {
+        app()->setLocale('en');
         if (! Str::contains($request->get('group'), 'single')) {
             $this->translation->addGroupTranslation($language, $request->get('group'), $request->get('key'), $request->get('value') ?: '');
         } else {
@@ -77,5 +82,11 @@ class LanguageTranslationController extends Controller
         }
 
         return ['success' => true];
+    }
+
+    public function remove(Request $request)
+    {
+        $this->translation->deleteTranslation($request->key);
+        return back()->with('success', 'Translation Deleted.');
     }
 }
