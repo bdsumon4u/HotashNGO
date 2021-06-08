@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as SpatieMedia;
 
@@ -37,7 +38,7 @@ class TestimonialController extends Controller
     public function create()
     {
         return view('admin.testimonials.editor', [
-            'testimonial' => optional(),
+            'testimonial' => new SpatieMedia(),
         ]);
     }
 
@@ -64,7 +65,7 @@ class TestimonialController extends Controller
      * @param Media $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function edit(Media $testimonial)
+    public function edit(SpatieMedia $testimonial)
     {
         return view('admin.testimonials.editor', compact('testimonial'));
     }
@@ -89,7 +90,8 @@ class TestimonialController extends Controller
             $testimonial->setCustomProperty('name', $data['name']);
             $testimonial->setCustomProperty('designation', $data['designation']);
             $testimonial->setCustomProperty('rating', $data['rating']);
-            $testimonial->setCustomProperty('review', $data['review']);
+            $testimonial->setCustomProperty('review_en', $data['review_en']);
+            $testimonial->setCustomProperty('review_bn', $data['review_bn']);
             $testimonial->save();
         }
 
@@ -123,12 +125,7 @@ class TestimonialController extends Controller
         return Media::firstOrCreate(['collection' => $this->collection])
             ->addMedia($data['image'])
             ->usingFileName($this->getFileName($data['image']))
-            ->withCustomProperties([
-                'name' => $data['name'],
-                'designation' => $data['designation'],
-                'rating' => $data['rating'],
-                'review' => $data['review'],
-            ])
+            ->withCustomProperties(Arr::only($data, ['name', 'designation', 'rating', 'review_en', 'review_bn']))
             ->toMediaCollection($this->collection);
     }
 
@@ -139,7 +136,8 @@ class TestimonialController extends Controller
             'name' => 'required|string|max:35',
             'designation' => 'required|string|max:35',
             'rating' => 'nullable|integer',
-            'review' => 'nullable|string',
+            'review_en' => 'nullable|string',
+            'review_bn' => 'nullable|string',
         ], $merge));
         $data['rating'] = $data['rating'] ?: 5;
         return $data;
