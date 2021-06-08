@@ -129,9 +129,9 @@
     <section class="testimonial-area ptb-100">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('section', 'testimonial_name'))</span>
-                <h2>@lang(setting('section', 'testimonial_title'))</h2>
-                <div>{{ setting('section', 'testimonial_description') }}</div>
+                <span class="sub-title">@lang(setting('section', 'testimonial_name_'.app()->getLocale()))</span>
+                <h2>@lang(setting('section', 'testimonial_title_'.app()->getLocale()))</h2>
+                <div>{{ setting('section', 'testimonial_description_'.app()->getLocale()) }}</div>
             </div>
             <div class="testimonial-slider owl-theme owl-carousel">
                 @each('pages.partials.testimonial', $testimonials, 'testimonial')
@@ -143,9 +143,9 @@
     <section class="blog-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('section', 'news_name'))</span>
-                <h2>@lang(setting('section', 'news_title'))</h2>
-                <div>{{ setting('section', 'news_description') }}</div>
+                <span class="sub-title">@lang(setting('section', 'news_name_'.app()->getLocale()))</span>
+                <h2>@lang(setting('section', 'news_title_'.app()->getLocale()))</h2>
+                <div>{{ setting('section', 'news_description_'.app()->getLocale()) }}</div>
             </div>
             <div class="row">
                 @each('pages.partials.news', $news, 'news')

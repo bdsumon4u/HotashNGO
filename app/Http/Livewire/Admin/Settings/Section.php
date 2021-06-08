@@ -12,28 +12,46 @@ class Section extends Component
 
     public string $tab;
 
-    public string $team_name;
-    public string $team_title;
-    public string $team_description;
+    public string $team_name_en;
+    public string $team_name_bn;
+    public string $team_title_en;
+    public string $team_title_bn;
+    public string $team_description_en;
+    public string $team_description_bn;
 
-    public string $testimonial_name;
-    public string $testimonial_title;
-    public string $testimonial_description;
+    public string $testimonial_name_en;
+    public string $testimonial_name_bn;
+    public string $testimonial_title_en;
+    public string $testimonial_title_bn;
+    public string $testimonial_description_en;
+    public string $testimonial_description_bn;
 
-    public string $news_name;
-    public string $news_title;
-    public string $news_description;
+    public string $news_name_en;
+    public string $news_name_bn;
+    public string $news_title_en;
+    public string $news_title_bn;
+    public string $news_description_en;
+    public string $news_description_bn;
 
     public $rules = [
-        'team_name' => 'required|max:25',
-        'team_title' => 'required|max:255',
-        'team_description' => 'required',
-        'testimonial_name' => 'required|max:25',
-        'testimonial_title' => 'required|max:255',
-        'testimonial_description' => 'required',
-        'news_name' => 'required|max:25',
-        'news_title' => 'required|max:255',
-        'news_description' => 'required',
+        'team_name_en' => 'required|max:25',
+        'team_name_bn' => 'required|max:25',
+        'team_title_en' => 'required|max:255',
+        'team_title_bn' => 'required|max:255',
+        'team_description_en' => 'required',
+        'team_description_bn' => 'required',
+        'testimonial_name_en' => 'required|max:25',
+        'testimonial_name_bn' => 'required|max:25',
+        'testimonial_title_en' => 'required|max:255',
+        'testimonial_title_bn' => 'required|max:255',
+        'testimonial_description_en' => 'required',
+        'testimonial_description_bn' => 'required',
+        'news_name_en' => 'required|max:25',
+        'news_name_bn' => 'required|max:25',
+        'news_title_en' => 'required|max:255',
+        'news_title_bn' => 'required|max:255',
+        'news_description_en' => 'required',
+        'news_description_bn' => 'required',
     ];
 
     public function mount(SectionSettings $settings): void
