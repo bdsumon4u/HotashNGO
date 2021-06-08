@@ -15,17 +15,23 @@ class About extends Component
     use InteractsWithBanner;
 
     public $image;
-    public string $section_name;
-    public string $section_title;
-    public string $description;
+    public string $section_name_en;
+    public string $section_name_bn;
+    public string $section_title_en;
+    public string $section_title_bn;
+    public string $description_en;
+    public string $description_bn;
     public string $button_text;
     public string $button_link;
 
     public $rules = [
         'image' => 'required|max:255',
-        'section_name' => 'required|max:25',
-        'section_title' => 'required|max:255',
-        'description' => 'required',
+        'section_name_en' => 'required|max:25',
+        'section_name_bn' => 'required|max:25',
+        'section_title_en' => 'required|max:255',
+        'section_title_bn' => 'required|max:255',
+        'description_en' => 'required',
+        'description_bn' => 'required',
         'button_text' => 'nullable',
         'button_link' => 'nullable',
     ];
