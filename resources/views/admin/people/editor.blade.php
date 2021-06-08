@@ -6,8 +6,13 @@
     </x-slot>
 
     <div class="max-w-3xl mx-auto my-5 bg-white p-3 shadow">
+        <ul class="text-red-500">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
         <x:form :action="$person->exists ? route('admin.people.update', $person) : route('admin.people.store')" :method="$person->exists ? 'PATCH' : 'POST'" multipart>
-            <x-file-browser name="thumbnail">
+            <x-file-browser name="image">
                 <small>You can replace image, <strong>If you want</strong></small>
                 <small>Drag & drop your person image or <strong>Browse</strong></small>
             </x-file-browser>
