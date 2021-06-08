@@ -9,10 +9,10 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <div class="section-title">
-                        <span class="sub-title">@lang(setting('about', 'section_name'))</span>
-                        <h2>@lang(setting('about', 'section_title'))</h2>
+                        <span class="sub-title">@lang(setting('about', 'section_name_'.app()->getLocale()))</span>
+                        <h2>@lang(setting('about', 'section_title_'.app()->getLocale()))</h2>
                     </div>
-                    @php($description = setting('about', 'description'))
+                    @php($description = setting('about', 'description_'.app()->getLocale()))
                     @if(($large = strlen(strip_tags($description)) > 500) && request()->fullUrlIs(url('/')))
                         <div>{!! substr($description, 0, 500) !!}</div>
                     @else

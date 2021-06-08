@@ -18,9 +18,9 @@
             </ul>
             <div>
                 @if(request()->fullUrlIs(url('/speeches/*')))
-                    {!! nl2br($testimonial->getCustomProperty('review')) !!}
+                    {!! nl2br($testimonial->getCustomProperty('review_'.app()->getLocale())) !!}
                 @else
-                    {{ get_excerpt($testimonial->getCustomProperty('review'), 500) }}
+                    {{ get_excerpt($testimonial->getCustomProperty('review_'.app()->getLocale()), 500) }}
                     <div class="mt-2">
                         <a class="common-btn" href="{{ route('testimonials.show', $testimonial) }}">
                             @lang('Read More')

@@ -6,37 +6,37 @@
     <div class="benefit-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('mission', 'section_name'))</span>
-                <h2>@lang(setting('mission', 'section_title'))</h2>
-                <div>{{ setting('mission', 'description') }}</div>
+                <span class="sub-title">@lang(setting('mission', 'section_name_'.app()->getLocale()))</span>
+                <h2>@lang(setting('mission', 'section_title_'.app()->getLocale()))</h2>
+                <div>{{ setting('mission', 'description_'.app()->getLocale()) }}</div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item">
                         <i class="flaticon-house"></i>
-                        <h3>@lang(setting('mission', 'home_title'))</h3>
-                        <div>{{ setting('mission', 'home_details') }}</div>
+                        <h3>@lang(setting('mission', 'home_title_'.app()->getLocale()))</h3>
+                        <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item two">
                         <i class="flaticon-hospital"></i>
-                        <h3>@lang(setting('mission', 'medical_title'))</h3>
-                        <div>{{ setting('mission', 'medical_details') }}</div>
+                        <h3>@lang(setting('mission', 'medical_title_'.app()->getLocale()))</h3>
+                        <div>{{ setting('mission', 'medical_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item three">
                         <i class="flaticon-fast-food"></i>
-                        <h3>@lang(setting('mission', 'food_title'))</h3>
-                        <div>{{ setting('mission', 'food_details') }}</div>
+                        <h3>@lang(setting('mission', 'food_title_'.app()->getLocale()))</h3>
+                        <div>{{ setting('mission', 'food_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item four">
                         <i class="flaticon-graduation-cap"></i>
-                        <h3>@lang(setting('mission', 'education_title'))</h3>
-                        <div>{{ setting('mission', 'education_details') }}</div>
+                        <h3>@lang(setting('mission', 'education_title_'.app()->getLocale()))</h3>
+                        <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
             </div>
