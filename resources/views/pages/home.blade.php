@@ -6,36 +6,36 @@
     <div class="benefit-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('mission', 'section_name_'.app()->getLocale()))</span>
-                <h2>@lang(setting('mission', 'section_title_'.app()->getLocale()))</h2>
+                <span class="sub-title">{{ setting('mission', 'section_name_'.app()->getLocale()) }}</span>
+                <h2>{{ setting('mission', 'section_title_'.app()->getLocale()) }}</h2>
                 <div>{{ setting('mission', 'description_'.app()->getLocale()) }}</div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item">
                         <i class="flaticon-house"></i>
-                        <h3>@lang(setting('mission', 'home_title_'.app()->getLocale()))</h3>
+                        <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
                         <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item two">
                         <i class="flaticon-hospital"></i>
-                        <h3>@lang(setting('mission', 'medical_title_'.app()->getLocale()))</h3>
+                        <h3>{{ setting('mission', 'medical_title_'.app()->getLocale()) }}</h3>
                         <div>{{ setting('mission', 'medical_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item three">
                         <i class="flaticon-fast-food"></i>
-                        <h3>@lang(setting('mission', 'food_title_'.app()->getLocale()))</h3>
+                        <h3>{{ setting('mission', 'food_title_'.app()->getLocale()) }}</h3>
                         <div>{{ setting('mission', 'food_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item four">
                         <i class="flaticon-graduation-cap"></i>
-                        <h3>@lang(setting('mission', 'education_title_'.app()->getLocale()))</h3>
+                        <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
                         <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
@@ -47,8 +47,9 @@
         <section class="event-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <span class="sub-title">@lang('Our events')</span>
-                    <h2>@lang('Upcoming/recent events')</h2>
+                    <span class="sub-title">{{ setting('section', 'events_name_'.app()->getLocale()) }}</span>
+                    <h2>{{ setting('section', 'events_title_'.app()->getLocale()) }}</h2>
+                    <div class="text-light">{{ setting('section', 'events_description_'.app()->getLocale()) }}</div>
                 </div>
                 @if($events->isNotEmpty())
                 <div class="row align-items-center">
@@ -129,8 +130,8 @@
     <section class="testimonial-area ptb-100">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('section', 'testimonial_name_'.app()->getLocale()))</span>
-                <h2>@lang(setting('section', 'testimonial_title_'.app()->getLocale()))</h2>
+                <span class="sub-title">{{ setting('section', 'testimonial_name_'.app()->getLocale()) }}</span>
+                <h2>{{ setting('section', 'testimonial_title_'.app()->getLocale()) }}</h2>
                 <div>{{ setting('section', 'testimonial_description_'.app()->getLocale()) }}</div>
             </div>
             <div class="testimonial-slider owl-theme owl-carousel">
@@ -143,8 +144,8 @@
     <section class="blog-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span class="sub-title">@lang(setting('section', 'news_name_'.app()->getLocale()))</span>
-                <h2>@lang(setting('section', 'news_title_'.app()->getLocale()))</h2>
+                <span class="sub-title">{{ setting('section', 'news_name_'.app()->getLocale()) }}</span>
+                <h2>{{ setting('section', 'news_title_'.app()->getLocale()) }}</h2>
                 <div>{{ setting('section', 'news_description_'.app()->getLocale()) }}</div>
             </div>
             <div class="row">

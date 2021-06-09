@@ -27,6 +27,13 @@ class SectionSettings extends Settings
     public string $news_description_en;
     public string $news_description_bn;
 
+    public string $events_name_en;
+    public string $events_name_bn;
+    public string $events_title_en;
+    public string $events_title_bn;
+    public string $events_description_en;
+    public string $events_description_bn;
+
     public static function group(): string
     {
         return 'section';

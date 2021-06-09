@@ -54,6 +54,7 @@
                     'items' => [
                         'All Events' => route('admin.events.index'),
                         'Add New' => route('admin.events.create'),
+                        'Edit Section' => route('admin.sections', 'events'),
                     ],
                 ],
                 'Projects' => [

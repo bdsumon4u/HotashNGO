@@ -33,6 +33,13 @@ class Section extends Component
     public string $news_description_en;
     public string $news_description_bn;
 
+    public string $events_name_en;
+    public string $events_name_bn;
+    public string $events_title_en;
+    public string $events_title_bn;
+    public string $events_description_en;
+    public string $events_description_bn;
+
     public $rules = [
         'team_name_en' => 'required|max:25',
         'team_name_bn' => 'required|max:25',
@@ -52,6 +59,12 @@ class Section extends Component
         'news_title_bn' => 'required|max:255',
         'news_description_en' => 'required',
         'news_description_bn' => 'required',
+        'events_name_en' => 'required|max:25',
+        'events_name_bn' => 'required|max:25',
+        'events_title_en' => 'required|max:255',
+        'events_title_bn' => 'required|max:255',
+        'events_description_en' => 'required',
+        'events_description_bn' => 'required',
     ];
 
     public function mount(SectionSettings $settings): void
