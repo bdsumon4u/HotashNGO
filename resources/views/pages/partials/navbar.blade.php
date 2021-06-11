@@ -42,7 +42,7 @@
                         @endforeach
                     </ul>
                     <div class="side-nav">
-                        <a class="donate-btn" href="{{ route('donate') }}">
+                        <a class="donate-btn" href="{{ url('/donate') }}">
                             {{ __('Donate') }}
                             <i class="icofont-heart-alt"></i>
                         </a>

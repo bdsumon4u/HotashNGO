@@ -20,7 +20,6 @@ Route::post('locale', function () { return back(); })->name('locale');
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
 Route::view('/about-us', 'pages.about-us')->name('about-us');
-Route::view('/donate', 'pages.donate')->name('donate');
 Route::match(['get', 'post'], 'contact-us', \App\Http\Controllers\ContactController::class)->name('contact-us');
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
