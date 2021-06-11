@@ -169,7 +169,10 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'your@example.com',
+            'to' => [
+                env('BACKUP_EMAIL'),
+                env('CLIENT_EMAIL'),
+            ],
 
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
@@ -236,22 +239,22 @@ return [
             /*
              * The number of days for which backups must be kept.
              */
-            'keep_all_backups_for_days' => 7,
+            'keep_all_backups_for_days' => 3,
 
             /*
              * The number of days for which daily backups must be kept.
              */
-            'keep_daily_backups_for_days' => 16,
+            'keep_daily_backups_for_days' => 3,
 
             /*
              * The number of weeks for which one weekly backup must be kept.
              */
-            'keep_weekly_backups_for_weeks' => 8,
+            'keep_weekly_backups_for_weeks' => 2,
 
             /*
              * The number of months for which one monthly backup must be kept.
              */
-            'keep_monthly_backups_for_months' => 4,
+            'keep_monthly_backups_for_months' => 2,
 
             /*
              * The number of years for which one yearly backup must be kept.
@@ -262,7 +265,7 @@ return [
              * After cleaning up the backups remove the oldest backup until
              * this amount of megabytes has been reached.
              */
-            'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
+            'delete_oldest_backups_when_using_more_megabytes_than' => 500,
         ],
     ],
 
