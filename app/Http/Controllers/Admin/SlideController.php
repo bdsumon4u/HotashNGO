@@ -87,11 +87,15 @@ class SlideController extends Controller
             $this->slideMaker($data);
             $slide->delete();
         } else {
-            $slide->setCustomProperty('title', $data['title']);
-            $slide->setCustomProperty('text', $data['text']);
-            $slide->setCustomProperty('button1_text', $data['button1_text']);
+            $slide->setCustomProperty('title_en', $data['title_en']);
+            $slide->setCustomProperty('title_bn', $data['title_bn']);
+            $slide->setCustomProperty('text_en', $data['text_en']);
+            $slide->setCustomProperty('text_bn', $data['text_bn']);
+            $slide->setCustomProperty('button1_text_en', $data['button1_text_en']);
+            $slide->setCustomProperty('button1_text_bn', $data['button1_text_bn']);
             $slide->setCustomProperty('button1_link', $data['button1_link']);
-            $slide->setCustomProperty('button2_text', $data['button2_text']);
+            $slide->setCustomProperty('button2_text_en', $data['button2_text_en']);
+            $slide->setCustomProperty('button2_text_bn', $data['button2_text_bn']);
             $slide->setCustomProperty('button2_link', $data['button2_link']);
             $slide->save();
         }
@@ -127,11 +131,15 @@ class SlideController extends Controller
             ->addMedia($data['image'])
             ->usingFileName($this->getFileName($data['image']))
             ->withCustomProperties([
-                'title' => $data['title'],
-                'text' => $data['text'],
-                'button1_text' => $data['button1_text'],
+                'title_en' => $data['title_en'],
+                'title_bn' => $data['title_en'],
+                'text_en' => $data['text_bn'],
+                'text_bn' => $data['text_en'],
+                'button1_text_en' => $data['button1_text_bn'],
+                'button1_text_bn' => $data['button1_text_en'],
                 'button1_link' => $data['button1_link'],
-                'button2_text' => $data['button2_text'],
+                'button2_text_en' => $data['button2_text_bn'],
+                'button2_text_bn' => $data['button2_text_en'],
                 'button2_link' => $data['button2_link'],
             ])
             ->toMediaCollection($this->collection);

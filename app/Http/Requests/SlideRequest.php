@@ -8,11 +8,15 @@ class SlideRequest extends FormRequest
 {
     const POST = [
         'image' => 'required|image',
-        'title' => 'nullable|string|max:255',
-        'text' => 'nullable|string|max:255',
-        'button1_text' => 'nullable',
+        'title_en' => 'nullable|string|max:255',
+        'title_bn' => 'nullable|string|max:255',
+        'text_en' => 'nullable|string|max:255',
+        'text_bn' => 'nullable|string|max:255',
+        'button1_text_en' => 'nullable',
+        'button1_text_bn' => 'nullable',
         'button1_link' => 'nullable',
-        'button2_text' => 'nullable',
+        'button2_text_en' => 'nullable',
+        'button2_text_bn' => 'nullable',
         'button2_link' => 'nullable',
     ];
 
