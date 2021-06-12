@@ -13,7 +13,7 @@
             <a href="{{ route('home') }}" target="_blank">
                 <div class="flex flex-row items-center justify-center h-12 w-full">
                     <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
-                        <img src="{{ asset('hotash-ngo.png') }}" alt="Logo">
+                        <img src="{{ asset(setting('general', 'favicon')) }}" alt="Logo">
                     </div>
                     <div class="text-white ml-2 font-bold text-2xl truncate">{{ config('app.name') }}</div>
                 </div>

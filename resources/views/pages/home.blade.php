@@ -91,7 +91,7 @@
                             <span class="odometer" data-count="{{ data_get($data, 0, 0) }}">00</span>
                             <span class="target">{{ data_get($data, 1, '') }}</span>
                         </h3>
-                        <p>Total fund raised</p>
+                        <p>@lang('Total fund raised')</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
