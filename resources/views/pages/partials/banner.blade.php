@@ -1,7 +1,7 @@
 <div class="banner-area-two three">
     <div class="banner-slider owl-theme owl-carousel">
         @foreach($slides as $slide)
-        <div class="banner-slider-item" style="background-image: url('{{ $slide->getFullUrl('1920x800') }}')">
+        <div class="banner-slider-item" style="background-image: url('{{ $slide->getFullUrl('1920x600') }}')">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">

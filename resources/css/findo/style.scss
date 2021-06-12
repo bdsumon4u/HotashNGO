@@ -2073,6 +2073,8 @@ ul {
 }
 
 .banner-area-two {
+    padding-top: 5rem;
+
     &:hover {
         .owl-prev {
             opacity: 1;
@@ -2440,7 +2442,7 @@ ul {
     }
 
     .banner-slider-item {
-        height: 850px;
+        height: 600px;
 
         &:before {
             position: absolute;

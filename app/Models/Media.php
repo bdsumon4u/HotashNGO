@@ -21,6 +21,7 @@ class Media extends Model implements HasMedia
     public function registerMediaConversions(SpatieMedia $media = null): void
     {
         $this->convert('slides', 1920, 800);
+        $this->convert('slides', 1920, 600);
         $this->convert('image', 416, 234);
         $this->convert('video-thumb', 416, 234);
         $this->convert('people', 510, 450);
