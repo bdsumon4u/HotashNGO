@@ -43,43 +43,6 @@
         </div>
     </div>
 
-    @if ($events = recent_events(4))
-        <section class="event-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title">
-                    <span class="sub-title">{{ setting('section', 'events_name_'.app()->getLocale()) }}</span>
-                    <h2>{{ setting('section', 'events_title_'.app()->getLocale()) }}</h2>
-                    <div class="text-light">{{ setting('section', 'events_description_'.app()->getLocale()) }}</div>
-                </div>
-                @if($events->isNotEmpty())
-                <div class="row align-items-center">
-                    @include('pages.partials.event', ['event' => $events[0]])
-                    <div class="col-lg-6">
-                        @foreach($events->skip(1) as $event)
-                            <div class="event-item-right">
-                                <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
-                                <h3>
-                                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
-                                </h3>
-                                <ul>
-                                    <li>
-                                        <i class="icofont-stopwatch"></i>
-                                        <span>{{ $event->starts_at->format('H:i A') }}</span>
-                                    </li>
-                                    <li>
-                                        <i class="icofont-location-pin"></i>
-                                        <span>{{ $event->location }}</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-            </div>
-        </section>
-    @endif
-
     <div class="counter-area pt-100 pb-70">
         <div class="container">
             <div class="row">
@@ -125,22 +88,6 @@
         </div>
     </div>
 
-    @include('pages.partials.volunteer')
-
-    <section class="testimonial-area ptb-100">
-        <div class="container">
-            <div class="section-title">
-                <span class="sub-title">{{ setting('section', 'testimonial_name_'.app()->getLocale()) }}</span>
-                <h2>{{ setting('section', 'testimonial_title_'.app()->getLocale()) }}</h2>
-                <div>{{ setting('section', 'testimonial_description_'.app()->getLocale()) }}</div>
-            </div>
-            <div class="testimonial-slider owl-theme owl-carousel">
-                @each('pages.partials.testimonial', $testimonials, 'testimonial')
-            </div>
-        </div>
-    </section>
-
-
     <section class="blog-area three pt-100 pb-70">
         <div class="container">
             <div class="section-title">
@@ -150,6 +97,58 @@
             </div>
             <div class="row">
                 @each('pages.partials.news', $news, 'news')
+            </div>
+        </div>
+    </section>
+
+    @if ($events = recent_events(4))
+        <section class="event-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">{{ setting('section', 'events_name_'.app()->getLocale()) }}</span>
+                    <h2>{{ setting('section', 'events_title_'.app()->getLocale()) }}</h2>
+                    <div class="text-light">{{ setting('section', 'events_description_'.app()->getLocale()) }}</div>
+                </div>
+                @if($events->isNotEmpty())
+                <div class="row align-items-center">
+                    @include('pages.partials.event', ['event' => $events[0]])
+                    <div class="col-lg-6">
+                        @foreach($events->skip(1) as $event)
+                            <div class="event-item-right">
+                                <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
+                                <h3>
+                                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <i class="icofont-stopwatch"></i>
+                                        <span>{{ $event->starts_at->format('H:i A') }}</span>
+                                    </li>
+                                    <li>
+                                        <i class="icofont-location-pin"></i>
+                                        <span>{{ $event->location }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+            </div>
+        </section>
+    @endif
+
+    @include('pages.partials.volunteer')
+
+    <section class="testimonial-area pb-70">
+        <div class="container">
+            <div class="section-title">
+                <span class="sub-title">{{ setting('section', 'testimonial_name_'.app()->getLocale()) }}</span>
+                <h2>{{ setting('section', 'testimonial_title_'.app()->getLocale()) }}</h2>
+                <div>{{ setting('section', 'testimonial_description_'.app()->getLocale()) }}</div>
+            </div>
+            <div class="testimonial-slider owl-theme owl-carousel">
+                @each('pages.partials.testimonial', $testimonials, 'testimonial')
             </div>
         </div>
     </section>

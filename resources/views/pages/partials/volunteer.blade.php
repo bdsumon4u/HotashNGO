@@ -1,4 +1,4 @@
-<section class="team-area pb-70">
+<section class="team-area ptb-100">
     <div class="container">
         <div class="section-title">
             <span class="sub-title">@lang(setting('section', 'team_name_'.app()->getLocale()))</span>
