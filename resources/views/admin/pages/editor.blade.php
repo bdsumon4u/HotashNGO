@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="max-w-3xl mx-auto my-5 bg-white p-3 shadow">
-        <div x-data="{ lang : 'en' }">
+        <div x-data="data()">
             <div class="bg-gray-200 mb-4">
                 <nav class="flex flex-col sm:flex-row">
                     <button @click.prevent="lang = 'en'" :class="{ 'text-gray-900 border-b-2 font-medium border-blue-500' : lang === 'en' }" class="text-gray-600 @if($errors->has('en.*')) bg-red-700 text-gray-200 hover:text-white @endif text-xs py-4 px-6 block hover:text-blue-500 focus:outline-none">
@@ -24,7 +24,7 @@
                         <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                             <x:label class="text-sm font-bold" name="{{ $lang }}[title]" />
                         </h2>
-                        <x:input name="{{ $lang }}[title]" :value="$page->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                        <x:input @keyup="listen" name="{{ $lang }}[title]" :value="$page->{'title:'.$lang}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                         <x:error class="text-red-500" name="{{ $lang }}[title]" />
                     </div>
                 </div>
@@ -56,4 +56,31 @@
             </x:form>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            function data() {
+                return {
+                    lang : '{{ app()->getLocale() }}',
+                    slugify(text) {
+                        return text.toString()
+                            .trim()
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")
+                            .replace(/[^\w\-]+/g, "")
+                            .replace(/\-\-+/g, "-")
+                            .replace(/^-+/, "")
+                            .replace(/-+$/, "");
+                    },
+                    listen() {
+                        const _this = this;
+                        document.querySelector('[name="en[title]"]')
+                            .addEventListener('keyup', function (ev) {
+                                document.querySelector('[name="slug"]')
+                                    .setAttribute('value', _this.slugify(this.value))
+                            })
+                    }
+                };
+            }
+        </script>
+    @endpush
 </x-app-layout>
