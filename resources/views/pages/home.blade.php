@@ -91,7 +91,7 @@
                             <span class="odometer" data-count="{{ data_get($data, 0, 0) }}">00</span>
                             <span class="target">{{ data_get($data, 1, '') }}</span>
                         </h3>
-                        <p>@lang('Total fund raised')</p>
+                        <p>{{ setting('odometer', 'fund_message_'.app()->getLocale()) }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
@@ -100,7 +100,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'event_count') }}">00</span>
                         </h3>
-                        <p>@lang('Successful events')</p>
+                        <p>{{ setting('odometer', 'event_message_'.app()->getLocale()) }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
@@ -109,7 +109,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'volunteer_count') }}">00</span>
                         </h3>
-                        <p>@lang('Worldwide volunteers')</p>
+                        <p>{{ setting('odometer', 'volunteer_message_'.app()->getLocale()) }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-3">
@@ -118,7 +118,7 @@
                         <h3>
                             <span class="odometer" data-count="{{ setting('odometer', 'donor_count') }}">00</span>
                         </h3>
-                        <p>@lang('Our donner')</p>
+                        <p>{{ setting('odometer', 'donor_message_'.app()->getLocale()) }}</p>
                     </div>
                 </div>
             </div>
