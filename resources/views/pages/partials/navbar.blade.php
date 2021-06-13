@@ -17,19 +17,19 @@
                         @foreach($items as $item)
                             @php $has_child = $item->childrens->isNotEmpty() @endphp
                         <li class="nav-item">
-                            <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ __($item->label) }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
+                            <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ $item->{'label_'.app()->getLocale()} }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
                             @if($has_child)
                                 <ul class="dropdown-menu">
                                     @foreach($item->childrens as $item)
                                         @php $has_child = $item->childrens->isNotEmpty() @endphp
                                     <li class="nav-item">
-                                        <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ __($item->label) }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
+                                        <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ $item->{'label_'.app()->getLocale()} }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
                                         @if($has_child)
                                             <ul class="dropdown-menu">
                                                 @foreach($item->childrens as $item)
                                                     @php $has_child = $item->childrens->isNotEmpty() @endphp
                                                     <li class="nav-item">
-                                                        <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ __($item->label) }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
+                                                        <a href="{{ url($item->link) }}" class="nav-link @if($has_child) dropdown-toggle @endif @if(request()->is($item->link)) active @endif">{{ $item->{'label_'.app()->getLocale()} }} @if($has_child)<i class="icofont-simple-down"></i>@endif</a>
                                                     </li>
                                                 @endforeach
                                             </ul>

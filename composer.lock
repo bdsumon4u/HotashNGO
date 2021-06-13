@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d24b505346c566e3da6c4902624ab8c",
+    "content-hash": "18bdd72b7867dc546528cfb636d7a833",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1903,60 +1903,6 @@
                 "hotash",
                 "laravel-menu-h"
             ],
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
-            "name": "hotash/laravel-translation",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "packages/hotash/laravel-translation",
-                "reference": "2ef5c435d2118e48ee75af833108b2ba83380851"
-            },
-            "require-dev": {
-                "../../../vendor/mockery/mockery": "^1.0.0",
-                "../../../vendor/phpunit/phpunit": "^8.0",
-                "orchestra/testbench": "^4.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JoeDixon\\Translation\\TranslationServiceProvider",
-                        "JoeDixon\\Translation\\TranslationBindingsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JoeDixon\\Translation\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "JoeDixon\\Translation\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joe Dixon",
-                    "email": "hello@joedixon.co.uk"
-                }
-            ],
-            "description": "A tool for managing all of your Laravel translations",
             "transport-options": {
                 "relative": true
             }
@@ -10678,8 +10624,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "hotash/laravel-menu-h": 20,
-        "hotash/laravel-translation": 20
+        "hotash/laravel-menu-h": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
