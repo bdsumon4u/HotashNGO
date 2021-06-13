@@ -26,8 +26,8 @@ class About extends Component
 
     public $rules = [
         'image' => 'required|max:255',
-        'section_name_en' => 'required|max:25',
-        'section_name_bn' => 'required|max:25',
+        'section_name_en' => 'required|max:45',
+        'section_name_bn' => 'required|max:45',
         'section_title_en' => 'required|max:255',
         'section_title_bn' => 'required|max:255',
         'description_en' => 'required',

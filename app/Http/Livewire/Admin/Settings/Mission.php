@@ -34,8 +34,8 @@ class Mission extends Component
     public string $education_details_bn;
 
     public $rules = [
-        'section_name_en' => 'required|max:25',
-        'section_name_bn' => 'required|max:25',
+        'section_name_en' => 'required|max:45',
+        'section_name_bn' => 'required|max:45',
         'section_title_en' => 'required|max:255',
         'section_title_bn' => 'required|max:255',
         'description_en' => 'required',
