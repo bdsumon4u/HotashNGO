@@ -48,6 +48,7 @@
                             </h2>
                             <div class="mb-1">
                                 <x:input name="education_title_{{ $lang }}" wire:model.defer="education_title_{{ $lang }}" placeholder="Title" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input name="education_link" wire:model.defer="education_link" placeholder="Link" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="education_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
@@ -63,6 +64,7 @@
                             </h2>
                             <div class="mb-1">
                                 <x:input name="medical_title_{{ $lang }}" wire:model.defer="medical_title_{{ $lang }}" placeholder="Title" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input name="medical_link" wire:model.defer="medical_link" placeholder="Link" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="medical_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
@@ -81,6 +83,7 @@
                             </h2>
                             <div class="mb-1">
                                 <x:input name="food_title_{{ $lang }}" wire:model.defer="food_title_{{ $lang }}" placeholder="Title" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input name="food_link" wire:model.defer="food_link" placeholder="Link" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="food_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
@@ -96,6 +99,7 @@
                             </h2>
                             <div class="mb-1">
                                 <x:input name="home_title_{{ $lang }}" wire:model.defer="home_title_{{ $lang }}" placeholder="Title" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:input name="home_link" wire:model.defer="home_link" placeholder="Link" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="home_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">

@@ -13,29 +13,37 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item four">
-                        <i class="flaticon-graduation-cap"></i>
-                        <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
+                        <a href="{{ url(setting('mission', 'education_link')) }}">
+                            <i class="flaticon-graduation-cap"></i>
+                            <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
+                        </a>
                         <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item two">
-                        <i class="flaticon-hospital"></i>
-                        <h3>{{ setting('mission', 'medical_title_'.app()->getLocale()) }}</h3>
+                        <a href="{{ url(setting('mission', 'medical_link')) }}">
+                            <i class="flaticon-hospital"></i>
+                            <h3>{{ setting('mission', 'medical_title_'.app()->getLocale()) }}</h3>
+                        </a>
                         <div>{{ setting('mission', 'medical_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item three">
-                        <i class="flaticon-fast-food"></i>
-                        <h3>{{ setting('mission', 'food_title_'.app()->getLocale()) }}</h3>
+                        <a href="{{ url(setting('mission', 'food_link')) }}">
+                            <i class="flaticon-fast-food"></i>
+                            <h3>{{ setting('mission', 'food_title_'.app()->getLocale()) }}</h3>
+                        </a>
                         <div>{{ setting('mission', 'food_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="benefit-item">
-                        <i class="flaticon-house"></i>
-                        <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
+                        <a href="{{ url(setting('mission', 'home_link')) }}">
+                            <i class="flaticon-house"></i>
+                            <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
+                        </a>
                         <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
