@@ -12,10 +12,10 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="benefit-item">
-                        <i class="flaticon-house"></i>
-                        <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
-                        <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
+                    <div class="benefit-item four">
+                        <i class="flaticon-graduation-cap"></i>
+                        <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
+                        <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -33,10 +33,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                    <div class="benefit-item four">
-                        <i class="flaticon-graduation-cap"></i>
-                        <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
-                        <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
+                    <div class="benefit-item">
+                        <i class="flaticon-house"></i>
+                        <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
+                        <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
                     </div>
                 </div>
             </div>
