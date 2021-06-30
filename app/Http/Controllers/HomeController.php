@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\News;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,12 +25,19 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        $projects = Project::with('media', 'translations')
+            ->where('category', 'completed')
+            ->inRandomOrder()
+            ->latest('id')
+            ->take(3)
+            ->get();
+
         $news = News::with('media', 'translations')
             ->inRandomOrder()
             ->latest('id')
             ->take(3)
             ->get();
 
-        return view('pages.home', compact('testimonials', 'news'));
+        return view('pages.home', compact('testimonials', 'projects', 'news'));
     }
 }

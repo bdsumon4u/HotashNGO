@@ -96,18 +96,20 @@
         </div>
     </div>
 
-    <section class="blog-area three pt-100 pb-70">
-        <div class="container">
-            <div class="section-title">
-                <span class="sub-title">{{ setting('section', 'news_name_'.app()->getLocale()) }}</span>
-                <h2>{{ setting('section', 'news_title_'.app()->getLocale()) }}</h2>
-                <div>{{ setting('section', 'news_description_'.app()->getLocale()) }}</div>
+    @if($projects->isNotEmpty())
+        <section class="blog-area three pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">{{ setting('section', 'projects_name_'.app()->getLocale()) }}</span>
+                    <h2>{{ setting('section', 'projects_title_'.app()->getLocale()) }}</h2>
+                    <div>{{ setting('section', 'projects_description_'.app()->getLocale()) }}</div>
+                </div>
+                <div class="row">
+                    @each('pages.partials.project', $projects, 'project')
+                </div>
             </div>
-            <div class="row">
-                @each('pages.partials.news', $news, 'news')
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @if ($events = recent_events(4))
         <section class="event-area pt-100 pb-70">
@@ -118,30 +120,45 @@
                     <div class="text-light">{{ setting('section', 'events_description_'.app()->getLocale()) }}</div>
                 </div>
                 @if($events->isNotEmpty())
-                <div class="row align-items-center">
-                    @include('pages.partials.event', ['event' => $events[0]])
-                    <div class="col-lg-6">
-                        @foreach($events->skip(1) as $event)
-                            <div class="event-item-right">
-                                <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
-                                <h3>
-                                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
-                                </h3>
-                                <ul>
-                                    <li>
-                                        <i class="icofont-stopwatch"></i>
-                                        <span>{{ $event->starts_at->format('H:i A') }}</span>
-                                    </li>
-                                    <li>
-                                        <i class="icofont-location-pin"></i>
-                                        <span>{{ $event->location }}</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        @endforeach
+                    <div class="row align-items-center">
+                        @include('pages.partials.event', ['event' => $events[0]])
+                        <div class="col-lg-6">
+                            @foreach($events->skip(1) as $event)
+                                <div class="event-item-right">
+                                    <h4>{{ $event->starts_at->day }} <span>{{ $event->starts_at->format('M') }}</span></h4>
+                                    <h3>
+                                        <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <i class="icofont-stopwatch"></i>
+                                            <span>{{ $event->starts_at->format('H:i A') }}</span>
+                                        </li>
+                                        <li>
+                                            <i class="icofont-location-pin"></i>
+                                            <span>{{ $event->location }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
                 @endif
+            </div>
+        </section>
+    @endif
+
+    @if($news->isNotEmpty())
+        <section class="blog-area three pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">{{ setting('section', 'news_name_'.app()->getLocale()) }}</span>
+                    <h2>{{ setting('section', 'news_title_'.app()->getLocale()) }}</h2>
+                    <div>{{ setting('section', 'news_description_'.app()->getLocale()) }}</div>
+                </div>
+                <div class="row">
+                    @each('pages.partials.news', $news, 'news')
+                </div>
             </div>
         </section>
     @endif

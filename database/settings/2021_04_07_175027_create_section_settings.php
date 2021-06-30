@@ -30,5 +30,11 @@ class CreateSectionSettings extends SettingsMigration
         $this->migrator->add('section.events_title_bn', 'Bangla Upcoming/Recent events');
         $this->migrator->add('section.events_description_en', 'We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.');
         $this->migrator->add('section.events_description_bn', 'Bangla We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.');
+        $this->migrator->add('section.projects_name_en', 'Completed Projects');
+        $this->migrator->add('section.projects_name_bn', 'Bangla Completed Projects');
+        $this->migrator->add('section.projects_title_en', 'Recently we\'ve completed these projects');
+        $this->migrator->add('section.projects_title_bn', 'Recently we\'ve completed these projects');
+        $this->migrator->add('section.projects_description_en', 'We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.');
+        $this->migrator->add('section.projects_description_bn', 'Bangla We exist for non-profits, social enterprises, community groups, activists,lorem politicians and individual citizens that are making.');
     }
 }
