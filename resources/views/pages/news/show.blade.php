@@ -6,57 +6,57 @@
                     <div class="details-item">
                         <div class="details-img">
                             <img src="{{ $news->getFirstMediaUrl('news', '860x500') }}" alt="Details">
-                            <ul>
-                                <li>
-                                    <i class="icofont-calendar"></i>
-                                    {{ $news->created_at->format('d-M-Y') }}
-                                </li>
-                            </ul>
+{{--                            <ul>--}}
+{{--                                <li>--}}
+{{--                                    <i class="icofont-calendar"></i>--}}
+{{--                                    {{ $news->created_at->format('d-M-Y') }}--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                             <h2>{{ $news->title }}</h2>
                             <div class="page-content">{!! $news->content !!}</div>
                         </div>
-                        <div class="details-share">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-6">
-                                    <div class="left">
-                                        <ul>
-                                            <li>
-                                                <span>Share:</span>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <i class="icofont-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <i class="icofont-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <i class="icofont-youtube-play"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" target="_blank">
-                                                    <i class="icofont-instagram"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-6">
-                                    <div class="right">
-                                        <ul>
-                                            <li>
-                                                <!-- <span>Tags:</span> -->
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="details-share">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-6 col-lg-6">--}}
+{{--                                    <div class="left">--}}
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                <span>Share:</span>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#" target="_blank">--}}
+{{--                                                    <i class="icofont-facebook"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#" target="_blank">--}}
+{{--                                                    <i class="icofont-twitter"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#" target="_blank">--}}
+{{--                                                    <i class="icofont-youtube-play"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#" target="_blank">--}}
+{{--                                                    <i class="icofont-instagram"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-sm-6 col-lg-6">--}}
+{{--                                    <div class="right">--}}
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                <!-- <span>Tags:</span> -->--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -81,8 +81,8 @@
                                         <h4>
                                             <a href="{{ route('news.show', $news) }}">{{ $news->title }}</a>
                                         </h4>
-                                        <i class="icofont-calendar"></i>
-                                        {{ $news->created_at->format('d-M-Y') }}
+{{--                                        <i class="icofont-calendar"></i>--}}
+{{--                                        {{ $news->created_at->format('d-M-Y') }}--}}
                                     </li>
                                 </ul>
                             </div>
