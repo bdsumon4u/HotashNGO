@@ -6,8 +6,6 @@
     </x-slot>
 
     <div class="overflow-hidden bg-white shadow-md sm:rounded-md md:max-w-4xl mx-auto">
-        <div class="p-2">
-            @livewire('admin.section', compact('tab'))
-        </div>
+        @livewire('admin.section', compact('tab'))
     </div>
 </x-app-layout>

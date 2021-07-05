@@ -8,7 +8,7 @@
             <div class="section-title">
                 <span class="sub-title">{{ setting('mission', 'section_name_'.app()->getLocale()) }}</span>
                 <h2>{{ setting('mission', 'section_title_'.app()->getLocale()) }}</h2>
-                <div>{{ setting('mission', 'description_'.app()->getLocale()) }}</div>
+                <div>{!! setting('mission', 'description_'.app()->getLocale()) !!}</div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
@@ -17,7 +17,7 @@
                             <i class="flaticon-graduation-cap"></i>
                             <h3>{{ setting('mission', 'education_title_'.app()->getLocale()) }}</h3>
                         </a>
-                        <div>{{ setting('mission', 'education_details_'.app()->getLocale()) }}</div>
+                        <div>{!! setting('mission', 'education_details_'.app()->getLocale()) !!}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -26,7 +26,7 @@
                             <i class="flaticon-hospital"></i>
                             <h3>{{ setting('mission', 'medical_title_'.app()->getLocale()) }}</h3>
                         </a>
-                        <div>{{ setting('mission', 'medical_details_'.app()->getLocale()) }}</div>
+                        <div>{!! setting('mission', 'medical_details_'.app()->getLocale()) !!}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -35,7 +35,7 @@
                             <i class="flaticon-fast-food"></i>
                             <h3>{{ setting('mission', 'food_title_'.app()->getLocale()) }}</h3>
                         </a>
-                        <div>{{ setting('mission', 'food_details_'.app()->getLocale()) }}</div>
+                        <div>{!! setting('mission', 'food_details_'.app()->getLocale()) !!}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -44,7 +44,7 @@
                             <i class="flaticon-house"></i>
                             <h3>{{ setting('mission', 'home_title_'.app()->getLocale()) }}</h3>
                         </a>
-                        <div>{{ setting('mission', 'home_details_'.app()->getLocale()) }}</div>
+                        <div>{!! setting('mission', 'home_details_'.app()->getLocale()) !!}</div>
                     </div>
                 </div>
             </div>

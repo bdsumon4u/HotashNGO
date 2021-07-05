@@ -17,7 +17,6 @@
     <style>
         :root {
             --light: #edf2f9;
-            --
             --darker: #12263f;
 
             --color-red: #dc2626;
@@ -218,7 +217,9 @@
         }
     }
 
-    if (document.querySelector('[tinymce]')) {
+    var tinyeditor;
+    if (tinyeditor = document.querySelector('[tinymce]')) {
+        var height = (tinyeditor.getAttribute('rows') ?? 7) * 80;
         var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         tinymce.init({
             selector: '[tinymce]',
@@ -271,7 +272,7 @@
             ],
             template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
             template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-            height: 600,
+            height: height,
             image_caption: true,
             noneditable_noneditable_class: 'mceNonEditable',
             toolbar_mode: 'sliding',

@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 \Illuminate\Support\Facades\Route::model('speech', \Spatie\MediaLibrary\MediaCollections\Models\Media::class);
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth:sanctum', 'verified'], 'as' => 'admin.'], function () {
     Route::get('/settings/{tab?}', fn ($tab = null) => view('admin.settings', compact('tab')))->name('settings');
-    Route::view('/sections/{tab}', 'admin.sections')->name('sections');
+    Route::match(['get', 'post'], '/sections/{tab}', \App\Http\Controllers\SectionController::class)->name('sections');
     Route::view('/menu-builder', 'admin.menu-builder')->name('menu-builder');
     Route::resources([
         'slides' => \App\Http\Controllers\Admin\SlideController::class,
