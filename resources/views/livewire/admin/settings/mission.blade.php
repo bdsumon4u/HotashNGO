@@ -36,7 +36,7 @@
                     <h2 class="flex bg-white border py-1 px-2 rounded-md absolute left-0 -top-3">
                         <x:label class="text-sm font-bold" name="description_{{ $lang }}" />
                     </h2>
-                    <x:textarea tinywire rows="4" name="description_{{ $lang }}" wire:model.defer="description_{{ $lang }}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                    <x:textarea tinymce rows="4" name="description_{{ $lang }}" wire:model.defer="description_{{ $lang }}" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                     <x:error class="text-red-500" name="description_{{ $lang }}" />
                 </div>
 
@@ -52,7 +52,7 @@
                                 <x:error class="text-red-500" name="education_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
-                                <x:textarea tinywire rows="4" name="education_details_{{ $lang }}" wire:model.defer="education_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:textarea tinymce rows="4" name="education_details_{{ $lang }}" wire:model.defer="education_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="education_details_{{ $lang }}" />
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 <x:error class="text-red-500" name="medical_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
-                                <x:textarea tinywire rows="4" name="medical_details_{{ $lang }}" wire:model.defer="medical_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:textarea tinymce rows="4" name="medical_details_{{ $lang }}" wire:model.defer="medical_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="medical_details_{{ $lang }}" />
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                 <x:error class="text-red-500" name="food_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
-                                <x:textarea tinywire rows="4" name="food_details_{{ $lang }}" wire:model.defer="food_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:textarea tinymce rows="4" name="food_details_{{ $lang }}" wire:model.defer="food_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="food_details_{{ $lang }}" />
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                 <x:error class="text-red-500" name="home_title_{{ $lang }}" />
                             </div>
                             <div class="mt-1">
-                                <x:textarea tinywire rows="4" name="home_details_{{ $lang }}" wire:model.defer="home_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
+                                <x:textarea tinymce rows="4" name="home_details_{{ $lang }}" wire:model.defer="home_details_{{ $lang }}" placeholder="Details" class="block w-full px-2 py-1 border rounded-md text-gray-700 bg-gray-100 appearance-none focus:outline-none focus:bg-gray-200 focus:shadow-inner" />
                                 <x:error class="text-red-500" name="home_details_{{ $lang }}" />
                             </div>
                         </div>
