@@ -220,7 +220,7 @@
     var tinyeditor;
     if (tinyeditor = document.querySelector('[tinymce]')) {
         var height = (tinyeditor.getAttribute('rows') ?? 7) * 80;
-        var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var useDarkMode = false; //window.matchMedia('(prefers-color-scheme: dark)').matches;
         tinymce.init({
             selector: '[tinymce]',
             plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap emoticons',
